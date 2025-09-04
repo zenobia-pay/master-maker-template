@@ -10,7 +10,7 @@ export default function RightSidebar() {
     sidebarType: "assistant";
   }) => (
     <button
-      class="w-full h-20 flex flex-col items-center justify-center gap-2 transition-all duration-150 relative group hover:bg-opacity-10"
+      class="w-full flex flex-col items-center justify-center gap-2 transition-all duration-150 relative group hover:bg-opacity-10"
       classList={{
         "text-white": store.sidebarShown === props.sidebarType,
       }}
