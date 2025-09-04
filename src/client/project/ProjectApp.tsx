@@ -6,7 +6,6 @@ import RightSidebar from "./panels/RightSidebar";
 import ToolbarPanel from "./panels/ToolbarPanel";
 import LibraryPanel from "./panels/LibraryPanel";
 import PreviewPanel from "./panels/PreviewPanel";
-import SamplesPanel from "./panels/SamplesPanel";
 import PropertiesPanel from "./panels/PropertiesPanel";
 import AssistantPanel from "./panels/AssistantPanel";
 
@@ -64,15 +63,6 @@ function ProjectCore(props: { user: User }) {
                 <Match when={store.viewMode === "editor"}>
                   <div class="flex-1 flex flex-col">
                     <PreviewPanel />
-                    <div class="h-px" style={{ background: "var(--color-border)" }} />
-                    <div class="flex-1 p-4" style={{ background: "var(--color-bg-surface-secondary)" }}>
-                      <div style={{ color: "var(--color-text-muted)" }}>Editor Timeline (Coming Soon)</div>
-                    </div>
-                  </div>
-                </Match>
-                <Match when={store.viewMode === "export"}>
-                  <div class="flex-1 flex items-center justify-center" style={{ background: "var(--color-bg-surface-primary)" }}>
-                    <div style={{ color: "var(--color-text-muted)" }}>Export Panel (Coming Soon)</div>
                   </div>
                 </Match>
               </Switch>
@@ -92,9 +82,6 @@ function ProjectCore(props: { user: User }) {
                 background: "var(--color-bg-surface-primary)",
               }}
             >
-              <Show when={store.sidebarShown === "samples"}>
-                <SamplesPanel />
-              </Show>
               <Show when={store.sidebarShown === "properties"}>
                 <PropertiesPanel />
               </Show>

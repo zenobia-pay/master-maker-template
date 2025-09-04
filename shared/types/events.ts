@@ -1,10 +1,16 @@
 import type { Project, Sample } from "./primitives";
 
+// Type for sample creation with timestamp numbers
+type SampleForCreation = Omit<Sample, 'createdAt' | 'updatedAt'> & {
+  createdAt: number;
+  updatedAt: number;
+};
+
 export type BaseEditorEvent =
   | {
       type: "SAMPLE_CREATED";
       projectId: string;
-      sample: Sample;
+      sample: SampleForCreation;
     }
   | {
       type: "SAMPLE_UPDATED";

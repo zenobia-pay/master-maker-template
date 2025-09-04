@@ -67,14 +67,10 @@ export const ErrorResponseSchema = z.object({
 export type ErrorResponse = z.infer<typeof ErrorResponseSchema>;
 
 export const SaveChangesResponseSchema = z.object({
-  results: z.array(
-    z.object({
-      success: z.boolean(),
-      change: z.any(),
-      result: z.any().optional(),
-      error: z.string().optional(),
-    })
-  ),
+  success: z.boolean(),
+  processedCount: z.number(),
+  totalChanges: z.number(),
+  failedChanges: z.array(z.any()).optional(),
 });
 
 export type SaveChangesResponse = z.infer<typeof SaveChangesResponseSchema>;

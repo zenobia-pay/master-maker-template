@@ -4,18 +4,25 @@ import {
   type ParentComponent,
   createMemo,
   onCleanup,
+  createSignal,
+  createEffect,
+  on,
 } from "solid-js";
 import { createStore, type SetStoreFunction } from "solid-js/store";
+import { AutosaveService } from "../services/AutosaveService";
+import type { EditorEvent } from "@shared/types/events";
+import type { Sample } from "@shared/types/primitives";
+import { processEventQueue } from "../editor/eventProcessor";
+import { apiClient } from "../utils/api/client";
 
-// Store types
-export interface Sample {
-  id: string;
-  name: string;
-  url: string;
-  duration: number;
-  type: "audio" | "video";
+// Additional UI-specific sample properties
+export interface UISample extends Sample {
+  url?: string;
+  duration?: number;
+  type?: "audio" | "video";
   thumbnail?: string;
 }
+
 
 export interface ProjectStore {
   // Project data
@@ -23,14 +30,12 @@ export interface ProjectStore {
   projectName: string;
 
   // Samples
-  samples: Sample[];
+  samples: UISample[];
   selectedSampleId: string | null;
 
   // UI state
   viewMode: "library" | "editor" | "export";
   sidebarShown: "samples" | "properties" | "assistant" | null;
-  isPlaying: boolean;
-  currentTime: number;
 
   // Layout
   previewHeight: number;
@@ -47,14 +52,15 @@ interface ProjectContextValue {
       panel: "samples" | "properties" | "assistant" | null
     ) => void;
     setViewMode: (mode: "library" | "editor" | "export") => void;
-    play: () => void;
-    pause: () => void;
-    seek: (time: number) => void;
+    addSample: (sampleData: Partial<UISample> & { name: string }) => void;
+    removeSample: (sampleId: string) => void;
   };
   derived: {
-    selectedSample: () => Sample | null;
+    selectedSample: () => UISample | null;
     sampleCount: () => number;
   };
+
+  emitEvent: (event: EditorEvent) => void;
 }
 
 const ProjectContext = createContext<ProjectContextValue>();
@@ -75,49 +81,24 @@ interface ProjectProviderProps {
 export const ProjectProvider: ParentComponent<ProjectProviderProps> = (
   props
 ) => {
+  // Event queue for batching editor events
+  const [eventQueue, setEventQueue] = createSignal<EditorEvent[]>([]);
+
+  // Initialize autosave service
+  const autosaveService = new AutosaveService(props.projectId);
+
   // Initialize store with default values
   const [store, setStore] = createStore<ProjectStore>({
     projectId: props.projectId,
     projectName: props.projectName || "Untitled Project",
 
-    // Sample data (mock for now)
-    samples: [
-      {
-        id: "1",
-        name: "Kick Drum",
-        url: "/samples/kick.wav",
-        duration: 0.5,
-        type: "audio",
-      },
-      {
-        id: "2",
-        name: "Snare",
-        url: "/samples/snare.wav",
-        duration: 0.3,
-        type: "audio",
-      },
-      {
-        id: "3",
-        name: "Hi-Hat",
-        url: "/samples/hihat.wav",
-        duration: 0.2,
-        type: "audio",
-      },
-      {
-        id: "4",
-        name: "Bass Loop",
-        url: "/samples/bass.wav",
-        duration: 4.0,
-        type: "audio",
-      },
-    ],
+    // Sample data (loaded from project)
+    samples: [],
     selectedSampleId: null,
 
     // UI state
     viewMode: "library",
     sidebarShown: null,
-    isPlaying: false,
-    currentTime: 0,
 
     // Layout
     previewHeight: 40,
@@ -148,22 +129,74 @@ export const ProjectProvider: ParentComponent<ProjectProviderProps> = (
       setStore("viewMode", mode);
     },
 
-    play: () => {
-      setStore("isPlaying", true);
+    addSample: (sampleData: Partial<UISample> & { name: string }) => {
+      emitEvent({
+        type: "SAMPLE_CREATED",
+        projectId: store.projectId,
+        sample: {
+          ...sampleData,
+          id: crypto.randomUUID(),
+          description: sampleData.description || null,
+          projectId: store.projectId,
+          status: "draft",
+          value: null,
+          count: 0,
+          isEnabled: true,
+          metadata: null,
+          createdAt: Date.now(),
+          updatedAt: Date.now(),
+        },
+      });
     },
 
-    pause: () => {
-      setStore("isPlaying", false);
-    },
-
-    seek: (time: number) => {
-      setStore("currentTime", time);
+    removeSample: (sampleId: string) => {
+      emitEvent({
+        type: "SAMPLE_DELETED",
+        sampleId,
+        projectId: store.projectId,
+        previousSample: store.samples.find((s) => s.id === sampleId)!,
+      });
     },
   };
 
+  const emitEvent = (event: EditorEvent) => {
+    setEventQueue((prev) => [...prev, event]);
+  };
+
+  // Load project data on mount
+  createEffect(async () => {
+    try {
+      const projectData = await apiClient.loadProject(props.projectId);
+      if (projectData.samples) {
+        setStore("samples", projectData.samples);
+      }
+      if (projectData.project) {
+        setStore("projectName", projectData.project.name);
+      }
+    } catch (error) {
+      console.error("Failed to load project data:", error);
+    }
+  });
+
+  // Single effect to handle all events and update composition
+  createEffect(
+    on(eventQueue, (events) => {
+      if (events.length === 0) return;
+
+      // Process events using extracted processor (updates client-side store immediately)
+      processEventQueue(events, store, setStore);
+
+      // Queue events for autosave (separate from immediate client updates)
+      autosaveService.queueMultipleForSave(events);
+
+      // Clear event queue
+      setEventQueue([]);
+    })
+  );
+
   // Cleanup
   onCleanup(() => {
-    // Clean up any resources if needed
+    autosaveService.destroy();
   });
 
   const value: ProjectContextValue = {
@@ -174,6 +207,7 @@ export const ProjectProvider: ParentComponent<ProjectProviderProps> = (
       selectedSample,
       sampleCount,
     },
+    emitEvent,
   };
 
   return (

@@ -117,6 +117,7 @@ export class UserShard extends DurableObject<UserShardEnv> {
             `Failed to process change: ${change?.id || "null change"}:`,
             error
           );
+          console.error("Change data:", change);
           failedChanges.push(change);
 
           const remainingChanges = changes.slice(processedCount + 1);

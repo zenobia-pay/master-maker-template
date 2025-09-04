@@ -28,12 +28,10 @@ export async function getAuthenticatedUser(c: HonoContext) {
   return session.user;
 }
 
-export type Out<S extends z.ZodTypeAny> = z.output<S>;
-
 export function send<S extends z.ZodTypeAny>(
   c: Context,
   schema: S,
-  data: Out<S>,
+  data: z.output<S>,
   status: ContentfulStatusCode
 ) {
   // Runtime assert- disabled in production

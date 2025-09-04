@@ -57,11 +57,6 @@ export default function PrimarySidebar() {
         label="Editor"
         viewMode="editor"
       />
-      <NavIcon
-        icon={<Package size={16} strokeWidth={1.5} />}
-        label="Export"
-        viewMode="export"
-      />
     </div>
   );
 }
