@@ -1,5 +1,6 @@
 import { useProject } from "../../contexts/ProjectContext";
-import { MessageSquare, EllipsisVertical } from "lucide-solid";
+import MessageSquare from "lucide-solid/icons/message-square";
+import EllipsisVertical from "lucide-solid/icons/ellipsis-vertical";
 
 export default function RightSidebar() {
   const { store, actions } = useProject();

@@ -1,5 +1,6 @@
 import { useProject } from "../../contexts/ProjectContext";
-import { FolderOpen, Music, Package } from "lucide-solid";
+import FolderOpen from "lucide-solid/icons/folder-open";
+import Music from "lucide-solid/icons/music";
 
 export default function PrimarySidebar() {
   const { store, actions } = useProject();

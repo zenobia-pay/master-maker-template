@@ -243,7 +243,7 @@ export default function ProjectSelector() {
                 <For each={projects()?.projects}>
                   {(project, index) => (
                     <a
-                      href={`/project?id=${project.id}`}
+                      href={`/project/?id=${project.id}`}
                       class="grid grid-cols-[3rem_1fr_12rem_12rem_10rem] items-center py-2 px-2 transition-colors rounded hover:bg-opacity-5 hover:bg-black"
                       onMouseEnter={(e) => {
                         e.currentTarget.style.background =
@@ -258,14 +258,10 @@ export default function ProjectSelector() {
                       </div>
                       <div>{project.name}</div>
                       <div style={{ color: "var(--color-text-muted)" }}>
-                        {formatRelativeTime(
-                          new Date(project.createdAt as Date)
-                        )}
+                        {formatRelativeTime(new Date(project.createdAt))}
                       </div>
                       <div style={{ color: "var(--color-text-muted)" }}>
-                        {formatRelativeTime(
-                          new Date(project.updatedAt as Date)
-                        )}
+                        {formatRelativeTime(new Date(project.updatedAt))}
                       </div>
                       <div class="flex items-center justify-end gap-3 pr-2">
                         <button

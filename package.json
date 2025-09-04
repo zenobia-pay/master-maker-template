@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite build --watch && cp -r public/* dist/client/\" \"wrangler dev --experimental-vectorize-bind-to-prod\"",
+    "dev": "concurrently \"pnpx vite dev\" \"wrangler dev --port 9999\"",
     "dev:client": "vite",
     "build": "pnpm run build:client",
     "build:client": "vite build",

@@ -18,12 +18,12 @@ export const projects = sqliteTable("projects", {
   userId: text("user_id").notNull(),
   name: text("name").notNull(),
   description: text("description"),
-  createdAt: integer("created_at", { mode: "timestamp" })
+  createdAt: integer("created_at")
     .notNull()
-    .$defaultFn(() => new Date()),
-  updatedAt: integer("updated_at", { mode: "timestamp" })
+    .$defaultFn(() => Date.now()),
+  updatedAt: integer("updated_at")
     .notNull()
-    .$defaultFn(() => new Date()),
+    .$defaultFn(() => Date.now()),
   settings: text("settings", { mode: "json" }).$type<ProjectSettings>(),
 });
 
@@ -44,10 +44,10 @@ export const samples = sqliteTable("samples", {
   count: integer("count").notNull().default(0),
   isEnabled: integer("is_enabled", { mode: "boolean" }).notNull().default(true),
   metadata: text("metadata", { mode: "json" }),
-  createdAt: integer("created_at", { mode: "timestamp" })
+  createdAt: integer("created_at")
     .notNull()
-    .$defaultFn(() => new Date()),
-  updatedAt: integer("updated_at", { mode: "timestamp" })
+    .$defaultFn(() => Date.now()),
+  updatedAt: integer("updated_at")
     .notNull()
-    .$defaultFn(() => new Date()),
+    .$defaultFn(() => Date.now()),
 });

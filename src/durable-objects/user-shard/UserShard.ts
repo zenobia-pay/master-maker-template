@@ -290,7 +290,7 @@ export class UserShard extends DurableObject<UserShardEnv> {
       const { name, description, userId } = request;
 
       const projectId = crypto.randomUUID();
-      const now = new Date();
+      const now = Date.now();
 
       const defaultSettings = {
         resolution: { width: 1920, height: 1080 },

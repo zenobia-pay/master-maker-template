@@ -9,22 +9,23 @@ export default function LibraryPanel() {
   const filteredSamples = () => {
     const query = searchQuery().toLowerCase();
     if (!query) return store.samples;
-    return store.samples.filter(s => 
-      s.name.toLowerCase().includes(query)
-    );
+    return store.samples.filter((s) => s.name.toLowerCase().includes(query));
   };
 
   return (
-    <div 
+    <div
       class="flex-1 p-6 overflow-auto"
       style={{ background: "var(--color-bg-surface-primary)" }}
     >
       <div class="max-w-6xl mx-auto">
         <div class="flex items-center justify-between mb-6">
-          <h2 class="text-2xl font-bold" style={{ color: "var(--color-text-primary)" }}>
-            Sample Library
+          <h2
+            class="text-2xl font-bold"
+            style={{ color: "var(--color-text-primary)" }}
+          >
+            Sample m
           </h2>
-          <button 
+          <button
             onClick={() => setShowAddDialog(true)}
             class="px-4 py-2 rounded-lg transition-colors hover:opacity-90"
             style={{
@@ -50,7 +51,7 @@ export default function LibraryPanel() {
             }}
           />
         </div>
-        
+
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <For each={filteredSamples()}>
             {(sample) => (
@@ -58,56 +59,86 @@ export default function LibraryPanel() {
                 class="rounded-lg p-4 cursor-pointer transition-all border-2 group relative"
                 style={{
                   background: "var(--color-bg-surface-secondary)",
-                  "border-color": store.selectedSampleId === sample.id 
-                    ? "var(--color-3000-400)" 
-                    : "transparent",
+                  "border-color":
+                    store.selectedSampleId === sample.id
+                      ? "var(--color-3000-400)"
+                      : "transparent",
                 }}
                 onClick={() => actions.selectSample(sample.id)}
               >
-                <div 
+                <div
                   class="aspect-square rounded-md mb-3 flex items-center justify-center"
                   style={{ background: "var(--color-bg-surface-tertiary)" }}
                 >
                   <Show
                     when={sample.type === "audio"}
                     fallback={
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style={{ color: "var(--color-text-muted)" }}>
-                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
-                        <line x1="7" y1="2" x2="7" y2="22"/>
-                        <line x1="17" y1="2" x2="17" y2="22"/>
-                        <line x1="2" y1="12" x2="22" y2="12"/>
-                        <line x1="2" y1="7" x2="7" y2="7"/>
-                        <line x1="2" y1="17" x2="7" y2="17"/>
-                        <line x1="17" y1="17" x2="22" y2="17"/>
-                        <line x1="17" y1="7" x2="22" y2="7"/>
+                      <svg
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        style={{ color: "var(--color-text-muted)" }}
+                      >
+                        <rect
+                          x="2"
+                          y="2"
+                          width="20"
+                          height="20"
+                          rx="2.18"
+                          ry="2.18"
+                        />
+                        <line x1="7" y1="2" x2="7" y2="22" />
+                        <line x1="17" y1="2" x2="17" y2="22" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <line x1="2" y1="7" x2="7" y2="7" />
+                        <line x1="2" y1="17" x2="7" y2="17" />
+                        <line x1="17" y1="17" x2="22" y2="17" />
+                        <line x1="17" y1="7" x2="22" y2="7" />
                       </svg>
                     }
                   >
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style={{ color: "var(--color-text-muted)" }}>
-                      <path d="M9 18V5l12-2v13"/>
-                      <circle cx="6" cy="18" r="3"/>
-                      <circle cx="18" cy="16" r="3"/>
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      style={{ color: "var(--color-text-muted)" }}
+                    >
+                      <path d="M9 18V5l12-2v13" />
+                      <circle cx="6" cy="18" r="3" />
+                      <circle cx="18" cy="16" r="3" />
                     </svg>
                   </Show>
                 </div>
-                <h3 class="font-medium truncate" style={{ color: "var(--color-text-primary)" }}>
+                <h3
+                  class="font-medium truncate"
+                  style={{ color: "var(--color-text-primary)" }}
+                >
                   {sample.name}
                 </h3>
                 <div class="flex items-center justify-between mt-2">
-                  <span class="text-xs" style={{ color: "var(--color-text-muted)" }}>
+                  <span
+                    class="text-xs"
+                    style={{ color: "var(--color-text-muted)" }}
+                  >
                     {sample.duration || 0}s
                   </span>
-                  <span 
+                  <span
                     class="text-xs px-2 py-1 rounded-full"
-                    style={{ 
+                    style={{
                       background: "var(--color-bg-surface-tertiary)",
-                      color: "var(--color-text-secondary)"
+                      color: "var(--color-text-secondary)",
                     }}
                   >
                     {sample.type || "audio"}
                   </span>
                 </div>
-                
+
                 {/* Delete button */}
                 <button
                   onClick={(e) => {
@@ -118,12 +149,19 @@ export default function LibraryPanel() {
                   style={{ color: "var(--color-text-muted)" }}
                   title="Remove sample"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 6h18"/>
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-                    <path d="M8 6V4c0-1 1-2 2-2h4c0 1 1 2 1 2v2"/>
-                    <line x1="10" y1="11" x2="10" y2="17"/>
-                    <line x1="14" y1="11" x2="14" y2="17"/>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M3 6h18" />
+                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                    <path d="M8 6V4c0-1 1-2 2-2h4c0 1 1 2 1 2v2" />
+                    <line x1="10" y1="11" x2="10" y2="17" />
+                    <line x1="14" y1="11" x2="14" y2="17" />
                   </svg>
                 </button>
               </div>
@@ -134,10 +172,12 @@ export default function LibraryPanel() {
         <Show when={filteredSamples().length === 0}>
           <div class="text-center py-12">
             <p style={{ color: "var(--color-text-muted)" }}>
-              {searchQuery() ? "No samples found matching your search" : "No samples in library"}
+              {searchQuery()
+                ? "No samples found matching your search"
+                : "No samples in library"}
             </p>
             <Show when={!searchQuery()}>
-              <button 
+              <button
                 onClick={() => setShowAddDialog(true)}
                 class="mt-4 px-4 py-2 rounded-lg transition-colors hover:opacity-90"
                 style={{
@@ -154,20 +194,23 @@ export default function LibraryPanel() {
         {/* Add Sample Dialog */}
         <Show when={showAddDialog()}>
           <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div 
+            <div
               class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4"
               style={{ background: "var(--color-bg-surface-primary)" }}
             >
-              <h3 class="text-lg font-semibold mb-4" style={{ color: "var(--color-text-primary)" }}>
+              <h3
+                class="text-lg font-semibold mb-4"
+                style={{ color: "var(--color-text-primary)" }}
+              >
                 Add New Sample
               </h3>
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
                   const formData = new FormData(e.target as HTMLFormElement);
-                  const name = formData.get('name') as string;
-                  const type = formData.get('type') as 'audio' | 'video';
-                  
+                  const name = formData.get("name") as string;
+                  const type = formData.get("type") as "audio" | "video";
+
                   if (name.trim()) {
                     actions.addSample({
                       name: name.trim(),
@@ -180,7 +223,10 @@ export default function LibraryPanel() {
                 class="space-y-4"
               >
                 <div>
-                  <label class="block text-sm font-medium mb-2" style={{ color: "var(--color-text-primary)" }}>
+                  <label
+                    class="block text-sm font-medium mb-2"
+                    style={{ color: "var(--color-text-primary)" }}
+                  >
                     Sample Name
                   </label>
                   <input
@@ -197,7 +243,10 @@ export default function LibraryPanel() {
                   />
                 </div>
                 <div>
-                  <label class="block text-sm font-medium mb-2" style={{ color: "var(--color-text-primary)" }}>
+                  <label
+                    class="block text-sm font-medium mb-2"
+                    style={{ color: "var(--color-text-primary)" }}
+                  >
                     Type
                   </label>
                   <select

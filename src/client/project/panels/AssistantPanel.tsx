@@ -1,6 +1,8 @@
 import { createSignal, For, Show, createEffect, onCleanup } from "solid-js";
 import { useProject } from "../../contexts/ProjectContext";
-import { User, Trash2, X } from "lucide-solid";
+import User from "lucide-solid/icons/user";
+import Trash2 from "lucide-solid/icons/trash-2";
+import X from "lucide-solid/icons/x";
 
 interface Message {
   id: string;
@@ -92,10 +94,7 @@ export default function AssistantPanel() {
               >
                 AI Assistant
               </h3>
-              <div
-                class="text-xs"
-                style={{ color: "var(--color-text-muted)" }}
-              >
+              <div class="text-xs" style={{ color: "var(--color-text-muted)" }}>
                 Sample Library Helper
               </div>
             </div>

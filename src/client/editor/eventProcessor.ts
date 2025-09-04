@@ -20,13 +20,12 @@ export function processEventQueue(
     for (const event of events) {
       switch (event.type) {
         case "SAMPLE_CREATED": {
-          // Update store - convert timestamp numbers to Date objects for UI
           setStore(
             produce((s) => {
               s.samples.push({
                 ...event.sample,
-                createdAt: new Date(event.sample.createdAt),
-                updatedAt: new Date(event.sample.updatedAt),
+                createdAt: event.sample.createdAt,
+                updatedAt: event.sample.updatedAt,
               });
             })
           );
@@ -80,7 +79,7 @@ export function processEventQueue(
                   | "active"
                   | "completed"
                   | "archived";
-                sample.updatedAt = new Date();
+                sample.updatedAt = Date.now();
               }
             })
           );
