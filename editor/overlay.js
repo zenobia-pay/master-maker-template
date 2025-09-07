@@ -11,6 +11,7 @@ class VisualEditor {
     this.editButton = null;
     this.saveButton = null;
     this.hasUnsavedChanges = false;
+    this.pendingChanges = [];  // Array of {xid, newText} changes to save
     this.originalStyles = new Map(); // Track original styles for undo
     this.inlineEditor = null;
     
@@ -508,8 +509,19 @@ class VisualEditor {
     this.addEditModeStyles();
     
     if (newText !== originalText) {
+      // Track the change for saving
+      const existingChangeIndex = this.pendingChanges.findIndex(change => change.xid === xid);
+      if (existingChangeIndex >= 0) {
+        // Update existing change
+        this.pendingChanges[existingChangeIndex].newText = newText;
+      } else {
+        // Add new change
+        this.pendingChanges.push({ xid, newText });
+      }
+      
       this.markUnsaved();
       console.log('[VisualEditor] Text changed from', originalText, 'to', newText);
+      console.log('[VisualEditor] Pending changes:', this.pendingChanges.length);
     }
   }
 
@@ -531,31 +543,39 @@ class VisualEditor {
 
 
 
-  async saveChanges(xid, newText) {
+  async saveAllChanges() {
+    if (this.pendingChanges.length === 0) {
+      console.log('[VisualEditor] No changes to save');
+      return;
+    }
+
+    console.log('[VisualEditor] Saving', this.pendingChanges.length, 'changes...');
+    
     try {
       const response = await fetch('/__save', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'setText',
-          xid,
-          text: newText.trim(),
-        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.pendingChanges)
       });
 
       if (response.ok) {
-        console.log('[VisualEditor] Saved changes for', xid);
-        // Update the element's text content immediately for visual feedback
-        if (this.selectedElement && newText.trim()) {
-          this.selectedElement.textContent = newText.trim();
-        }
+        const result = await response.json();
+        console.log('[VisualEditor] Changes saved successfully:', result);
+        
+        // Clear pending changes and mark as saved
+        this.pendingChanges = [];
+        this.hasUnsavedChanges = false;
+        this.removeSaveButton();
       } else {
-        console.error('[VisualEditor] Failed to save changes');
-        alert('Failed to save changes. Check console for details.');
+        const error = await response.json();
+        console.error('[VisualEditor] Failed to save changes:', error);
+        alert('Failed to save changes: ' + (error.error || 'Unknown error'));
       }
     } catch (error) {
-      console.error('[VisualEditor] Save error:', error);
-      alert('Error saving changes. Check console for details.');
+      console.error('[VisualEditor] Error saving changes:', error);
+      alert('Error saving changes: ' + error.message);
     }
   }
 

@@ -12,9 +12,95 @@ import MagicString from 'magic-string';
 import { MapStore } from './mapStore';
 import { generateXid, AstPathBuilder } from './idGenerator';
 import type { XMapEntry } from './types';
+import { promises as fs } from 'fs';
+import { join } from 'path';
 
 let mapStore: MapStore;
 let server: ViteDevServer;
+
+async function saveTextChange(change: { xid: string; newText: string }, mapStore: MapStore) {
+  console.log('[EditorPlugin] Processing text change for xid:', change.xid);
+  
+  // Get the element info from the map
+  const elementInfo = mapStore.get(change.xid);
+  if (!elementInfo) {
+    throw new Error(`Element with xid ${change.xid} not found in map`);
+  }
+
+  // Get the absolute file path
+  const templateRoot = server.config.root.includes('src/client') 
+    ? server.config.root.replace('/src/client', '') 
+    : server.config.root;
+  const filePath = join(templateRoot, elementInfo.file);
+
+  console.log('[EditorPlugin] Updating file:', filePath);
+  console.log('[EditorPlugin] Element location:', elementInfo.loc);
+  console.log('[EditorPlugin] New text:', change.newText);
+
+  // Read the current file content
+  const fileContent = await fs.readFile(filePath, 'utf-8');
+  
+  // Parse the file with Babel
+  const ast = parse(fileContent, {
+    sourceType: 'module',
+    plugins: ['typescript', 'jsx'],
+  });
+
+  // Find the element by xid and update its text content
+  let elementFound = false;
+  traverse(ast, {
+    JSXElement(path) {
+      const openingElement = path.node.openingElement;
+      
+      // Check if this element has the matching xid
+      const xidAttr = openingElement.attributes.find(
+        attr => t.isJSXAttribute(attr) && 
+               t.isJSXIdentifier(attr.name) && 
+               attr.name.name === 'data-xid' &&
+               t.isStringLiteral(attr.value) &&
+               attr.value.value === change.xid
+      );
+      
+      if (xidAttr) {
+        elementFound = true;
+        console.log('[EditorPlugin] Found element with xid:', change.xid);
+        
+        // Update text content - find first text child
+        const textChild = path.node.children.find(child => t.isJSXText(child));
+        if (textChild && t.isJSXText(textChild)) {
+          textChild.value = change.newText;
+          console.log('[EditorPlugin] Updated text content to:', change.newText);
+        } else {
+          // If no text child exists, create one
+          const newTextNode = t.jsxText(change.newText);
+          path.node.children = [newTextNode];
+          console.log('[EditorPlugin] Created new text child:', change.newText);
+        }
+      }
+    }
+  });
+
+  if (!elementFound) {
+    throw new Error(`Element with xid ${change.xid} not found in AST`);
+  }
+
+  // Generate the updated code
+  const output = generate(ast, {
+    retainLines: true,
+    retainFunctionParens: true,
+    compact: false,
+  });
+
+  // Write the updated content back to the file
+  await fs.writeFile(filePath, output.code, 'utf-8');
+  console.log('[EditorPlugin] Successfully updated file:', filePath);
+
+  return {
+    xid: change.xid,
+    file: elementInfo.file,
+    success: true
+  };
+}
 
 export function editorPlugin(): any {
   console.log('[EditorPlugin] Plugin initialized');
@@ -56,7 +142,7 @@ export function editorPlugin(): any {
         }
       });
       
-      // Save endpoint for mutations (we'll implement this later)
+      // Save endpoint for mutations
       server.middlewares.use('/__save', async (req, res) => {
         if (req.method !== 'POST') {
           res.statusCode = 405;
@@ -64,9 +150,40 @@ export function editorPlugin(): any {
           return;
         }
         
-        // TODO: Implement save operations
-        res.statusCode = 501;
-        res.end('Not implemented yet');
+        try {
+          // Parse the request body
+          let body = '';
+          req.on('data', (chunk) => {
+            body += chunk.toString();
+          });
+          
+          req.on('end', async () => {
+            try {
+              const changes = JSON.parse(body);
+              console.log('[EditorPlugin] Received save request:', changes);
+              
+              // Process each change
+              const results = [];
+              for (const change of changes) {
+                const result = await saveTextChange(change, mapStore);
+                results.push(result);
+              }
+              
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 200;
+              res.end(JSON.stringify({ success: true, results }));
+            } catch (error) {
+              console.error('[EditorPlugin] Error processing save:', error);
+              res.statusCode = 500;
+              res.end(JSON.stringify({ error: error.message }));
+            }
+          });
+          
+        } catch (error) {
+          console.error('[EditorPlugin] Error in save endpoint:', error);
+          res.statusCode = 500;
+          res.end(JSON.stringify({ error: error.message }));
+        }
       });
     },
     
