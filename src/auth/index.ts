@@ -11,6 +11,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { drizzle } from "drizzle-orm/d1";
 import { schema } from "../db";
 import { CloudflareBindings } from "../env";
+import { anonymous } from "better-auth/plugins";
 const adminWhitelist = ["ryan@zenobiapay.com", "teddy@zenobiapay.com"];
 
 function createAuth(
@@ -60,6 +61,7 @@ function createAuth(
             adminUsers: adminWhitelist.map((email) => ({ email })),
             impersonationSessionDuration: 60 * 60 * 24 * 7, // 7 days
           }),
+          anonymous(),
         ],
       }
     ),

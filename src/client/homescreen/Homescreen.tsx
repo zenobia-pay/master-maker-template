@@ -113,7 +113,7 @@ export default function Homescreen() {
                   class="text-4xl font-bold mb-4"
                   style={{ color: "var(--color-text-primary)" }}
                 >
-                  Master Maker
+                  TEMPLATE!!!
                 </h1>
                 <p
                   class="text-lg mb-2"
