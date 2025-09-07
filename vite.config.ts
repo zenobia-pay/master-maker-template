@@ -1,14 +1,11 @@
 import { defineConfig } from "vite";
 import solid from "vite-plugin-solid";
 import path, { resolve } from "path";
-import { editorPlugin } from "./editor/vite.plugin.editor";
 
 export default defineConfig({
   plugins: [
     solid(),
-    // Editor plugin for dev mode
-    process.env.NODE_ENV !== "production" && editorPlugin(),
-  ].filter(Boolean),
+  ],
   appType: "mpa",
   root: "src/client",
   publicDir: "../../public",
