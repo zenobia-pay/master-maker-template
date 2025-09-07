@@ -25,12 +25,35 @@ export function editorPlugin(): any {
     configureServer(_server) {
       console.log('[EditorPlugin] Configuring server');
       server = _server;
-      mapStore = new MapStore(server.config.root);
+      // Use the template root directory, not the src/client root
+      const templateRoot = server.config.root.includes('src/client') 
+        ? server.config.root.replace('/src/client', '') 
+        : server.config.root;
+      mapStore = new MapStore(templateRoot);
       
       // Expose the xmap endpoint
       server.middlewares.use('/__xmap', (req, res) => {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(mapStore.getAll()));
+      });
+      
+      // Serve the overlay script
+      server.middlewares.use('/__editor-overlay.js', async (req, res) => {
+        const fs = await import('fs');
+        const path = await import('path');
+        const overlayPath = '/Users/ryanprendergast/Documents/master-maker/template/editor/overlay.js';
+        
+        try {
+          // Read the JavaScript overlay file
+          const overlayContent = fs.readFileSync(overlayPath, 'utf-8');
+          
+          res.setHeader('Content-Type', 'application/javascript');
+          res.end(overlayContent);
+        } catch (error) {
+          console.error('[EditorPlugin] Error serving overlay:', error);
+          res.statusCode = 404;
+          res.end('Overlay script not found');
+        }
       });
       
       // Save endpoint for mutations (we'll implement this later)
@@ -48,9 +71,19 @@ export function editorPlugin(): any {
     },
     
     transform(code: string, id: string) {
-      // Only process TSX/JSX files in dev mode
-      if (!id.match(/\.[jt]sx$/)) return null;
       if (!server || server.config.mode !== 'development') return null;
+      
+      // Inject overlay script into HTML files
+      if (id.endsWith('.html')) {
+        const injectedCode = code.replace(
+          '</head>',
+          `  <script type="module" src="/__editor-overlay.js"></script>\n  </head>`
+        );
+        return injectedCode !== code ? { code: injectedCode } : null;
+      }
+      
+      // Only process TSX/JSX files
+      if (!id.match(/\.[jt]sx$/)) return null;
       
       const relPath = relative(server.config.root, id);
       
