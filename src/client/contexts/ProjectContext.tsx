@@ -6,8 +6,8 @@ import {
   onCleanup,
   createSignal,
   createEffect,
-  on,
-} from "solid-js";
+  on } from
+"solid-js";
 import { createStore, type SetStoreFunction } from "solid-js/store";
 import { AutosaveService } from "../services/AutosaveService";
 import type { EditorEvent } from "@shared/types/events";
@@ -49,10 +49,10 @@ interface ProjectContextValue {
   actions: {
     selectSample: (sampleId: string | null) => void;
     toggleSidebar: (
-      panel: "samples" | "properties" | "assistant" | null
-    ) => void;
+    panel: "samples" | "properties" | "assistant" | null)
+    => void;
     setViewMode: (mode: "library" | "editor" | "export") => void;
-    addSample: (sampleData: Partial<UISample> & { name: string }) => void;
+    addSample: (sampleData: Partial<UISample> & {name: string;}) => void;
     removeSample: (sampleId: string) => void;
   };
   derived: {
@@ -79,8 +79,8 @@ interface ProjectProviderProps {
 }
 
 export const ProjectProvider: ParentComponent<ProjectProviderProps> = (
-  props
-) => {
+props) =>
+{
   // Event queue for batching editor events
   const [eventQueue, setEventQueue] = createSignal<EditorEvent[]>([]);
 
@@ -102,7 +102,7 @@ export const ProjectProvider: ParentComponent<ProjectProviderProps> = (
 
     // Layout
     previewHeight: 40,
-    sidebarWidth: 400,
+    sidebarWidth: 400
   });
 
   // Derived values
@@ -129,7 +129,7 @@ export const ProjectProvider: ParentComponent<ProjectProviderProps> = (
       setStore("viewMode", mode);
     },
 
-    addSample: (sampleData: Partial<UISample> & { name: string }) => {
+    addSample: (sampleData: Partial<UISample> & {name: string;}) => {
       emitEvent({
         type: "SAMPLE_CREATED",
         projectId: store.projectId,
@@ -144,8 +144,8 @@ export const ProjectProvider: ParentComponent<ProjectProviderProps> = (
           isEnabled: true,
           metadata: null,
           createdAt: Date.now(),
-          updatedAt: Date.now(),
-        },
+          updatedAt: Date.now()
+        }
       });
     },
 
@@ -154,9 +154,9 @@ export const ProjectProvider: ParentComponent<ProjectProviderProps> = (
         type: "SAMPLE_DELETED",
         sampleId,
         projectId: store.projectId,
-        previousSample: store.samples.find((s) => s.id === sampleId)!,
+        previousSample: store.samples.find((s) => s.id === sampleId)!
       });
-    },
+    }
   };
 
   const emitEvent = (event: EditorEvent) => {
@@ -205,14 +205,14 @@ export const ProjectProvider: ParentComponent<ProjectProviderProps> = (
     actions,
     derived: {
       selectedSample,
-      sampleCount,
+      sampleCount
     },
-    emitEvent,
+    emitEvent
   };
 
   return (
-    <ProjectContext.Provider value={value}>
+    <ProjectContext.Provider value={value} data-xid="yZl_XgCL">
       {props.children}
-    </ProjectContext.Provider>
-  );
+    </ProjectContext.Provider>);
+
 };

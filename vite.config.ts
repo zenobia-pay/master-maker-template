@@ -1,20 +1,14 @@
 import { defineConfig } from "vite";
 import solid from "vite-plugin-solid";
 import path, { resolve } from "path";
-
-const myPlugin = () => ({
-  name: "rewrite-project-query",
-  configureServer(server) {
-    server.middlewares.use((req, _res, next) => {
-      const u = new URL(req.url || "/", "http://localhost");
-      if (u.pathname === "/project") req.url = "/project/index.html" + u.search;
-      next();
-    });
-  },
-});
+import { editorPlugin } from "./editor/vite.plugin.editor";
 
 export default defineConfig({
-  plugins: [solid(), myPlugin()],
+  plugins: [
+    solid(),
+    // Editor plugin for dev mode
+    process.env.NODE_ENV !== "production" && editorPlugin(),
+  ].filter(Boolean),
   appType: "mpa",
   root: "src/client",
   publicDir: "../../public",

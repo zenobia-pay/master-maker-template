@@ -1,0 +1,5138 @@
+{
+  "Sx07pg0g": {
+    "xid": "Sx07pg0g",
+    "file": "src/client/project/project.tsx",
+    "astPath": "4.0",
+    "componentType": "ProjectApp",
+    "loc": {
+      "start": {
+        "line": 6,
+        "column": 13
+      },
+      "end": {
+        "line": 6,
+        "column": 27
+      }
+    }
+  },
+  "IqpEBJJM": {
+    "xid": "IqpEBJJM",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 31,
+        "column": 4
+      },
+      "end": {
+        "line": 95,
+        "column": 10
+      }
+    }
+  },
+  "Xpwtqq0w": {
+    "xid": "Xpwtqq0w",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 40,
+        "column": 6
+      },
+      "end": {
+        "line": 94,
+        "column": 12
+      }
+    }
+  },
+  "hnBFba_d": {
+    "xid": "hnBFba_d",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.3",
+    "componentType": "PrimarySidebar",
+    "loc": {
+      "start": {
+        "line": 42,
+        "column": 8
+      },
+      "end": {
+        "line": 42,
+        "column": 26
+      }
+    }
+  },
+  "mOEoJn7D": {
+    "xid": "mOEoJn7D",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 45,
+        "column": 8
+      },
+      "end": {
+        "line": 93,
+        "column": 14
+      }
+    }
+  },
+  "g2VDNHQi": {
+    "xid": "g2VDNHQi",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 47,
+        "column": 10
+      },
+      "end": {
+        "line": 70,
+        "column": 16
+      }
+    }
+  },
+  "EJTPKfrt": {
+    "xid": "EJTPKfrt",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.3.3",
+    "componentType": "ToolbarPanel",
+    "loc": {
+      "start": {
+        "line": 52,
+        "column": 12
+      },
+      "end": {
+        "line": 52,
+        "column": 28
+      }
+    }
+  },
+  "Bk1V_N_d": {
+    "xid": "Bk1V_N_d",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.3.7",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 55,
+        "column": 12
+      },
+      "end": {
+        "line": 69,
+        "column": 18
+      }
+    }
+  },
+  "RpO5NuJz": {
+    "xid": "RpO5NuJz",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.3.7.1",
+    "componentType": "Switch",
+    "loc": {
+      "start": {
+        "line": 59,
+        "column": 14
+      },
+      "end": {
+        "line": 68,
+        "column": 23
+      }
+    }
+  },
+  "_2e5lbH1": {
+    "xid": "_2e5lbH1",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.3.7.1.1",
+    "componentType": "Match",
+    "loc": {
+      "start": {
+        "line": 60,
+        "column": 16
+      },
+      "end": {
+        "line": 62,
+        "column": 24
+      }
+    }
+  },
+  "UXobIx3C": {
+    "xid": "UXobIx3C",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.3.7.1.1.1",
+    "componentType": "LibraryPanel",
+    "loc": {
+      "start": {
+        "line": 61,
+        "column": 18
+      },
+      "end": {
+        "line": 61,
+        "column": 34
+      }
+    }
+  },
+  "9Fx_8_GF": {
+    "xid": "9Fx_8_GF",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.3.7.1.3",
+    "componentType": "Match",
+    "loc": {
+      "start": {
+        "line": 63,
+        "column": 16
+      },
+      "end": {
+        "line": 67,
+        "column": 24
+      }
+    }
+  },
+  "aSsj2GMF": {
+    "xid": "aSsj2GMF",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.3.7.1.3.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 64,
+        "column": 18
+      },
+      "end": {
+        "line": 66,
+        "column": 24
+      }
+    }
+  },
+  "IDGdbtRj": {
+    "xid": "IDGdbtRj",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.3.7.1.3.1.1",
+    "componentType": "PreviewPanel",
+    "loc": {
+      "start": {
+        "line": 65,
+        "column": 20
+      },
+      "end": {
+        "line": 65,
+        "column": 36
+      }
+    }
+  },
+  "3bI0ZixC": {
+    "xid": "3bI0ZixC",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.7",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 73,
+        "column": 10
+      },
+      "end": {
+        "line": 92,
+        "column": 16
+      }
+    }
+  },
+  "VTu-HR-E": {
+    "xid": "VTu-HR-E",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.7.1",
+    "componentType": "RightSidebar",
+    "loc": {
+      "start": {
+        "line": 74,
+        "column": 12
+      },
+      "end": {
+        "line": 74,
+        "column": 28
+      }
+    }
+  },
+  "61SPlCRF": {
+    "xid": "61SPlCRF",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.7.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 77,
+        "column": 12
+      },
+      "end": {
+        "line": 91,
+        "column": 18
+      }
+    }
+  },
+  "XX_aoggE": {
+    "xid": "XX_aoggE",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.7.5.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 85,
+        "column": 14
+      },
+      "end": {
+        "line": 87,
+        "column": 21
+      }
+    }
+  },
+  "2rWxa1HX": {
+    "xid": "2rWxa1HX",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.7.5.1.1",
+    "componentType": "PropertiesPanel",
+    "loc": {
+      "start": {
+        "line": 86,
+        "column": 16
+      },
+      "end": {
+        "line": 86,
+        "column": 35
+      }
+    }
+  },
+  "0iSdsT-T": {
+    "xid": "0iSdsT-T",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.7.5.3",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 88,
+        "column": 14
+      },
+      "end": {
+        "line": 90,
+        "column": 21
+      }
+    }
+  },
+  "_2L4t-8w": {
+    "xid": "_2L4t-8w",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "12.1.3.7.7.5.3.1",
+    "componentType": "AssistantPanel",
+    "loc": {
+      "start": {
+        "line": 89,
+        "column": 16
+      },
+      "end": {
+        "line": 89,
+        "column": 34
+      }
+    }
+  },
+  "Oy3G19hb": {
+    "xid": "Oy3G19hb",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1",
+    "componentType": "Switch",
+    "loc": {
+      "start": {
+        "line": 110,
+        "column": 6
+      },
+      "end": {
+        "line": 145,
+        "column": 15
+      }
+    }
+  },
+  "HaQ6qCQ8": {
+    "xid": "HaQ6qCQ8",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.1",
+    "componentType": "Match",
+    "loc": {
+      "start": {
+        "line": 111,
+        "column": 8
+      },
+      "end": {
+        "line": 115,
+        "column": 16
+      }
+    }
+  },
+  "AX48APJU": {
+    "xid": "AX48APJU",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 112,
+        "column": 10
+      },
+      "end": {
+        "line": 114,
+        "column": 16
+      }
+    }
+  },
+  "HteJBZ0B": {
+    "xid": "HteJBZ0B",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 113,
+        "column": 12
+      },
+      "end": {
+        "line": 113,
+        "column": 35
+      }
+    }
+  },
+  "KalLUdQH": {
+    "xid": "KalLUdQH",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.3",
+    "componentType": "Match",
+    "loc": {
+      "start": {
+        "line": 117,
+        "column": 8
+      },
+      "end": {
+        "line": 139,
+        "column": 16
+      }
+    }
+  },
+  "_spLrqWW": {
+    "xid": "_spLrqWW",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.3.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 118,
+        "column": 10
+      },
+      "end": {
+        "line": 138,
+        "column": 17
+      }
+    }
+  },
+  "3iIHGin1": {
+    "xid": "3iIHGin1",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.3.1.1",
+    "componentType": "ProjectProvider",
+    "loc": {
+      "start": {
+        "line": 132,
+        "column": 12
+      },
+      "end": {
+        "line": 137,
+        "column": 30
+      }
+    }
+  },
+  "cfjfX02d": {
+    "xid": "cfjfX02d",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.3.1.1.1",
+    "componentType": "ProjectCore",
+    "loc": {
+      "start": {
+        "line": 136,
+        "column": 14
+      },
+      "end": {
+        "line": 136,
+        "column": 66
+      }
+    }
+  },
+  "JGEsZACw": {
+    "xid": "JGEsZACw",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.3.1.1.1.1",
+    "componentType": "h2",
+    "loc": {
+      "start": {
+        "line": 123,
+        "column": 18
+      },
+      "end": {
+        "line": 123,
+        "column": 46
+      }
+    }
+  },
+  "60puPxlg": {
+    "xid": "60puPxlg",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.3.1.1.1.3",
+    "componentType": "p",
+    "loc": {
+      "start": {
+        "line": 124,
+        "column": 18
+      },
+      "end": {
+        "line": 127,
+        "column": 22
+      }
+    }
+  },
+  "5hMZqKWX": {
+    "xid": "5hMZqKWX",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.3.1.1.1.3.3",
+    "componentType": "a",
+    "loc": {
+      "start": {
+        "line": 126,
+        "column": 20
+      },
+      "end": {
+        "line": 126,
+        "column": 58
+      }
+    }
+  },
+  "3Z7neO3G": {
+    "xid": "3Z7neO3G",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.5",
+    "componentType": "Match",
+    "loc": {
+      "start": {
+        "line": 141,
+        "column": 8
+      },
+      "end": {
+        "line": 144,
+        "column": 16
+      }
+    }
+  },
+  "-DyhxzLF": {
+    "xid": "-DyhxzLF",
+    "file": "src/client/project/ProjectApp.tsx",
+    "astPath": "13.2.1.5.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 143,
+        "column": 10
+      },
+      "end": {
+        "line": 143,
+        "column": 35
+      }
+    }
+  },
+  "HHozlNzn": {
+    "xid": "HHozlNzn",
+    "file": "src/client/homescreen/index.tsx",
+    "astPath": "4.0",
+    "componentType": "Homescreen",
+    "loc": {
+      "start": {
+        "line": 7,
+        "column": 13
+      },
+      "end": {
+        "line": 7,
+        "column": 27
+      }
+    }
+  },
+  "0Iurk7jl": {
+    "xid": "0Iurk7jl",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 86,
+        "column": 4
+      },
+      "end": {
+        "line": 289,
+        "column": 10
+      }
+    }
+  },
+  "39z752bh": {
+    "xid": "39z752bh",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.3",
+    "componentType": "aside",
+    "loc": {
+      "start": {
+        "line": 94,
+        "column": 6
+      },
+      "end": {
+        "line": 146,
+        "column": 14
+      }
+    }
+  },
+  "pi97jhmT": {
+    "xid": "pi97jhmT",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.3.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 101,
+        "column": 8
+      },
+      "end": {
+        "line": 113,
+        "column": 14
+      }
+    }
+  },
+  "sb82Zk0T": {
+    "xid": "sb82Zk0T",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.3.1.1",
+    "componentType": "a",
+    "loc": {
+      "start": {
+        "line": 105,
+        "column": 10
+      },
+      "end": {
+        "line": 112,
+        "column": 14
+      }
+    }
+  },
+  "N-GTinL-": {
+    "xid": "N-GTinL-",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.3.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 110,
+        "column": 12
+      },
+      "end": {
+        "line": 110,
+        "column": 57
+      }
+    }
+  },
+  "GaKRNYmg": {
+    "xid": "GaKRNYmg",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.3.1.1.3",
+    "componentType": "span",
+    "loc": {
+      "start": {
+        "line": 111,
+        "column": 12
+      },
+      "end": {
+        "line": 111,
+        "column": 33
+      }
+    }
+  },
+  "Ypvwh0XN": {
+    "xid": "Ypvwh0XN",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.3.3",
+    "componentType": "nav",
+    "loc": {
+      "start": {
+        "line": 114,
+        "column": 8
+      },
+      "end": {
+        "line": 136,
+        "column": 14
+      }
+    }
+  },
+  "7LwEEb5d": {
+    "xid": "7LwEEb5d",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.3.3.1",
+    "componentType": "a",
+    "loc": {
+      "start": {
+        "line": 115,
+        "column": 10
+      },
+      "end": {
+        "line": 124,
+        "column": 14
+      }
+    }
+  },
+  "1v7EUXGN": {
+    "xid": "1v7EUXGN",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.3.3.3",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 125,
+        "column": 10
+      },
+      "end": {
+        "line": 135,
+        "column": 17
+      }
+    }
+  },
+  "nzVIqrrf": {
+    "xid": "nzVIqrrf",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.3.3.3.1",
+    "componentType": "a",
+    "loc": {
+      "start": {
+        "line": 126,
+        "column": 12
+      },
+      "end": {
+        "line": 134,
+        "column": 16
+      }
+    }
+  },
+  "h-m3Y7ut": {
+    "xid": "h-m3Y7ut",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.3.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 137,
+        "column": 8
+      },
+      "end": {
+        "line": 145,
+        "column": 14
+      }
+    }
+  },
+  "9vAUPkgh": {
+    "xid": "9vAUPkgh",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.3.5.1",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 138,
+        "column": 10
+      },
+      "end": {
+        "line": 144,
+        "column": 19
+      }
+    }
+  },
+  "pldKh25Q": {
+    "xid": "pldKh25Q",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7",
+    "componentType": "main",
+    "loc": {
+      "start": {
+        "line": 149,
+        "column": 6
+      },
+      "end": {
+        "line": 288,
+        "column": 13
+      }
+    }
+  },
+  "sSzvOKRN": {
+    "xid": "sSzvOKRN",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 150,
+        "column": 8
+      },
+      "end": {
+        "line": 165,
+        "column": 14
+      }
+    }
+  },
+  "bYZ15PdF": {
+    "xid": "bYZ15PdF",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.1.1",
+    "componentType": "h1",
+    "loc": {
+      "start": {
+        "line": 157,
+        "column": 10
+      },
+      "end": {
+        "line": 157,
+        "column": 57
+      }
+    }
+  },
+  "Gbwfmevo": {
+    "xid": "Gbwfmevo",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.1.3",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 158,
+        "column": 10
+      },
+      "end": {
+        "line": 164,
+        "column": 19
+      }
+    }
+  },
+  "QcjR9Rbi": {
+    "xid": "QcjR9Rbi",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 167,
+        "column": 8
+      },
+      "end": {
+        "line": 287,
+        "column": 14
+      }
+    }
+  },
+  "ZE7hI8S0": {
+    "xid": "ZE7hI8S0",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 168,
+        "column": 10
+      },
+      "end": {
+        "line": 170,
+        "column": 17
+      }
+    }
+  },
+  "2bnCFFKs": {
+    "xid": "2bnCFFKs",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 169,
+        "column": 12
+      },
+      "end": {
+        "line": 169,
+        "column": 61
+      }
+    }
+  },
+  "t8nGbSJm": {
+    "xid": "t8nGbSJm",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 172,
+        "column": 10
+      },
+      "end": {
+        "line": 286,
+        "column": 16
+      }
+    }
+  },
+  "l86EFMkg": {
+    "xid": "l86EFMkg",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 173,
+        "column": 12
+      },
+      "end": {
+        "line": 182,
+        "column": 18
+      }
+    }
+  },
+  "Ya1p4w8-": {
+    "xid": "Ya1p4w8-",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 177,
+        "column": 14
+      },
+      "end": {
+        "line": 177,
+        "column": 26
+      }
+    }
+  },
+  "R_UOt-92": {
+    "xid": "R_UOt-92",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 178,
+        "column": 14
+      },
+      "end": {
+        "line": 178,
+        "column": 29
+      }
+    }
+  },
+  "Iv2NaB9J": {
+    "xid": "Iv2NaB9J",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.1.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 179,
+        "column": 14
+      },
+      "end": {
+        "line": 179,
+        "column": 32
+      }
+    }
+  },
+  "Xf1Rr-nC": {
+    "xid": "Xf1Rr-nC",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.1.7",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 180,
+        "column": 14
+      },
+      "end": {
+        "line": 180,
+        "column": 37
+      }
+    }
+  },
+  "RGi6KXGb": {
+    "xid": "RGi6KXGb",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.1.9",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 181,
+        "column": 14
+      },
+      "end": {
+        "line": 181,
+        "column": 56
+      }
+    }
+  },
+  "9pAi-VKY": {
+    "xid": "9pAi-VKY",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 183,
+        "column": 12
+      },
+      "end": {
+        "line": 186,
+        "column": 14
+      }
+    }
+  },
+  "xFIcJdqY": {
+    "xid": "xFIcJdqY",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 187,
+        "column": 12
+      },
+      "end": {
+        "line": 285,
+        "column": 19
+      }
+    }
+  },
+  "7BOukOcM": {
+    "xid": "7BOukOcM",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 199,
+        "column": 14
+      },
+      "end": {
+        "line": 284,
+        "column": 21
+      }
+    }
+  },
+  "ncr4Ujq7": {
+    "xid": "ncr4Ujq7",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1",
+    "componentType": "For",
+    "loc": {
+      "start": {
+        "line": 243,
+        "column": 16
+      },
+      "end": {
+        "line": 283,
+        "column": 22
+      }
+    }
+  },
+  "ivXETjYB": {
+    "xid": "ivXETjYB",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.3",
+    "componentType": "span",
+    "loc": {
+      "start": {
+        "line": 195,
+        "column": 18
+      },
+      "end": {
+        "line": 195,
+        "column": 63
+      }
+    }
+  },
+  "Xp5bAcW7": {
+    "xid": "Xp5bAcW7",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1.1",
+    "componentType": "a",
+    "loc": {
+      "start": {
+        "line": 245,
+        "column": 20
+      },
+      "end": {
+        "line": 281,
+        "column": 24
+      }
+    }
+  },
+  "WxOlU7CZ": {
+    "xid": "WxOlU7CZ",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 256,
+        "column": 22
+      },
+      "end": {
+        "line": 258,
+        "column": 28
+      }
+    }
+  },
+  "EtEDfdE3": {
+    "xid": "EtEDfdE3",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1.1.1.1",
+    "componentType": "path",
+    "loc": {
+      "start": {
+        "line": 213,
+        "column": 24
+      },
+      "end": {
+        "line": 218,
+        "column": 26
+      }
+    }
+  },
+  "fwY0oIqk": {
+    "xid": "fwY0oIqk",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1.3",
+    "componentType": "h2",
+    "loc": {
+      "start": {
+        "line": 221,
+        "column": 20
+      },
+      "end": {
+        "line": 226,
+        "column": 25
+      }
+    }
+  },
+  "6i6UnVB0": {
+    "xid": "6i6UnVB0",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1.5",
+    "componentType": "p",
+    "loc": {
+      "start": {
+        "line": 227,
+        "column": 20
+      },
+      "end": {
+        "line": 232,
+        "column": 24
+      }
+    }
+  },
+  "7FXXOL8a": {
+    "xid": "7FXXOL8a",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1.7",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 233,
+        "column": 20
+      },
+      "end": {
+        "line": 239,
+        "column": 29
+      }
+    }
+  },
+  "KTdenRc9": {
+    "xid": "KTdenRc9",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 259,
+        "column": 22
+      },
+      "end": {
+        "line": 259,
+        "column": 47
+      }
+    }
+  },
+  "xJIzEKKe": {
+    "xid": "xJIzEKKe",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1.1.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 260,
+        "column": 22
+      },
+      "end": {
+        "line": 262,
+        "column": 28
+      }
+    }
+  },
+  "PWHTptuh": {
+    "xid": "PWHTptuh",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1.1.7",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 263,
+        "column": 22
+      },
+      "end": {
+        "line": 265,
+        "column": 28
+      }
+    }
+  },
+  "yW01t-N0": {
+    "xid": "yW01t-N0",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1.1.9",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 266,
+        "column": 22
+      },
+      "end": {
+        "line": 280,
+        "column": 28
+      }
+    }
+  },
+  "1ofnRA8A": {
+    "xid": "1ofnRA8A",
+    "file": "src/client/homescreen/ProjectSelector.tsx",
+    "astPath": "5.10.7.3.3.5.1.1.1.9.1",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 267,
+        "column": 24
+      },
+      "end": {
+        "line": 279,
+        "column": 33
+      }
+    }
+  },
+  "OY099xBs": {
+    "xid": "OY099xBs",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 26,
+        "column": 4
+      },
+      "end": {
+        "line": 142,
+        "column": 10
+      }
+    }
+  },
+  "zCtaURQR": {
+    "xid": "zCtaURQR",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 33,
+        "column": 6
+      },
+      "end": {
+        "line": 70,
+        "column": 13
+      }
+    }
+  },
+  "yM_pfl_1": {
+    "xid": "yM_pfl_1",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 34,
+        "column": 8
+      },
+      "end": {
+        "line": 69,
+        "column": 14
+      }
+    }
+  },
+  "qtjgOdUJ": {
+    "xid": "qtjgOdUJ",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 38,
+        "column": 10
+      },
+      "end": {
+        "line": 68,
+        "column": 16
+      }
+    }
+  },
+  "4AjHwcaf": {
+    "xid": "4AjHwcaf",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.1.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 45,
+        "column": 12
+      },
+      "end": {
+        "line": 58,
+        "column": 18
+      }
+    }
+  },
+  "UMW9HaxD": {
+    "xid": "UMW9HaxD",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.1.1.1.1.1",
+    "componentType": "h2",
+    "loc": {
+      "start": {
+        "line": 46,
+        "column": 14
+      },
+      "end": {
+        "line": 51,
+        "column": 19
+      }
+    }
+  },
+  "h6BXPV3P": {
+    "xid": "h6BXPV3P",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.1.1.1.1.3",
+    "componentType": "p",
+    "loc": {
+      "start": {
+        "line": 52,
+        "column": 14
+      },
+      "end": {
+        "line": 57,
+        "column": 18
+      }
+    }
+  },
+  "hGGwRCjz": {
+    "xid": "hGGwRCjz",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.1.1.1.3",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 59,
+        "column": 12
+      },
+      "end": {
+        "line": 67,
+        "column": 21
+      }
+    }
+  },
+  "fC9GdpKD": {
+    "xid": "fC9GdpKD",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3",
+    "componentType": "Switch",
+    "loc": {
+      "start": {
+        "line": 72,
+        "column": 6
+      },
+      "end": {
+        "line": 141,
+        "column": 15
+      }
+    }
+  },
+  "XpJRReI_": {
+    "xid": "XpJRReI_",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.1",
+    "componentType": "Match",
+    "loc": {
+      "start": {
+        "line": 73,
+        "column": 8
+      },
+      "end": {
+        "line": 82,
+        "column": 16
+      }
+    }
+  },
+  "wr2B31Wu": {
+    "xid": "wr2B31Wu",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 74,
+        "column": 10
+      },
+      "end": {
+        "line": 81,
+        "column": 16
+      }
+    }
+  },
+  "v6MUdwDb": {
+    "xid": "v6MUdwDb",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 78,
+        "column": 12
+      },
+      "end": {
+        "line": 80,
+        "column": 18
+      }
+    }
+  },
+  "xkQhBDec": {
+    "xid": "xkQhBDec",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.1.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 79,
+        "column": 14
+      },
+      "end": {
+        "line": 79,
+        "column": 143
+      }
+    }
+  },
+  "m5IMIMHA": {
+    "xid": "m5IMIMHA",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.3",
+    "componentType": "Match",
+    "loc": {
+      "start": {
+        "line": 84,
+        "column": 8
+      },
+      "end": {
+        "line": 87,
+        "column": 16
+      }
+    }
+  },
+  "RpKJweKi": {
+    "xid": "RpKJweKi",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.3.3",
+    "componentType": "ProjectSelector",
+    "loc": {
+      "start": {
+        "line": 86,
+        "column": 10
+      },
+      "end": {
+        "line": 86,
+        "column": 29
+      }
+    }
+  },
+  "rR2cd3F9": {
+    "xid": "rR2cd3F9",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.5",
+    "componentType": "Match",
+    "loc": {
+      "start": {
+        "line": 89,
+        "column": 8
+      },
+      "end": {
+        "line": 140,
+        "column": 16
+      }
+    }
+  },
+  "4mC34BZ1": {
+    "xid": "4mC34BZ1",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.5.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 90,
+        "column": 10
+      },
+      "end": {
+        "line": 139,
+        "column": 16
+      }
+    }
+  },
+  "uRpAvwhV": {
+    "xid": "uRpAvwhV",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.5.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 95,
+        "column": 12
+      },
+      "end": {
+        "line": 101,
+        "column": 18
+      }
+    }
+  },
+  "0S2i6oFn": {
+    "xid": "0S2i6oFn",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.5.1.3.1",
+    "componentType": "img",
+    "loc": {
+      "start": {
+        "line": 96,
+        "column": 14
+      },
+      "end": {
+        "line": 100,
+        "column": 16
+      }
+    }
+  },
+  "pEf57E21": {
+    "xid": "pEf57E21",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.5.1.7",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 104,
+        "column": 12
+      },
+      "end": {
+        "line": 138,
+        "column": 18
+      }
+    }
+  },
+  "5XKNsJYh": {
+    "xid": "5XKNsJYh",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.5.1.7.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 111,
+        "column": 14
+      },
+      "end": {
+        "line": 137,
+        "column": 20
+      }
+    }
+  },
+  "xsxSdbf8": {
+    "xid": "xsxSdbf8",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.5.1.7.1.1",
+    "componentType": "h1",
+    "loc": {
+      "start": {
+        "line": 112,
+        "column": 16
+      },
+      "end": {
+        "line": 117,
+        "column": 21
+      }
+    }
+  },
+  "GyYvMg5J": {
+    "xid": "GyYvMg5J",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.5.1.7.1.3",
+    "componentType": "p",
+    "loc": {
+      "start": {
+        "line": 118,
+        "column": 16
+      },
+      "end": {
+        "line": 123,
+        "column": 20
+      }
+    }
+  },
+  "zhAx82c8": {
+    "xid": "zhAx82c8",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.5.1.7.1.5",
+    "componentType": "p",
+    "loc": {
+      "start": {
+        "line": 124,
+        "column": 16
+      },
+      "end": {
+        "line": 130,
+        "column": 20
+      }
+    }
+  },
+  "zinfNAdg": {
+    "xid": "zinfNAdg",
+    "file": "src/client/homescreen/Homescreen.tsx",
+    "astPath": "4.3.3.5.1.7.1.7",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 131,
+        "column": 16
+      },
+      "end": {
+        "line": 136,
+        "column": 25
+      }
+    }
+  },
+  "yZl_XgCL": {
+    "xid": "yZl_XgCL",
+    "file": "src/client/contexts/ProjectContext.tsx",
+    "astPath": "13.0.11",
+    "componentType": "ProjectContext.Provider",
+    "loc": {
+      "start": {
+        "line": 214,
+        "column": 4
+      },
+      "end": {
+        "line": 216,
+        "column": 30
+      }
+    }
+  },
+  "6sAEuZ_5": {
+    "xid": "6sAEuZ_5",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 8,
+        "column": 4
+      },
+      "end": {
+        "line": 68,
+        "column": 10
+      }
+    }
+  },
+  "G0qQ18iW": {
+    "xid": "G0qQ18iW",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 15,
+        "column": 6
+      },
+      "end": {
+        "line": 19,
+        "column": 12
+      }
+    }
+  },
+  "RLXkHQeF": {
+    "xid": "RLXkHQeF",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.1.1",
+    "componentType": "h1",
+    "loc": {
+      "start": {
+        "line": 16,
+        "column": 8
+      },
+      "end": {
+        "line": 18,
+        "column": 13
+      }
+    }
+  },
+  "hFFxfwXB": {
+    "xid": "hFFxfwXB",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 21,
+        "column": 6
+      },
+      "end": {
+        "line": 56,
+        "column": 12
+      }
+    }
+  },
+  "tY3BGTHl": {
+    "xid": "tY3BGTHl",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.3.1",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 22,
+        "column": 8
+      },
+      "end": {
+        "line": 43,
+        "column": 17
+      }
+    }
+  },
+  "Kwy3p6a4": {
+    "xid": "Kwy3p6a4",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.3.1.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 30,
+        "column": 10
+      },
+      "end": {
+        "line": 42,
+        "column": 17
+      }
+    }
+  },
+  "kDZraNld": {
+    "xid": "kDZraNld",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.3.1.1.1",
+    "componentType": "svg",
+    "loc": {
+      "start": {
+        "line": 38,
+        "column": 12
+      },
+      "end": {
+        "line": 41,
+        "column": 18
+      }
+    }
+  },
+  "zLsB8e4F": {
+    "xid": "zLsB8e4F",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.3.1.1.1.1",
+    "componentType": "rect",
+    "loc": {
+      "start": {
+        "line": 39,
+        "column": 14
+      },
+      "end": {
+        "line": 39,
+        "column": 55
+      }
+    }
+  },
+  "NNsuDtb8": {
+    "xid": "NNsuDtb8",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.3.1.1.1.3",
+    "componentType": "rect",
+    "loc": {
+      "start": {
+        "line": 40,
+        "column": 14
+      },
+      "end": {
+        "line": 40,
+        "column": 56
+      }
+    }
+  },
+  "pkcWSvw4": {
+    "xid": "pkcWSvw4",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.3.3",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 44,
+        "column": 8
+      },
+      "end": {
+        "line": 55,
+        "column": 17
+      }
+    }
+  },
+  "6EKfxWae": {
+    "xid": "6EKfxWae",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.3.3.1",
+    "componentType": "svg",
+    "loc": {
+      "start": {
+        "line": 52,
+        "column": 10
+      },
+      "end": {
+        "line": 54,
+        "column": 16
+      }
+    }
+  },
+  "Qm4nruwQ": {
+    "xid": "Qm4nruwQ",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.3.3.1.1",
+    "componentType": "path",
+    "loc": {
+      "start": {
+        "line": 53,
+        "column": 12
+      },
+      "end": {
+        "line": 53,
+        "column": 62
+      }
+    }
+  },
+  "IgBOK_d1": {
+    "xid": "IgBOK_d1",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 58,
+        "column": 6
+      },
+      "end": {
+        "line": 67,
+        "column": 12
+      }
+    }
+  },
+  "tWQabVbu": {
+    "xid": "tWQabVbu",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.5.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 59,
+        "column": 8
+      },
+      "end": {
+        "line": 61,
+        "column": 14
+      }
+    }
+  },
+  "scAWZcY4": {
+    "xid": "scAWZcY4",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.5.3",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 62,
+        "column": 8
+      },
+      "end": {
+        "line": 66,
+        "column": 15
+      }
+    }
+  },
+  "RhSxOx-p": {
+    "xid": "RhSxOx-p",
+    "file": "src/client/project/panels/ToolbarPanel.tsx",
+    "astPath": "2.1.5.3.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 63,
+        "column": 10
+      },
+      "end": {
+        "line": 65,
+        "column": 16
+      }
+    }
+  },
+  "RlRTtrVD": {
+    "xid": "RlRTtrVD",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 18,
+        "column": 4
+      },
+      "end": {
+        "line": 221,
+        "column": 10
+      }
+    }
+  },
+  "mGQPuzMt": {
+    "xid": "mGQPuzMt",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 19,
+        "column": 6
+      },
+      "end": {
+        "line": 47,
+        "column": 12
+      }
+    }
+  },
+  "n7JyLuna": {
+    "xid": "n7JyLuna",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 20,
+        "column": 8
+      },
+      "end": {
+        "line": 34,
+        "column": 14
+      }
+    }
+  },
+  "6eauW_gS": {
+    "xid": "6eauW_gS",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.1.1.1",
+    "componentType": "h2",
+    "loc": {
+      "start": {
+        "line": 21,
+        "column": 10
+      },
+      "end": {
+        "line": 23,
+        "column": 15
+      }
+    }
+  },
+  "r7Kiy-Cd": {
+    "xid": "r7Kiy-Cd",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.1.1.3",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 24,
+        "column": 10
+      },
+      "end": {
+        "line": 33,
+        "column": 19
+      }
+    }
+  },
+  "nv9CvP9S": {
+    "xid": "nv9CvP9S",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.1.1.3.1",
+    "componentType": "svg",
+    "loc": {
+      "start": {
+        "line": 29,
+        "column": 12
+      },
+      "end": {
+        "line": 32,
+        "column": 18
+      }
+    }
+  },
+  "Rn4QVeWY": {
+    "xid": "Rn4QVeWY",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.1.1.3.1.1",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 30,
+        "column": 14
+      },
+      "end": {
+        "line": 30,
+        "column": 51
+      }
+    }
+  },
+  "deay2_HI": {
+    "xid": "deay2_HI",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.1.1.3.1.3",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 31,
+        "column": 14
+      },
+      "end": {
+        "line": 31,
+        "column": 51
+      }
+    }
+  },
+  "gfhH3pPV": {
+    "xid": "gfhH3pPV",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.1.3",
+    "componentType": "input",
+    "loc": {
+      "start": {
+        "line": 35,
+        "column": 8
+      },
+      "end": {
+        "line": 46,
+        "column": 10
+      }
+    }
+  },
+  "8GwcDn0f": {
+    "xid": "8GwcDn0f",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 49,
+        "column": 6
+      },
+      "end": {
+        "line": 116,
+        "column": 12
+      }
+    }
+  },
+  "qlCLK05w": {
+    "xid": "qlCLK05w",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 50,
+        "column": 8
+      },
+      "end": {
+        "line": 115,
+        "column": 14
+      }
+    }
+  },
+  "eS25UY9a": {
+    "xid": "eS25UY9a",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1",
+    "componentType": "For",
+    "loc": {
+      "start": {
+        "line": 51,
+        "column": 10
+      },
+      "end": {
+        "line": 114,
+        "column": 16
+      }
+    }
+  },
+  "c7NBnyjv": {
+    "xid": "c7NBnyjv",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 53,
+        "column": 14
+      },
+      "end": {
+        "line": 112,
+        "column": 20
+      }
+    }
+  },
+  "uVpErtCw": {
+    "xid": "uVpErtCw",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 63,
+        "column": 16
+      },
+      "end": {
+        "line": 111,
+        "column": 22
+      }
+    }
+  },
+  "5w-vbA-X": {
+    "xid": "5w-vbA-X",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 64,
+        "column": 18
+      },
+      "end": {
+        "line": 85,
+        "column": 24
+      }
+    }
+  },
+  "Z48noNuz": {
+    "xid": "Z48noNuz",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.1.1",
+    "componentType": "svg",
+    "loc": {
+      "start": {
+        "line": 68,
+        "column": 20
+      },
+      "end": {
+        "line": 84,
+        "column": 26
+      }
+    }
+  },
+  "lJ_jZfkl": {
+    "xid": "lJ_jZfkl",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.1.1.1.1",
+    "componentType": "rect",
+    "loc": {
+      "start": {
+        "line": 79,
+        "column": 26
+      },
+      "end": {
+        "line": 79,
+        "column": 88
+      }
+    }
+  },
+  "IV7HiTzw": {
+    "xid": "IV7HiTzw",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.1.1.1.3",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 80,
+        "column": 26
+      },
+      "end": {
+        "line": 80,
+        "column": 62
+      }
+    }
+  },
+  "ndWuKRKU": {
+    "xid": "ndWuKRKU",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.1.1.1.5",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 81,
+        "column": 26
+      },
+      "end": {
+        "line": 81,
+        "column": 64
+      }
+    }
+  },
+  "-5gQFwdg": {
+    "xid": "-5gQFwdg",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 86,
+        "column": 18
+      },
+      "end": {
+        "line": 93,
+        "column": 24
+      }
+    }
+  },
+  "SS5GsG8w": {
+    "xid": "SS5GsG8w",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.3.1",
+    "componentType": "p",
+    "loc": {
+      "start": {
+        "line": 87,
+        "column": 20
+      },
+      "end": {
+        "line": 89,
+        "column": 24
+      }
+    }
+  },
+  "MXiNpftB": {
+    "xid": "MXiNpftB",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.3.3",
+    "componentType": "p",
+    "loc": {
+      "start": {
+        "line": 90,
+        "column": 20
+      },
+      "end": {
+        "line": 92,
+        "column": 24
+      }
+    }
+  },
+  "skb-IjQt": {
+    "xid": "skb-IjQt",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.5",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 94,
+        "column": 18
+      },
+      "end": {
+        "line": 110,
+        "column": 27
+      }
+    }
+  },
+  "LK3gHl_I": {
+    "xid": "LK3gHl_I",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.5.1",
+    "componentType": "svg",
+    "loc": {
+      "start": {
+        "line": 103,
+        "column": 20
+      },
+      "end": {
+        "line": 109,
+        "column": 26
+      }
+    }
+  },
+  "_E8doQg6": {
+    "xid": "_E8doQg6",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.5.1.1",
+    "componentType": "path",
+    "loc": {
+      "start": {
+        "line": 104,
+        "column": 22
+      },
+      "end": {
+        "line": 104,
+        "column": 41
+      }
+    }
+  },
+  "RxdubztQ": {
+    "xid": "RxdubztQ",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.5.1.3",
+    "componentType": "path",
+    "loc": {
+      "start": {
+        "line": 105,
+        "column": 22
+      },
+      "end": {
+        "line": 105,
+        "column": 71
+      }
+    }
+  },
+  "TcZbp90W": {
+    "xid": "TcZbp90W",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.5.1.5",
+    "componentType": "path",
+    "loc": {
+      "start": {
+        "line": 106,
+        "column": 22
+      },
+      "end": {
+        "line": 106,
+        "column": 68
+      }
+    }
+  },
+  "6HwODtYj": {
+    "xid": "6HwODtYj",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.5.1.7",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 107,
+        "column": 22
+      },
+      "end": {
+        "line": 107,
+        "column": 61
+      }
+    }
+  },
+  "cv7WVDz_": {
+    "xid": "cv7WVDz_",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.3.1.1.1.1.5.1.9",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 108,
+        "column": 22
+      },
+      "end": {
+        "line": 108,
+        "column": 61
+      }
+    }
+  },
+  "aD8OPfjf": {
+    "xid": "aD8OPfjf",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 118,
+        "column": 6
+      },
+      "end": {
+        "line": 129,
+        "column": 12
+      }
+    }
+  },
+  "y-ROrNGd": {
+    "xid": "y-ROrNGd",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.5.1",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 119,
+        "column": 8
+      },
+      "end": {
+        "line": 128,
+        "column": 17
+      }
+    }
+  },
+  "q9o_5Pk0": {
+    "xid": "q9o_5Pk0",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 132,
+        "column": 6
+      },
+      "end": {
+        "line": 220,
+        "column": 13
+      }
+    }
+  },
+  "iHc63W-g": {
+    "xid": "iHc63W-g",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 133,
+        "column": 8
+      },
+      "end": {
+        "line": 219,
+        "column": 14
+      }
+    }
+  },
+  "KDGSzeRd": {
+    "xid": "KDGSzeRd",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 134,
+        "column": 10
+      },
+      "end": {
+        "line": 218,
+        "column": 16
+      }
+    }
+  },
+  "ZTIKIQg2": {
+    "xid": "ZTIKIQg2",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.1",
+    "componentType": "h3",
+    "loc": {
+      "start": {
+        "line": 138,
+        "column": 12
+      },
+      "end": {
+        "line": 140,
+        "column": 17
+      }
+    }
+  },
+  "_Z3mN8zd": {
+    "xid": "_Z3mN8zd",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3",
+    "componentType": "form",
+    "loc": {
+      "start": {
+        "line": 141,
+        "column": 12
+      },
+      "end": {
+        "line": 217,
+        "column": 19
+      }
+    }
+  },
+  "7S1IibHF": {
+    "xid": "7S1IibHF",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 159,
+        "column": 14
+      },
+      "end": {
+        "line": 175,
+        "column": 20
+      }
+    }
+  },
+  "kZSxmZDK": {
+    "xid": "kZSxmZDK",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3.1.1",
+    "componentType": "label",
+    "loc": {
+      "start": {
+        "line": 160,
+        "column": 16
+      },
+      "end": {
+        "line": 162,
+        "column": 24
+      }
+    }
+  },
+  "ZxzqYfv-": {
+    "xid": "ZxzqYfv-",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3.1.3",
+    "componentType": "input",
+    "loc": {
+      "start": {
+        "line": 163,
+        "column": 16
+      },
+      "end": {
+        "line": 174,
+        "column": 18
+      }
+    }
+  },
+  "DFPak4ts": {
+    "xid": "DFPak4ts",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 176,
+        "column": 14
+      },
+      "end": {
+        "line": 192,
+        "column": 20
+      }
+    }
+  },
+  "MiOlT2fT": {
+    "xid": "MiOlT2fT",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3.3.1",
+    "componentType": "label",
+    "loc": {
+      "start": {
+        "line": 177,
+        "column": 16
+      },
+      "end": {
+        "line": 179,
+        "column": 24
+      }
+    }
+  },
+  "ug-RvV5D": {
+    "xid": "ug-RvV5D",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3.3.3",
+    "componentType": "select",
+    "loc": {
+      "start": {
+        "line": 180,
+        "column": 16
+      },
+      "end": {
+        "line": 191,
+        "column": 25
+      }
+    }
+  },
+  "E78eXWZZ": {
+    "xid": "E78eXWZZ",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3.3.3.1",
+    "componentType": "option",
+    "loc": {
+      "start": {
+        "line": 189,
+        "column": 18
+      },
+      "end": {
+        "line": 189,
+        "column": 54
+      }
+    }
+  },
+  "aAXnFuK5": {
+    "xid": "aAXnFuK5",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3.3.3.3",
+    "componentType": "option",
+    "loc": {
+      "start": {
+        "line": 190,
+        "column": 18
+      },
+      "end": {
+        "line": 190,
+        "column": 54
+      }
+    }
+  },
+  "CqMnda0N": {
+    "xid": "CqMnda0N",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 193,
+        "column": 14
+      },
+      "end": {
+        "line": 216,
+        "column": 20
+      }
+    }
+  },
+  "lRdUsKhV": {
+    "xid": "lRdUsKhV",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3.5.1",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 194,
+        "column": 16
+      },
+      "end": {
+        "line": 205,
+        "column": 25
+      }
+    }
+  },
+  "-3mH3m3Y": {
+    "xid": "-3mH3m3Y",
+    "file": "src/client/project/panels/SamplesPanel.tsx",
+    "astPath": "2.4.9.1.1.3.5.3",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 206,
+        "column": 16
+      },
+      "end": {
+        "line": 215,
+        "column": 25
+      }
+    }
+  },
+  "_feNJd3E": {
+    "xid": "_feNJd3E",
+    "file": "src/client/project/panels/RightSidebar.tsx",
+    "astPath": "3.1.0",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 13,
+        "column": 4
+      },
+      "end": {
+        "line": 48,
+        "column": 13
+      }
+    }
+  },
+  "L-gD_NFg": {
+    "xid": "L-gD_NFg",
+    "file": "src/client/project/panels/RightSidebar.tsx",
+    "astPath": "3.1.0.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 35,
+        "column": 6
+      },
+      "end": {
+        "line": 35,
+        "column": 68
+      }
+    }
+  },
+  "pOqGPf73": {
+    "xid": "pOqGPf73",
+    "file": "src/client/project/panels/RightSidebar.tsx",
+    "astPath": "3.1.0.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 38,
+        "column": 6
+      },
+      "end": {
+        "line": 47,
+        "column": 12
+      }
+    }
+  },
+  "7qvHBjVo": {
+    "xid": "7qvHBjVo",
+    "file": "src/client/project/panels/RightSidebar.tsx",
+    "astPath": "3.2",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 52,
+        "column": 4
+      },
+      "end": {
+        "line": 80,
+        "column": 10
+      }
+    }
+  },
+  "aNXkskie": {
+    "xid": "aNXkskie",
+    "file": "src/client/project/panels/RightSidebar.tsx",
+    "astPath": "3.2.1",
+    "componentType": "RightSidebarIcon",
+    "loc": {
+      "start": {
+        "line": 59,
+        "column": 6
+      },
+      "end": {
+        "line": 63,
+        "column": 8
+      }
+    }
+  },
+  "RFHSZJ2W": {
+    "xid": "RFHSZJ2W",
+    "file": "src/client/project/panels/RightSidebar.tsx",
+    "astPath": "3.2.1.0",
+    "componentType": "MessageSquare",
+    "loc": {
+      "start": {
+        "line": 60,
+        "column": 14
+      },
+      "end": {
+        "line": 60,
+        "column": 59
+      }
+    }
+  },
+  "SpOmdLUu": {
+    "xid": "SpOmdLUu",
+    "file": "src/client/project/panels/RightSidebar.tsx",
+    "astPath": "3.2.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 66,
+        "column": 6
+      },
+      "end": {
+        "line": 66,
+        "column": 28
+      }
+    }
+  },
+  "_GNVf-FC": {
+    "xid": "_GNVf-FC",
+    "file": "src/client/project/panels/RightSidebar.tsx",
+    "astPath": "3.2.9",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 69,
+        "column": 6
+      },
+      "end": {
+        "line": 79,
+        "column": 15
+      }
+    }
+  },
+  "5yUEtsJK": {
+    "xid": "5yUEtsJK",
+    "file": "src/client/project/panels/RightSidebar.tsx",
+    "astPath": "3.2.9.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 76,
+        "column": 8
+      },
+      "end": {
+        "line": 78,
+        "column": 14
+      }
+    }
+  },
+  "s-esyL1K": {
+    "xid": "s-esyL1K",
+    "file": "src/client/project/panels/RightSidebar.tsx",
+    "astPath": "3.2.9.1.1",
+    "componentType": "EllipsisVertical",
+    "loc": {
+      "start": {
+        "line": 77,
+        "column": 10
+      },
+      "end": {
+        "line": 77,
+        "column": 58
+      }
+    }
+  },
+  "1ywnMqpc": {
+    "xid": "1ywnMqpc",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 21,
+        "column": 4
+      },
+      "end": {
+        "line": 141,
+        "column": 10
+      }
+    }
+  },
+  "WwmqdAJ-": {
+    "xid": "WwmqdAJ-",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 22,
+        "column": 6
+      },
+      "end": {
+        "line": 38,
+        "column": 12
+      }
+    }
+  },
+  "9kovqzre": {
+    "xid": "9kovqzre",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 23,
+        "column": 8
+      },
+      "end": {
+        "line": 37,
+        "column": 14
+      }
+    }
+  },
+  "ds9qjGFl": {
+    "xid": "ds9qjGFl",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.1.1.1",
+    "componentType": "h2",
+    "loc": {
+      "start": {
+        "line": 24,
+        "column": 10
+      },
+      "end": {
+        "line": 26,
+        "column": 15
+      }
+    }
+  },
+  "J2HUdhXW": {
+    "xid": "J2HUdhXW",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.1.1.3",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 27,
+        "column": 10
+      },
+      "end": {
+        "line": 36,
+        "column": 19
+      }
+    }
+  },
+  "V6_hI45m": {
+    "xid": "V6_hI45m",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.1.1.3.1",
+    "componentType": "svg",
+    "loc": {
+      "start": {
+        "line": 32,
+        "column": 12
+      },
+      "end": {
+        "line": 35,
+        "column": 18
+      }
+    }
+  },
+  "P5jS4uqJ": {
+    "xid": "P5jS4uqJ",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.1.1.3.1.1",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 33,
+        "column": 14
+      },
+      "end": {
+        "line": 33,
+        "column": 51
+      }
+    }
+  },
+  "h80ErkSb": {
+    "xid": "h80ErkSb",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.1.1.3.1.3",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 34,
+        "column": 14
+      },
+      "end": {
+        "line": 34,
+        "column": 51
+      }
+    }
+  },
+  "V4pNg2LN": {
+    "xid": "V4pNg2LN",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 40,
+        "column": 6
+      },
+      "end": {
+        "line": 140,
+        "column": 12
+      }
+    }
+  },
+  "TNF9iyJC": {
+    "xid": "TNF9iyJC",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 41,
+        "column": 8
+      },
+      "end": {
+        "line": 139,
+        "column": 15
+      }
+    }
+  },
+  "RI_507CG": {
+    "xid": "RI_507CG",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 52,
+        "column": 10
+      },
+      "end": {
+        "line": 138,
+        "column": 16
+      }
+    }
+  },
+  "B3OYdXI2": {
+    "xid": "B3OYdXI2",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 53,
+        "column": 12
+      },
+      "end": {
+        "line": 71,
+        "column": 18
+      }
+    }
+  },
+  "6eqBqj9L": {
+    "xid": "6eqBqj9L",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 73,
+        "column": 12
+      },
+      "end": {
+        "line": 102,
+        "column": 18
+      }
+    }
+  },
+  "N_CdC-M8": {
+    "xid": "N_CdC-M8",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.1.1",
+    "componentType": "h3",
+    "loc": {
+      "start": {
+        "line": 54,
+        "column": 14
+      },
+      "end": {
+        "line": 56,
+        "column": 19
+      }
+    }
+  },
+  "DGMsi3P_": {
+    "xid": "DGMsi3P_",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 57,
+        "column": 14
+      },
+      "end": {
+        "line": 70,
+        "column": 20
+      }
+    }
+  },
+  "Zw14Z9BC": {
+    "xid": "Zw14Z9BC",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.1.3.1",
+    "componentType": "For",
+    "loc": {
+      "start": {
+        "line": 58,
+        "column": 16
+      },
+      "end": {
+        "line": 69,
+        "column": 22
+      }
+    }
+  },
+  "YdxUlHOa": {
+    "xid": "YdxUlHOa",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.1.3.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 60,
+        "column": 20
+      },
+      "end": {
+        "line": 67,
+        "column": 26
+      }
+    }
+  },
+  "JH4MV7xZ": {
+    "xid": "JH4MV7xZ",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.1.3.1.1.1",
+    "componentType": "label",
+    "loc": {
+      "start": {
+        "line": 61,
+        "column": 22
+      },
+      "end": {
+        "line": 63,
+        "column": 30
+      }
+    }
+  },
+  "5icOso-m": {
+    "xid": "5icOso-m",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.1.3.1.1.3",
+    "componentType": "p",
+    "loc": {
+      "start": {
+        "line": 64,
+        "column": 22
+      },
+      "end": {
+        "line": 66,
+        "column": 26
+      }
+    }
+  },
+  "hfvT67uW": {
+    "xid": "hfvT67uW",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.3.1",
+    "componentType": "h3",
+    "loc": {
+      "start": {
+        "line": 74,
+        "column": 14
+      },
+      "end": {
+        "line": 76,
+        "column": 19
+      }
+    }
+  },
+  "CilQoNht": {
+    "xid": "CilQoNht",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.3.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 77,
+        "column": 14
+      },
+      "end": {
+        "line": 101,
+        "column": 20
+      }
+    }
+  },
+  "plQFoSSK": {
+    "xid": "plQFoSSK",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.3.3.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 81,
+        "column": 16
+      },
+      "end": {
+        "line": 100,
+        "column": 23
+      }
+    }
+  },
+  "P1NXkU9j": {
+    "xid": "P1NXkU9j",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.3.3.1.1",
+    "componentType": "svg",
+    "loc": {
+      "start": {
+        "line": 93,
+        "column": 18
+      },
+      "end": {
+        "line": 99,
+        "column": 24
+      }
+    }
+  },
+  "MAiIjU_a": {
+    "xid": "MAiIjU_a",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.3.3.1.1.1",
+    "componentType": "path",
+    "loc": {
+      "start": {
+        "line": 96,
+        "column": 20
+      },
+      "end": {
+        "line": 96,
+        "column": 47
+      }
+    }
+  },
+  "UqqaAxgp": {
+    "xid": "UqqaAxgp",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.3.3.1.1.3",
+    "componentType": "circle",
+    "loc": {
+      "start": {
+        "line": 97,
+        "column": 20
+      },
+      "end": {
+        "line": 97,
+        "column": 50
+      }
+    }
+  },
+  "mkrXJMTX": {
+    "xid": "mkrXJMTX",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.3.3.1.1.5",
+    "componentType": "circle",
+    "loc": {
+      "start": {
+        "line": 98,
+        "column": 20
+      },
+      "end": {
+        "line": 98,
+        "column": 51
+      }
+    }
+  },
+  "y3V00mR9": {
+    "xid": "y3V00mR9",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 104,
+        "column": 12
+      },
+      "end": {
+        "line": 137,
+        "column": 18
+      }
+    }
+  },
+  "RwhaW7K4": {
+    "xid": "RwhaW7K4",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.5.1",
+    "componentType": "h3",
+    "loc": {
+      "start": {
+        "line": 105,
+        "column": 14
+      },
+      "end": {
+        "line": 107,
+        "column": 19
+      }
+    }
+  },
+  "KyHf8IOW": {
+    "xid": "KyHf8IOW",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.5.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 108,
+        "column": 14
+      },
+      "end": {
+        "line": 136,
+        "column": 20
+      }
+    }
+  },
+  "rB-ImT6n": {
+    "xid": "rB-ImT6n",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.5.3.1",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 109,
+        "column": 16
+      },
+      "end": {
+        "line": 117,
+        "column": 25
+      }
+    }
+  },
+  "AwJ-8Qpe": {
+    "xid": "AwJ-8Qpe",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.5.3.3",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 118,
+        "column": 16
+      },
+      "end": {
+        "line": 126,
+        "column": 25
+      }
+    }
+  },
+  "t1hioiEO": {
+    "xid": "t1hioiEO",
+    "file": "src/client/project/panels/PropertiesPanel.tsx",
+    "astPath": "2.2.3.1.1.5.3.5",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 127,
+        "column": 16
+      },
+      "end": {
+        "line": 135,
+        "column": 25
+      }
+    }
+  },
+  "xsEHCzp1": {
+    "xid": "xsEHCzp1",
+    "file": "src/client/project/panels/PrimarySidebar.tsx",
+    "astPath": "3.1.0",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 9,
+        "column": 4
+      },
+      "end": {
+        "line": 40,
+        "column": 13
+      }
+    }
+  },
+  "MRkUnOur": {
+    "xid": "MRkUnOur",
+    "file": "src/client/project/panels/PrimarySidebar.tsx",
+    "astPath": "3.1.0.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 30,
+        "column": 6
+      },
+      "end": {
+        "line": 39,
+        "column": 12
+      }
+    }
+  },
+  "tmdxNRHJ": {
+    "xid": "tmdxNRHJ",
+    "file": "src/client/project/panels/PrimarySidebar.tsx",
+    "astPath": "3.2",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 44,
+        "column": 4
+      },
+      "end": {
+        "line": 61,
+        "column": 10
+      }
+    }
+  },
+  "gru1-5sU": {
+    "xid": "gru1-5sU",
+    "file": "src/client/project/panels/PrimarySidebar.tsx",
+    "astPath": "3.2.1",
+    "componentType": "NavIcon",
+    "loc": {
+      "start": {
+        "line": 51,
+        "column": 6
+      },
+      "end": {
+        "line": 55,
+        "column": 8
+      }
+    }
+  },
+  "OcxG7hXx": {
+    "xid": "OcxG7hXx",
+    "file": "src/client/project/panels/PrimarySidebar.tsx",
+    "astPath": "3.2.1.0",
+    "componentType": "FolderOpen",
+    "loc": {
+      "start": {
+        "line": 52,
+        "column": 14
+      },
+      "end": {
+        "line": 52,
+        "column": 56
+      }
+    }
+  },
+  "FCTwLxed": {
+    "xid": "FCTwLxed",
+    "file": "src/client/project/panels/PrimarySidebar.tsx",
+    "astPath": "3.2.3",
+    "componentType": "NavIcon",
+    "loc": {
+      "start": {
+        "line": 56,
+        "column": 6
+      },
+      "end": {
+        "line": 60,
+        "column": 8
+      }
+    }
+  },
+  "A32Kz2YG": {
+    "xid": "A32Kz2YG",
+    "file": "src/client/project/panels/PrimarySidebar.tsx",
+    "astPath": "3.2.3.0",
+    "componentType": "Music",
+    "loc": {
+      "start": {
+        "line": 57,
+        "column": 14
+      },
+      "end": {
+        "line": 57,
+        "column": 51
+      }
+    }
+  },
+  "FTvw8Cah": {
+    "xid": "FTvw8Cah",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 8,
+        "column": 4
+      },
+      "end": {
+        "line": 63,
+        "column": 10
+      }
+    }
+  },
+  "4fPu6T8U": {
+    "xid": "4fPu6T8U",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 15,
+        "column": 6
+      },
+      "end": {
+        "line": 62,
+        "column": 13
+      }
+    }
+  },
+  "jw2Tx5i9": {
+    "xid": "jw2Tx5i9",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 29,
+        "column": 10
+      },
+      "end": {
+        "line": 60,
+        "column": 16
+      }
+    }
+  },
+  "t-aVbKzl": {
+    "xid": "t-aVbKzl",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 30,
+        "column": 12
+      },
+      "end": {
+        "line": 53,
+        "column": 18
+      }
+    }
+  },
+  "jr6DqHOj": {
+    "xid": "jr6DqHOj",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1.1.3",
+    "componentType": "h3",
+    "loc": {
+      "start": {
+        "line": 54,
+        "column": 12
+      },
+      "end": {
+        "line": 56,
+        "column": 17
+      }
+    }
+  },
+  "G5fnVBIU": {
+    "xid": "G5fnVBIU",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1.1.1.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 34,
+        "column": 14
+      },
+      "end": {
+        "line": 52,
+        "column": 21
+      }
+    }
+  },
+  "GmKkQAOM": {
+    "xid": "GmKkQAOM",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1.1.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 44,
+        "column": 16
+      },
+      "end": {
+        "line": 51,
+        "column": 22
+      }
+    }
+  },
+  "XX5LPkaY": {
+    "xid": "XX5LPkaY",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1.1.1.1.1.1",
+    "componentType": "svg",
+    "loc": {
+      "start": {
+        "line": 45,
+        "column": 18
+      },
+      "end": {
+        "line": 49,
+        "column": 24
+      }
+    }
+  },
+  "WyrzQjJL": {
+    "xid": "WyrzQjJL",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1.1.1.1.1.1.1",
+    "componentType": "path",
+    "loc": {
+      "start": {
+        "line": 46,
+        "column": 20
+      },
+      "end": {
+        "line": 46,
+        "column": 47
+      }
+    }
+  },
+  "zUwAoV-x": {
+    "xid": "zUwAoV-x",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1.1.1.1.1.1.3",
+    "componentType": "circle",
+    "loc": {
+      "start": {
+        "line": 47,
+        "column": 20
+      },
+      "end": {
+        "line": 47,
+        "column": 50
+      }
+    }
+  },
+  "NRHCLD-O": {
+    "xid": "NRHCLD-O",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1.1.1.1.1.1.5",
+    "componentType": "circle",
+    "loc": {
+      "start": {
+        "line": 48,
+        "column": 20
+      },
+      "end": {
+        "line": 48,
+        "column": 51
+      }
+    }
+  },
+  "rHzSEP1x": {
+    "xid": "rHzSEP1x",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1.1.1.1.1.3",
+    "componentType": "audio",
+    "loc": {
+      "start": {
+        "line": 50,
+        "column": 18
+      },
+      "end": {
+        "line": 50,
+        "column": 71
+      }
+    }
+  },
+  "9krd4svn": {
+    "xid": "9krd4svn",
+    "file": "src/client/project/panels/PreviewPanel.tsx",
+    "astPath": "2.1.1.1.5",
+    "componentType": "p",
+    "loc": {
+      "start": {
+        "line": 57,
+        "column": 12
+      },
+      "end": {
+        "line": 59,
+        "column": 16
+      }
+    }
+  },
+  "8DG0-pgK": {
+    "xid": "8DG0-pgK",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 16,
+        "column": 4
+      },
+      "end": {
+        "line": 294,
+        "column": 10
+      }
+    }
+  },
+  "v_sNfMo_": {
+    "xid": "v_sNfMo_",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 20,
+        "column": 6
+      },
+      "end": {
+        "line": 293,
+        "column": 12
+      }
+    }
+  },
+  "8f9ol7YR": {
+    "xid": "8f9ol7YR",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 21,
+        "column": 8
+      },
+      "end": {
+        "line": 38,
+        "column": 14
+      }
+    }
+  },
+  "SAeoB0Et": {
+    "xid": "SAeoB0Et",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.1.1",
+    "componentType": "h2",
+    "loc": {
+      "start": {
+        "line": 22,
+        "column": 10
+      },
+      "end": {
+        "line": 27,
+        "column": 15
+      }
+    }
+  },
+  "32cHe8CI": {
+    "xid": "32cHe8CI",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.1.3",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 28,
+        "column": 10
+      },
+      "end": {
+        "line": 37,
+        "column": 19
+      }
+    }
+  },
+  "o8LsRRzq": {
+    "xid": "o8LsRRzq",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 40,
+        "column": 8
+      },
+      "end": {
+        "line": 53,
+        "column": 14
+      }
+    }
+  },
+  "AiidmVNm": {
+    "xid": "AiidmVNm",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.3.1",
+    "componentType": "input",
+    "loc": {
+      "start": {
+        "line": 41,
+        "column": 10
+      },
+      "end": {
+        "line": 52,
+        "column": 12
+      }
+    }
+  },
+  "pLhleiJf": {
+    "xid": "pLhleiJf",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 55,
+        "column": 8
+      },
+      "end": {
+        "line": 170,
+        "column": 14
+      }
+    }
+  },
+  "0ymYRtVi": {
+    "xid": "0ymYRtVi",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1",
+    "componentType": "For",
+    "loc": {
+      "start": {
+        "line": 56,
+        "column": 10
+      },
+      "end": {
+        "line": 169,
+        "column": 16
+      }
+    }
+  },
+  "Z0o8kqB5": {
+    "xid": "Z0o8kqB5",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 58,
+        "column": 14
+      },
+      "end": {
+        "line": 167,
+        "column": 20
+      }
+    }
+  },
+  "RFT3a440": {
+    "xid": "RFT3a440",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 69,
+        "column": 16
+      },
+      "end": {
+        "line": 117,
+        "column": 22
+      }
+    }
+  },
+  "KcMHYsMD": {
+    "xid": "KcMHYsMD",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.1.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 73,
+        "column": 18
+      },
+      "end": {
+        "line": 116,
+        "column": 25
+      }
+    }
+  },
+  "5jWqTIT3": {
+    "xid": "5jWqTIT3",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.1.1.1",
+    "componentType": "svg",
+    "loc": {
+      "start": {
+        "line": 103,
+        "column": 20
+      },
+      "end": {
+        "line": 115,
+        "column": 26
+      }
+    }
+  },
+  "w9LKGOvu": {
+    "xid": "w9LKGOvu",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.1.1.1.1",
+    "componentType": "path",
+    "loc": {
+      "start": {
+        "line": 112,
+        "column": 22
+      },
+      "end": {
+        "line": 112,
+        "column": 50
+      }
+    }
+  },
+  "Q_mW_u5V": {
+    "xid": "Q_mW_u5V",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.1.1.1.3",
+    "componentType": "circle",
+    "loc": {
+      "start": {
+        "line": 113,
+        "column": 22
+      },
+      "end": {
+        "line": 113,
+        "column": 53
+      }
+    }
+  },
+  "gf5dGpnu": {
+    "xid": "gf5dGpnu",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.1.1.1.5",
+    "componentType": "circle",
+    "loc": {
+      "start": {
+        "line": 114,
+        "column": 22
+      },
+      "end": {
+        "line": 114,
+        "column": 54
+      }
+    }
+  },
+  "1ZJ8h-yR": {
+    "xid": "1ZJ8h-yR",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.1.1.1.7",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 95,
+        "column": 24
+      },
+      "end": {
+        "line": 95,
+        "column": 63
+      }
+    }
+  },
+  "xmkKOmhm": {
+    "xid": "xmkKOmhm",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.1.1.1.9",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 96,
+        "column": 24
+      },
+      "end": {
+        "line": 96,
+        "column": 60
+      }
+    }
+  },
+  "ICIZTrSa": {
+    "xid": "ICIZTrSa",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.1.1.1.11",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 97,
+        "column": 24
+      },
+      "end": {
+        "line": 97,
+        "column": 62
+      }
+    }
+  },
+  "P0rVf0m_": {
+    "xid": "P0rVf0m_",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.1.1.1.13",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 98,
+        "column": 24
+      },
+      "end": {
+        "line": 98,
+        "column": 64
+      }
+    }
+  },
+  "yIJ88HQ9": {
+    "xid": "yIJ88HQ9",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.1.1.1.15",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 99,
+        "column": 24
+      },
+      "end": {
+        "line": 99,
+        "column": 62
+      }
+    }
+  },
+  "JRZRYO8T": {
+    "xid": "JRZRYO8T",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.3",
+    "componentType": "h3",
+    "loc": {
+      "start": {
+        "line": 118,
+        "column": 16
+      },
+      "end": {
+        "line": 123,
+        "column": 21
+      }
+    }
+  },
+  "wlLpSnIx": {
+    "xid": "wlLpSnIx",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 124,
+        "column": 16
+      },
+      "end": {
+        "line": 140,
+        "column": 22
+      }
+    }
+  },
+  "Ddp1grpP": {
+    "xid": "Ddp1grpP",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.5.1",
+    "componentType": "span",
+    "loc": {
+      "start": {
+        "line": 125,
+        "column": 18
+      },
+      "end": {
+        "line": 130,
+        "column": 25
+      }
+    }
+  },
+  "hx1xfpJl": {
+    "xid": "hx1xfpJl",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.5.3",
+    "componentType": "span",
+    "loc": {
+      "start": {
+        "line": 131,
+        "column": 18
+      },
+      "end": {
+        "line": 139,
+        "column": 25
+      }
+    }
+  },
+  "buX_qd-E": {
+    "xid": "buX_qd-E",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.9",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 143,
+        "column": 16
+      },
+      "end": {
+        "line": 166,
+        "column": 25
+      }
+    }
+  },
+  "7kqTgLOr": {
+    "xid": "7kqTgLOr",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.9.1",
+    "componentType": "svg",
+    "loc": {
+      "start": {
+        "line": 152,
+        "column": 18
+      },
+      "end": {
+        "line": 165,
+        "column": 24
+      }
+    }
+  },
+  "mdbw8WJ_": {
+    "xid": "mdbw8WJ_",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.9.1.1",
+    "componentType": "path",
+    "loc": {
+      "start": {
+        "line": 160,
+        "column": 20
+      },
+      "end": {
+        "line": 160,
+        "column": 40
+      }
+    }
+  },
+  "rDeAv1Op": {
+    "xid": "rDeAv1Op",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.9.1.3",
+    "componentType": "path",
+    "loc": {
+      "start": {
+        "line": 161,
+        "column": 20
+      },
+      "end": {
+        "line": 161,
+        "column": 70
+      }
+    }
+  },
+  "VVf2Tf6x": {
+    "xid": "VVf2Tf6x",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.9.1.5",
+    "componentType": "path",
+    "loc": {
+      "start": {
+        "line": 162,
+        "column": 20
+      },
+      "end": {
+        "line": 162,
+        "column": 67
+      }
+    }
+  },
+  "G3FqLGWP": {
+    "xid": "G3FqLGWP",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.9.1.7",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 163,
+        "column": 20
+      },
+      "end": {
+        "line": 163,
+        "column": 60
+      }
+    }
+  },
+  "1PIB-g_x": {
+    "xid": "1PIB-g_x",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.5.1.1.9.1.9",
+    "componentType": "line",
+    "loc": {
+      "start": {
+        "line": 164,
+        "column": 20
+      },
+      "end": {
+        "line": 164,
+        "column": 60
+      }
+    }
+  },
+  "EQEzZxsP": {
+    "xid": "EQEzZxsP",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.7",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 172,
+        "column": 8
+      },
+      "end": {
+        "line": 192,
+        "column": 15
+      }
+    }
+  },
+  "hyeDDjSu": {
+    "xid": "hyeDDjSu",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.7.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 173,
+        "column": 10
+      },
+      "end": {
+        "line": 191,
+        "column": 16
+      }
+    }
+  },
+  "fk8Gexoj": {
+    "xid": "fk8Gexoj",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.7.1.1",
+    "componentType": "p",
+    "loc": {
+      "start": {
+        "line": 174,
+        "column": 12
+      },
+      "end": {
+        "line": 178,
+        "column": 16
+      }
+    }
+  },
+  "JajjF243": {
+    "xid": "JajjF243",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.7.1.3",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 179,
+        "column": 12
+      },
+      "end": {
+        "line": 190,
+        "column": 19
+      }
+    }
+  },
+  "2gEumx2N": {
+    "xid": "2gEumx2N",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.7.1.3.1",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 180,
+        "column": 14
+      },
+      "end": {
+        "line": 189,
+        "column": 23
+      }
+    }
+  },
+  "GXc6Fdxz": {
+    "xid": "GXc6Fdxz",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 195,
+        "column": 8
+      },
+      "end": {
+        "line": 292,
+        "column": 15
+      }
+    }
+  },
+  "hW6lKKi6": {
+    "xid": "hW6lKKi6",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 196,
+        "column": 10
+      },
+      "end": {
+        "line": 291,
+        "column": 16
+      }
+    }
+  },
+  "Ox8sWXgk": {
+    "xid": "Ox8sWXgk",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 197,
+        "column": 12
+      },
+      "end": {
+        "line": 290,
+        "column": 18
+      }
+    }
+  },
+  "adXY9TdY": {
+    "xid": "adXY9TdY",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.1",
+    "componentType": "h3",
+    "loc": {
+      "start": {
+        "line": 201,
+        "column": 14
+      },
+      "end": {
+        "line": 206,
+        "column": 19
+      }
+    }
+  },
+  "h-XkV_LI": {
+    "xid": "h-XkV_LI",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3",
+    "componentType": "form",
+    "loc": {
+      "start": {
+        "line": 207,
+        "column": 14
+      },
+      "end": {
+        "line": 289,
+        "column": 21
+      }
+    }
+  },
+  "1b6-Ixkg": {
+    "xid": "1b6-Ixkg",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 225,
+        "column": 16
+      },
+      "end": {
+        "line": 244,
+        "column": 22
+      }
+    }
+  },
+  "MATe0Bwd": {
+    "xid": "MATe0Bwd",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3.1.1",
+    "componentType": "label",
+    "loc": {
+      "start": {
+        "line": 226,
+        "column": 18
+      },
+      "end": {
+        "line": 231,
+        "column": 26
+      }
+    }
+  },
+  "3z0e4Af7": {
+    "xid": "3z0e4Af7",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3.1.3",
+    "componentType": "input",
+    "loc": {
+      "start": {
+        "line": 232,
+        "column": 18
+      },
+      "end": {
+        "line": 243,
+        "column": 20
+      }
+    }
+  },
+  "6KOxCQJy": {
+    "xid": "6KOxCQJy",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 245,
+        "column": 16
+      },
+      "end": {
+        "line": 264,
+        "column": 22
+      }
+    }
+  },
+  "WCT6E3Cn": {
+    "xid": "WCT6E3Cn",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3.3.1",
+    "componentType": "label",
+    "loc": {
+      "start": {
+        "line": 246,
+        "column": 18
+      },
+      "end": {
+        "line": 251,
+        "column": 26
+      }
+    }
+  },
+  "fnmGdFhB": {
+    "xid": "fnmGdFhB",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3.3.3",
+    "componentType": "select",
+    "loc": {
+      "start": {
+        "line": 252,
+        "column": 18
+      },
+      "end": {
+        "line": 263,
+        "column": 27
+      }
+    }
+  },
+  "pNIPFoin": {
+    "xid": "pNIPFoin",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3.3.3.1",
+    "componentType": "option",
+    "loc": {
+      "start": {
+        "line": 261,
+        "column": 20
+      },
+      "end": {
+        "line": 261,
+        "column": 56
+      }
+    }
+  },
+  "pbxgShdS": {
+    "xid": "pbxgShdS",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3.3.3.3",
+    "componentType": "option",
+    "loc": {
+      "start": {
+        "line": 262,
+        "column": 20
+      },
+      "end": {
+        "line": 262,
+        "column": 56
+      }
+    }
+  },
+  "r54DlNmC": {
+    "xid": "r54DlNmC",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 265,
+        "column": 16
+      },
+      "end": {
+        "line": 288,
+        "column": 22
+      }
+    }
+  },
+  "q9rGG3oT": {
+    "xid": "q9rGG3oT",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3.5.1",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 266,
+        "column": 18
+      },
+      "end": {
+        "line": 277,
+        "column": 27
+      }
+    }
+  },
+  "OJ7bIZ6m": {
+    "xid": "OJ7bIZ6m",
+    "file": "src/client/project/panels/LibraryPanel.tsx",
+    "astPath": "2.4.1.11.1.1.3.5.3",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 278,
+        "column": 18
+      },
+      "end": {
+        "line": 287,
+        "column": 27
+      }
+    }
+  },
+  "ONm30wF7": {
+    "xid": "ONm30wF7",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 73,
+        "column": 4
+      },
+      "end": {
+        "line": 228,
+        "column": 10
+      }
+    }
+  },
+  "zkEbAVTS": {
+    "xid": "zkEbAVTS",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.3",
+    "componentType": "style",
+    "loc": {
+      "start": {
+        "line": 75,
+        "column": 6
+      },
+      "end": {
+        "line": 80,
+        "column": 16
+      }
+    }
+  },
+  "MNyF88v0": {
+    "xid": "MNyF88v0",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 82,
+        "column": 6
+      },
+      "end": {
+        "line": 227,
+        "column": 12
+      }
+    }
+  },
+  "obRf9eqA": {
+    "xid": "obRf9eqA",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 84,
+        "column": 8
+      },
+      "end": {
+        "line": 123,
+        "column": 14
+      }
+    }
+  },
+  "lTHq9vPK": {
+    "xid": "lTHq9vPK",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 88,
+        "column": 10
+      },
+      "end": {
+        "line": 101,
+        "column": 16
+      }
+    }
+  },
+  "33PonLBg": {
+    "xid": "33PonLBg",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3.1.1",
+    "componentType": "User",
+    "loc": {
+      "start": {
+        "line": 89,
+        "column": 12
+      },
+      "end": {
+        "line": 89,
+        "column": 73
+      }
+    }
+  },
+  "XhWp2IOh": {
+    "xid": "XhWp2IOh",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 90,
+        "column": 12
+      },
+      "end": {
+        "line": 100,
+        "column": 18
+      }
+    }
+  },
+  "_HSBF9gP": {
+    "xid": "_HSBF9gP",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3.1.3.1",
+    "componentType": "h3",
+    "loc": {
+      "start": {
+        "line": 91,
+        "column": 14
+      },
+      "end": {
+        "line": 96,
+        "column": 19
+      }
+    }
+  },
+  "kz2VEXN7": {
+    "xid": "kz2VEXN7",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3.1.3.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 97,
+        "column": 14
+      },
+      "end": {
+        "line": 99,
+        "column": 20
+      }
+    }
+  },
+  "fQjjyJEH": {
+    "xid": "fQjjyJEH",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 103,
+        "column": 10
+      },
+      "end": {
+        "line": 122,
+        "column": 16
+      }
+    }
+  },
+  "DQFRNVrG": {
+    "xid": "DQFRNVrG",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3.3.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 104,
+        "column": 12
+      },
+      "end": {
+        "line": 113,
+        "column": 19
+      }
+    }
+  },
+  "KCVa-CRV": {
+    "xid": "KCVa-CRV",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3.3.1.1",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 105,
+        "column": 14
+      },
+      "end": {
+        "line": 112,
+        "column": 23
+      }
+    }
+  },
+  "7-sqsfbT": {
+    "xid": "7-sqsfbT",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3.3.1.1.1",
+    "componentType": "Trash2",
+    "loc": {
+      "start": {
+        "line": 111,
+        "column": 16
+      },
+      "end": {
+        "line": 111,
+        "column": 36
+      }
+    }
+  },
+  "w53K9lYj": {
+    "xid": "w53K9lYj",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3.3.3",
+    "componentType": "button",
+    "loc": {
+      "start": {
+        "line": 114,
+        "column": 12
+      },
+      "end": {
+        "line": 121,
+        "column": 21
+      }
+    }
+  },
+  "mRGPlteL": {
+    "xid": "mRGPlteL",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.3.3.3.1",
+    "componentType": "X",
+    "loc": {
+      "start": {
+        "line": 120,
+        "column": 14
+      },
+      "end": {
+        "line": 120,
+        "column": 29
+      }
+    }
+  },
+  "yOodcXht": {
+    "xid": "yOodcXht",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 126,
+        "column": 8
+      },
+      "end": {
+        "line": 205,
+        "column": 14
+      }
+    }
+  },
+  "RnchsEmg": {
+    "xid": "RnchsEmg",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 127,
+        "column": 10
+      },
+      "end": {
+        "line": 144,
+        "column": 17
+      }
+    }
+  },
+  "mvKOlgAw": {
+    "xid": "mvKOlgAw",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 128,
+        "column": 12
+      },
+      "end": {
+        "line": 143,
+        "column": 18
+      }
+    }
+  },
+  "k8hPhmR_": {
+    "xid": "k8hPhmR_",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.1.1.1",
+    "componentType": "p",
+    "loc": {
+      "start": {
+        "line": 129,
+        "column": 14
+      },
+      "end": {
+        "line": 134,
+        "column": 18
+      }
+    }
+  },
+  "uGn3WBB3": {
+    "xid": "uGn3WBB3",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.1.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 135,
+        "column": 14
+      },
+      "end": {
+        "line": 142,
+        "column": 20
+      }
+    }
+  },
+  "tvhRxxUW": {
+    "xid": "tvhRxxUW",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.1.1.3.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 139,
+        "column": 16
+      },
+      "end": {
+        "line": 139,
+        "column": 51
+      }
+    }
+  },
+  "YWrvPpDE": {
+    "xid": "YWrvPpDE",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.1.1.3.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 140,
+        "column": 16
+      },
+      "end": {
+        "line": 140,
+        "column": 46
+      }
+    }
+  },
+  "1tcOOgcq": {
+    "xid": "1tcOOgcq",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.1.1.3.5",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 141,
+        "column": 16
+      },
+      "end": {
+        "line": 141,
+        "column": 56
+      }
+    }
+  },
+  "TJuIIwj4": {
+    "xid": "TJuIIwj4",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.3",
+    "componentType": "For",
+    "loc": {
+      "start": {
+        "line": 146,
+        "column": 10
+      },
+      "end": {
+        "line": 174,
+        "column": 16
+      }
+    }
+  },
+  "xh3EVBHT": {
+    "xid": "xh3EVBHT",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.3.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 148,
+        "column": 14
+      },
+      "end": {
+        "line": 172,
+        "column": 20
+      }
+    }
+  },
+  "YGF012pe": {
+    "xid": "YGF012pe",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.3.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 151,
+        "column": 16
+      },
+      "end": {
+        "line": 171,
+        "column": 22
+      }
+    }
+  },
+  "7gAu9GGY": {
+    "xid": "7gAu9GGY",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.3.1.1.1",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 154,
+        "column": 18
+      },
+      "end": {
+        "line": 164,
+        "column": 25
+      }
+    }
+  },
+  "rPDj1lsP": {
+    "xid": "rPDj1lsP",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.3.1.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 155,
+        "column": 20
+      },
+      "end": {
+        "line": 163,
+        "column": 22
+      }
+    }
+  },
+  "Oz5I8rgH": {
+    "xid": "Oz5I8rgH",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.3.1.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 165,
+        "column": 18
+      },
+      "end": {
+        "line": 170,
+        "column": 24
+      }
+    }
+  },
+  "6SBEgdms": {
+    "xid": "6SBEgdms",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.3.1.1.3.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 169,
+        "column": 20
+      },
+      "end": {
+        "line": 169,
+        "column": 76
+      }
+    }
+  },
+  "MNeOsSRK": {
+    "xid": "MNeOsSRK",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.5",
+    "componentType": "Show",
+    "loc": {
+      "start": {
+        "line": 176,
+        "column": 10
+      },
+      "end": {
+        "line": 202,
+        "column": 17
+      }
+    }
+  },
+  "u9mfpRIJ": {
+    "xid": "u9mfpRIJ",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.5.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 177,
+        "column": 12
+      },
+      "end": {
+        "line": 201,
+        "column": 18
+      }
+    }
+  },
+  "o2Wklt91": {
+    "xid": "o2Wklt91",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.5.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 178,
+        "column": 14
+      },
+      "end": {
+        "line": 200,
+        "column": 20
+      }
+    }
+  },
+  "SHVPTOFP": {
+    "xid": "SHVPTOFP",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.5.1.1.1",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 179,
+        "column": 16
+      },
+      "end": {
+        "line": 182,
+        "column": 18
+      }
+    }
+  },
+  "hSx2xEeG": {
+    "xid": "hSx2xEeG",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.5.1.1.3",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 183,
+        "column": 16
+      },
+      "end": {
+        "line": 199,
+        "column": 22
+      }
+    }
+  },
+  "dkx-2wtH": {
+    "xid": "dkx-2wtH",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.5.1.1.3.1",
+    "componentType": "span",
+    "loc": {
+      "start": {
+        "line": 184,
+        "column": 18
+      },
+      "end": {
+        "line": 192,
+        "column": 25
+      }
+    }
+  },
+  "0bgoT5Cp": {
+    "xid": "0bgoT5Cp",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.5.1.1.3.3",
+    "componentType": "span",
+    "loc": {
+      "start": {
+        "line": 193,
+        "column": 18
+      },
+      "end": {
+        "line": 198,
+        "column": 25
+      }
+    }
+  },
+  "X4MmciJt": {
+    "xid": "X4MmciJt",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.7.7",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 204,
+        "column": 10
+      },
+      "end": {
+        "line": 204,
+        "column": 38
+      }
+    }
+  },
+  "4mn_7bhY": {
+    "xid": "4mn_7bhY",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.11",
+    "componentType": "div",
+    "loc": {
+      "start": {
+        "line": 208,
+        "column": 8
+      },
+      "end": {
+        "line": 226,
+        "column": 14
+      }
+    }
+  },
+  "qT7AndlW": {
+    "xid": "qT7AndlW",
+    "file": "src/client/project/panels/AssistantPanel.tsx",
+    "astPath": "6.9.5.11.1",
+    "componentType": "textarea",
+    "loc": {
+      "start": {
+        "line": 212,
+        "column": 10
+      },
+      "end": {
+        "line": 225,
+        "column": 12
+      }
+    }
+  }
+}

@@ -20,11 +20,11 @@ interface User {
 }
 
 const authClient = createAuthClient({
-  baseURL: window.location.origin,
+  baseURL: window.location.origin
 });
 
 // Main Project component that uses the context
-function ProjectCore(props: { user: User }) {
+function ProjectCore(props: {user: User;}) {
   const { store, actions } = useProject();
 
   return (
@@ -33,36 +33,36 @@ function ProjectCore(props: { user: User }) {
       style={{
         "overscroll-behavior": "contain",
         background: "var(--color-bg-primary)",
-        color: "var(--color-text-primary)",
-      }}
-    >
+        color: "var(--color-text-primary)"
+      }} data-xid="IqpEBJJM">
+
       {/* Main Layout */}
-      <div class="flex h-full overflow-hidden">
+      <div class="flex h-full overflow-hidden" data-xid="Xpwtqq0w">
         {/* Icon Navigation Sidebar */}
-        <PrimarySidebar />
+        <PrimarySidebar data-xid="hnBFba_d" />
 
         {/* Main Content Area */}
-        <div class="flex-1 flex h-full overflow-hidden">
+        <div class="flex-1 flex h-full overflow-hidden" data-xid="mOEoJn7D">
           {/* Center Panel */}
           <div
             class="flex-1 flex flex-col h-full overflow-hidden"
-            style={{ background: "var(--color-bg-primary)" }}
-          >
+            style={{ background: "var(--color-bg-primary)" }} data-xid="g2VDNHQi">
+
             {/* Toolbar */}
-            <ToolbarPanel />
+            <ToolbarPanel data-xid="EJTPKfrt" />
 
             {/* Main content area */}
             <div
               class="h-full flex flex-col relative overflow-auto custom-scrollbar"
-              style={{ height: "calc(100% - 56px)" }}
-            >
-              <Switch>
-                <Match when={store.viewMode === "library"}>
-                  <LibraryPanel />
+              style={{ height: "calc(100% - 56px)" }} data-xid="Bk1V_N_d">
+
+              <Switch data-xid="RpO5NuJz">
+                <Match when={store.viewMode === "library"} data-xid="_2e5lbH1">
+                  <LibraryPanel data-xid="UXobIx3C" />
                 </Match>
-                <Match when={store.viewMode === "editor"}>
-                  <div class="flex-1 flex flex-col">
-                    <PreviewPanel />
+                <Match when={store.viewMode === "editor"} data-xid="9Fx_8_GF">
+                  <div class="flex-1 flex flex-col" data-xid="aSsj2GMF">
+                    <PreviewPanel data-xid="IDGdbtRj" />
                   </div>
                 </Match>
               </Switch>
@@ -70,8 +70,8 @@ function ProjectCore(props: { user: User }) {
           </div>
 
           {/* Unified Right Sidebar */}
-          <div class="flex">
-            <RightSidebar />
+          <div class="flex" data-xid="3bI0ZixC">
+            <RightSidebar data-xid="VTu-HR-E" />
 
             {/* Unified Sidebar Container - Only animates on open/close */}
             <div
@@ -79,21 +79,21 @@ function ProjectCore(props: { user: User }) {
               style={{
                 width: store.sidebarShown ? `${store.sidebarWidth}px` : "0px",
                 "border-color": "var(--color-border)",
-                background: "var(--color-bg-surface-primary)",
-              }}
-            >
-              <Show when={store.sidebarShown === "properties"}>
-                <PropertiesPanel />
+                background: "var(--color-bg-surface-primary)"
+              }} data-xid="61SPlCRF">
+
+              <Show when={store.sidebarShown === "properties"} data-xid="XX_aoggE">
+                <PropertiesPanel data-xid="2rWxa1HX" />
               </Show>
-              <Show when={store.sidebarShown === "assistant"}>
-                <AssistantPanel />
+              <Show when={store.sidebarShown === "assistant"} data-xid="0iSdsT-T">
+                <AssistantPanel data-xid="_2L4t-8w" />
               </Show>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }
 
 export default function ProjectApp() {
@@ -107,42 +107,42 @@ export default function ProjectApp() {
 
   return (
     <>
-      <Switch>
-        <Match when={session().isPending}>
-          <div class="loading-overlay">
-            <div class="spinner" />
+      <Switch data-xid="Oy3G19hb">
+        <Match when={session().isPending} data-xid="HaQ6qCQ8">
+          <div class="loading-overlay" data-xid="AX48APJU">
+            <div class="spinner" data-xid="HteJBZ0B" />
           </div>
         </Match>
 
-        <Match when={session()?.data}>
+        <Match when={session()?.data} data-xid="KalLUdQH">
           <Show
             when={projectId()}
             fallback={
-              <div class="error-overlay">
-                <div class="error-card">
-                  <h2>Invalid Project URL</h2>
-                  <p>
+            <div class="error-overlay" data-xid="3iIHGin1">
+                <div class="error-card" data-xid="cfjfX02d">
+                  <h2 data-xid="JGEsZACw">Invalid Project URL</h2>
+                  <p data-xid="60puPxlg">
                     Please navigate to a specific project from the{" "}
-                    <a href="/">project selection page</a>.
+                    <a href="/" data-xid="5hMZqKWX">project selection page</a>.
                   </p>
                 </div>
               </div>
-            }
-          >
+            } data-xid="_spLrqWW">
+
             <ProjectProvider
               projectId={projectId()!}
-              projectName="Sample Project"
-            >
-              <ProjectCore user={session()!.data!.user as User} />
+              projectName="Sample Project" data-xid="3iIHGin1">
+
+              <ProjectCore user={session()!.data!.user as User} data-xid="cfjfX02d" />
             </ProjectProvider>
           </Show>
         </Match>
 
-        <Match when={!session()?.data && !session().isPending}>
-          {(window.location.href = "/")}
-          <div>Redirecting...</div>
+        <Match when={!session()?.data && !session().isPending} data-xid="3Z7neO3G">
+          {window.location.href = "/"}
+          <div data-xid="-DyhxzLF">Redirecting...</div>
         </Match>
       </Switch>
-    </>
-  );
+    </>);
+
 }
