@@ -1,24 +1,26 @@
 import { createSignal, Show, Match, Switch } from "solid-js";
 import { createAuthClient } from "better-auth/solid";
+import { anonymousClient } from "better-auth/client/plugins";
 import ProjectSelector from "./ProjectSelector";
 
 const authClient = createAuthClient({
-  baseURL: window.location.origin
+  baseURL: window.location.origin,
+  plugins: [
+    anonymousClient()
+  ]
 });
 
 export default function Homescreen() {
   const session = authClient.useSession();
   const [error, setError] = createSignal<string>("");
 
-  const loginWithGoogle = async () => {
+  const loginAnonymously = async () => {
     try {
-      await authClient.signIn.social({
-        provider: "google"
-      });
+      await authClient.signIn.anonymous();
       setError("");
     } catch (error) {
-      console.error("Google login error:", error);
-      setError("Google login failed: " + (error as Error).message);
+      console.error("Anonymous login error:", error);
+      setError("Anonymous login failed: " + (error as Error).message);
     }
   };
 
@@ -129,10 +131,10 @@ export default function Homescreen() {
                   you make yours. Ride the wave, while you can.
                 </p>
                 <button
-                  onClick={loginWithGoogle}
+                  onClick={loginAnonymously}
                   class="cursor-pointer w-full px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl" data-xid="zinfNAdg">
 
-                  Sign in with Google
+                  Try Anonymously
                 </button>
               </div>
             </div>
