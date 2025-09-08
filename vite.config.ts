@@ -33,7 +33,7 @@ export default defineConfig({
     // Allow Fly.io domains and localhost
     hmr: {
       port: 8787,
-      host: 'zaira-agent.fly.dev',
+      host: process.env.HMR_HOST || "localhost",
     },
     proxy: {
       "/api": {
