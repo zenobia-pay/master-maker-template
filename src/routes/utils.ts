@@ -35,7 +35,7 @@ export function send<S extends z.ZodTypeAny>(
   status: ContentfulStatusCode
 ) {
   // Runtime assert- disabled in production
-  if (c.env.BASE_URL.includes("localhost")) {
+  if (c.env.BASE_URL && c.env.BASE_URL.includes("localhost")) {
     try {
       schema.parse(data);
     } catch (error) {
