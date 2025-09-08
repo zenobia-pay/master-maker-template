@@ -28,7 +28,8 @@ export default defineConfig({
     },
   },
   server: {
-    host: '0.0.0.0',  // Allow external connections
+    host: true,
+    allowedHosts: "all",
     port: 8787,
     // Allow Fly.io domains and localhost
     hmr: {
