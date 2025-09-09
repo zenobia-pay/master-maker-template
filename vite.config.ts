@@ -29,10 +29,10 @@ export default defineConfig({
   },
   server: {
     host: true,
-    port: 8787,
+    port: 3000,
     // Allow Fly.io domains and localhost
     hmr: {
-      port: 8787,
+      port: 3000,
       host: process.env.HMR_HOST || "localhost",
     },
     proxy: {
