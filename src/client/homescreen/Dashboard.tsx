@@ -72,7 +72,7 @@ export default function Dashboard() {
     const userData = session()?.data?.user;
     // Check if user has admin role (from email whitelist)
     const userWithRole = userData as { role?: string } | undefined;
-    console.log("Got use role", userWithRole?.role);
+    console.log("Got use roler", userWithRole?.role);
     return userData && userWithRole?.role === "admin";
   };
 
@@ -128,17 +128,12 @@ export default function Dashboard() {
     }
   };
 
-  // Redirect to login if not authenticated
-  createEffect(() => {
-    console.log("Session data", session()?.data?.user);
-    if (!session().isPending && session().data == null) {
-      window.location.href = "/login/";
-    }
-  });
-
   return (
     <div class="min-h-screen font-manrope">
       <SidebarProvider defaultOpen={true}>
+        <Show when={!session().isPending && session().data == null}>
+          {(window.location.href = "/login/")}
+        </Show>
         <Sidebar side="left" variant="sidebar" collapsible="offcanvas">
           <SidebarHeader>
             <Show

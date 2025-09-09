@@ -76,26 +76,18 @@ export default function LoginPage() {
     }
   };
 
-  // Redirect to dashboard if already authenticated
-  createEffect(() => {
-    if (session() && !session().isPending && session().data?.user) {
-      window.location.href = "/dashboard/";
-    }
-  });
-
   return (
     <div class="h-screen font-manrope overflow-hidden">
+      <Show when={!session().isPending && session().data != null}>
+        {(window.location.href = "/dashboard/")}
+      </Show>
       <Dialog open={!!error()} onOpenChange={() => setError("")}>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Authentication Error</DialogTitle>
             <DialogDescription>{error()}</DialogDescription>
           </DialogHeader>
-          <Button
-            onClick={() => setError("")}
-            class="w-full"
-            variant="outline"
-          >
+          <Button onClick={() => setError("")} class="w-full" variant="outline">
             Close
           </Button>
         </DialogContent>
