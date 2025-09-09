@@ -41,7 +41,8 @@ function createAuth(
         baseURL: env?.BASE_URL,
         secret: env?.BETTER_AUTH_SECRET,
         emailAndPassword: {
-          enabled: false,
+          enabled: true,
+          requireEmailVerification: false,
         },
         socialProviders: {
           google: {

@@ -61,5 +61,10 @@ app.all("/api/auth/*", async (c) => {
 app.route("/api", editorRoutes);
 app.route("/api/projects", projectRoutes);
 
+// Add 404 route
+app.get("*", (c) => {
+  return c.html("<div>404 - Page Not Found :/</div>");
+});
+
 export default app;
 export { UserShard } from "./durable-objects/user-shard/UserShard";
