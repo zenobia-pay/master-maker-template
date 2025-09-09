@@ -3,9 +3,7 @@ import solid from "vite-plugin-solid";
 import path, { resolve } from "path";
 
 export default defineConfig({
-  plugins: [
-    solid(),
-  ],
+  plugins: [solid()],
   appType: "mpa",
   root: "src/client",
   publicDir: "../../public",
@@ -16,7 +14,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "src/client/index.html"),
-        project: resolve(__dirname, "src/client/project/index.html"),
         dashboard: resolve(__dirname, "src/client/dashboard/index.html"),
         login: resolve(__dirname, "src/client/login/index.html"),
       },

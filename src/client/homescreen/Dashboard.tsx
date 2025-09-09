@@ -36,11 +36,82 @@ const authClient = createAuthClient({
   baseURL: window.location.origin,
 });
 
+function DashboardSkeleton() {
+  return (
+    <div class="min-h-screen font-manrope">
+      <SidebarProvider defaultOpen={true}>
+        <Sidebar side="left" variant="sidebar" collapsible="offcanvas">
+          <SidebarHeader class="p-4">
+            <Flex alignItems="center" justifyContent="start" class="gap-3">
+              <Skeleton class="w-8 h-8 rounded" />
+              <div>
+                <Skeleton class="h-5 w-24 mb-1" />
+                <Skeleton class="h-3 w-20" />
+              </div>
+            </Flex>
+          </SidebarHeader>
+
+          <SidebarContent class="flex-1 p-2">
+            <SidebarMenu>
+              <Skeleton class="h-8 w-full mx-2 mb-1" />
+              <Skeleton class="h-8 w-full mx-2 mb-1" />
+              <Skeleton class="h-8 w-full mx-2 mb-1" />
+              <Skeleton class="h-8 w-full mx-2 mb-1" />
+            </SidebarMenu>
+          </SidebarContent>
+
+          <SidebarFooter class="border-t p-4">
+            <Flex alignItems="center" justifyContent="between" class="gap-3">
+              <Flex
+                alignItems="center"
+                justifyContent="start"
+                class="gap-3 flex-1 min-w-0"
+              >
+                <Skeleton class="w-8 h-8 rounded-full flex-shrink-0" />
+                <div class="space-y-1 min-w-0 flex-1">
+                  <Skeleton class="h-3 w-20" />
+                  <Skeleton class="h-3 w-16" />
+                </div>
+              </Flex>
+              <Skeleton class="h-8 w-8 rounded flex-shrink-0" />
+            </Flex>
+          </SidebarFooter>
+        </Sidebar>
+
+        <SidebarInset>
+          <header class="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+            <SidebarTrigger class="-ml-1" />
+            <Separator orientation="vertical" class="mr-2 h-4" />
+            <Flex alignItems="center" justifyContent="start" class="gap-2">
+              <Skeleton class="h-4 w-16" />
+              <span class="text-sm text-muted-foreground">/</span>
+              <Skeleton class="h-4 w-12" />
+            </Flex>
+          </header>
+
+          <div class="p-6">
+            <div class="space-y-4">
+              <Skeleton class="h-8 w-48" />
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <Skeleton class="h-32 w-full" />
+                <Skeleton class="h-32 w-full" />
+                <Skeleton class="h-32 w-full" />
+                <Skeleton class="h-32 w-full" />
+              </div>
+              <Skeleton class="h-64 w-full" />
+            </div>
+          </div>
+        </SidebarInset>
+      </SidebarProvider>
+    </div>
+  );
+}
+
 function DashboardContent() {
   const dashboard = useDashboard();
   const { store, actions } = dashboard;
 
-  // Check if current user has admin role
+  // Get user session
   const session = authClient.useSession();
 
   const isAdmin = () => {
@@ -60,13 +131,6 @@ function DashboardContent() {
     }
   };
 
-  // Redirect to login if not authenticated
-  createEffect(() => {
-    if (session() && !session().isPending && !session().data?.user) {
-      window.location.href = "/login/";
-    }
-  });
-
   const sidebarItems = [
     { id: "overview", label: "Overview" },
     { id: "orders", label: "Orders" },
@@ -79,15 +143,7 @@ function DashboardContent() {
       <SidebarProvider defaultOpen={true}>
         <Sidebar side="left" variant="sidebar" collapsible="offcanvas">
           <SidebarHeader class="p-4">
-            <Show
-              when={session() && !session().isPending}
-              fallback={
-                <Flex alignItems="center" class="gap-3">
-                  <Skeleton class="w-8 h-8 rounded" />
-                  <Skeleton class="h-5 w-24" />
-                </Flex>
-              }
-            >
+            <Show when={store.user}>
               <Flex alignItems="center" justifyContent="start" class="gap-3">
                 <Icon path={buildingStorefront} class="w-8 h-8 text-primary" />
                 <div>
@@ -102,17 +158,7 @@ function DashboardContent() {
 
           <SidebarContent class="flex-1 p-2">
             <SidebarMenu>
-              <Show
-                when={session() && !session().isPending}
-                fallback={
-                  <>
-                    <Skeleton class="h-8 w-full mx-2 mb-1" />
-                    <Skeleton class="h-8 w-full mx-2 mb-1" />
-                    <Skeleton class="h-8 w-full mx-2 mb-1" />
-                    <Skeleton class="h-8 w-full mx-2 mb-1" />
-                  </>
-                }
-              >
+              <Show when={session() && !session().isPending}>
                 <For each={sidebarItems}>
                   {(item) => (
                     <SidebarMenuItem>
@@ -145,18 +191,7 @@ function DashboardContent() {
           </SidebarContent>
 
           <SidebarFooter class="border-t p-4">
-            <Show
-              when={session() && !session().isPending}
-              fallback={
-                <Flex alignItems="center" class="gap-3">
-                  <Skeleton class="w-8 h-8 rounded-full" />
-                  <div class="space-y-1">
-                    <Skeleton class="h-3 w-20" />
-                    <Skeleton class="h-3 w-16" />
-                  </div>
-                </Flex>
-              }
-            >
+            <Show when={session() && !session().isPending}>
               <Flex alignItems="center" justifyContent="between" class="gap-3">
                 <Flex
                   alignItems="center"
@@ -196,16 +231,7 @@ function DashboardContent() {
           <header class="flex h-16 shrink-0 items-center gap-2 border-b px-4">
             <SidebarTrigger class="-ml-1" />
             <Separator orientation="vertical" class="mr-2 h-4" />
-            <Show
-              when={session() && !session().isPending}
-              fallback={
-                <Flex alignItems="center" justifyContent="start" class="gap-2">
-                  <Skeleton class="h-4 w-16" />
-                  <span class="text-sm text-muted-foreground">/</span>
-                  <Skeleton class="h-4 w-12" />
-                </Flex>
-              }
-            >
+            <Show when={session() && !session().isPending}>
               <Flex alignItems="center" justifyContent="start" class="gap-2">
                 <span class="text-sm text-muted-foreground">Merchant</span>
                 <span class="text-sm text-muted-foreground">/</span>
@@ -217,21 +243,7 @@ function DashboardContent() {
           </header>
 
           <div class="p-6">
-            <Show
-              when={!store.isLoading}
-              fallback={
-                <div class="space-y-4">
-                  <Skeleton class="h-8 w-48" />
-                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <Skeleton class="h-32 w-full" />
-                    <Skeleton class="h-32 w-full" />
-                    <Skeleton class="h-32 w-full" />
-                    <Skeleton class="h-32 w-full" />
-                  </div>
-                  <Skeleton class="h-64 w-full" />
-                </div>
-              }
-            >
+            <Show when={!store.isLoading}>
               <Switch fallback={<OverviewView />}>
                 <Match when={store.currentView === "overview"}>
                   <OverviewView />
@@ -267,9 +279,31 @@ export default function Dashboard() {
     }
   });
 
+  const session = authClient.useSession();
+
   return (
-    <DashboardProvider initialData={dashboardData()}>
-      <DashboardContent />
-    </DashboardProvider>
+    <Show
+      when={session() && !session().isPending && !dashboardData.loading}
+      fallback={<DashboardSkeleton />}
+    >
+      <Show
+        when={session().data?.user}
+        fallback={
+          <div>
+            {(() => {
+              window.location.href = "/login/";
+              return "Redirecting...";
+            })()}
+          </div>
+        }
+      >
+        <DashboardProvider
+          initialData={dashboardData()!}
+          user={session()!.data!.user!}
+        >
+          <DashboardContent />
+        </DashboardProvider>
+      </Show>
+    </Show>
   );
 }
