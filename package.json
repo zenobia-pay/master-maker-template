@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"pnpx vite dev --host 0.0.0.0 --port 8787\" \"wrangler dev --port 9999 --ip 0.0.0.0\"",
+    "dev": "concurrently \"pnpx vite dev --host 0.0.0.0 --port 3000\" \"wrangler dev --port 9999 --ip 0.0.0.0\"",
     "dev:client": "vite",
     "build": "pnpm run build:client",
     "build:client": "vite build",
