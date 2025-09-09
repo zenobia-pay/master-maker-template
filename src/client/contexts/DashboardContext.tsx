@@ -11,14 +11,13 @@ import {
 import { createStore, type SetStoreFunction } from "solid-js/store";
 import { AutosaveService } from "../services/AutosaveService";
 import type { DashboardEvent } from "@shared/types/events";
-import type { Order, Transaction, MerchantSettings, DashboardStats, MerchantUser, DashboardView } from "@shared/types/merchant";
+import type { Order, Transaction, MerchantSettings, DashboardStats, DashboardView } from "@shared/types/merchant";
 import type { LoadDashboardResponse } from "@shared/types/request-response-schemas";
 import { processDashboardEventQueue } from "../editor/dashboardEventProcessor";
 import { apiClient } from "../utils/api/client";
 
 export interface DashboardStore {
   // Merchant data
-  user: MerchantUser | null;
   orders: Order[];
   transactions: Transaction[];
   settings: MerchantSettings | null;
@@ -112,7 +111,6 @@ export const DashboardProvider: ParentComponent<DashboardProviderProps> = (props
   // Initialize store with default values or initialData
   const [store, setStore] = createStore<DashboardStore>({
     // Merchant data
-    user: null,
     orders: props.initialData?.orders || [],
     transactions: props.initialData?.transactions || [],
     settings: props.initialData?.settings || null,

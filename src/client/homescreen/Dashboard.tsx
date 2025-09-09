@@ -25,6 +25,9 @@ import { Button } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
 import { Skeleton } from "~/components/ui/skeleton";
 import { Avatar, AvatarFallback } from "~/components/ui/avatar";
+import { Icon } from "solid-heroicons";
+import { buildingStorefront } from "solid-heroicons/solid";
+import { arrowRightOnRectangle } from "solid-heroicons/outline";
 import OverviewView from "./views/OverviewView";
 import SettingsView from "./views/SettingsView";
 import { apiClient } from "../utils/api/client";
@@ -75,7 +78,7 @@ function DashboardContent() {
     <div class="min-h-screen font-manrope">
       <SidebarProvider defaultOpen={true}>
         <Sidebar side="left" variant="sidebar" collapsible="offcanvas">
-          <SidebarHeader class="border-b p-4">
+          <SidebarHeader class="p-4">
             <Show
               when={session() && !session().isPending}
               fallback={
@@ -85,10 +88,8 @@ function DashboardContent() {
                 </Flex>
               }
             >
-              <Flex alignItems="center" class="gap-3">
-                <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <div class="w-4 h-4 rounded bg-primary" />
-                </div>
+              <Flex alignItems="center" justifyContent="start" class="gap-3">
+                <Icon path={buildingStorefront} class="w-8 h-8 text-primary" />
                 <div>
                   <h2 class="text-lg font-semibold">
                     {store.settings?.businessName || "Dashboard"}
@@ -156,41 +157,35 @@ function DashboardContent() {
                 </Flex>
               }
             >
-              <Flex alignItems="center" class="gap-3">
-                <Avatar class="w-8 h-8">
-                  <AvatarFallback class="text-xs">
-                    {session()?.data?.user?.name?.[0]?.toUpperCase() ||
-                      session()?.data?.user?.email?.[0]?.toUpperCase() ||
-                      "U"}
-                  </AvatarFallback>
-                </Avatar>
-                <div class="flex-1 space-y-1">
-                  <p class="text-sm font-medium leading-none">
-                    {session()?.data?.user?.name || "User"}
-                  </p>
-                  <p class="text-xs text-muted-foreground">
-                    {session()?.data?.user?.email}
-                  </p>
-                </div>
+              <Flex alignItems="center" justifyContent="between" class="gap-3">
+                <Flex
+                  alignItems="center"
+                  justifyContent="start"
+                  class="gap-3 flex-1 min-w-0"
+                >
+                  <Avatar class="w-8 h-8 flex-shrink-0">
+                    <AvatarFallback class="text-xs">
+                      {session()?.data?.user?.name?.[0]?.toUpperCase() ||
+                        session()?.data?.user?.email?.[0]?.toUpperCase() ||
+                        "U"}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div class="space-y-1 min-w-0 flex-1">
+                    <p class="text-sm font-medium leading-none truncate">
+                      {session()?.data?.user?.name || "User"}
+                    </p>
+                    <p class="text-xs text-muted-foreground truncate">
+                      {session()?.data?.user?.email}
+                    </p>
+                  </div>
+                </Flex>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={logout}
-                  class="h-8 w-8 p-0 text-muted-foreground hover:text-foreground"
+                  class="h-8 w-8 p-0 text-muted-foreground hover:text-foreground flex-shrink-0"
                 >
-                  <svg
-                    class="h-4 w-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                    />
-                  </svg>
+                  <Icon path={arrowRightOnRectangle} class="h-4 w-4" />
                 </Button>
               </Flex>
             </Show>
@@ -204,14 +199,14 @@ function DashboardContent() {
             <Show
               when={session() && !session().isPending}
               fallback={
-                <Flex alignItems="center" class="gap-2">
+                <Flex alignItems="center" justifyContent="start" class="gap-2">
                   <Skeleton class="h-4 w-16" />
                   <span class="text-sm text-muted-foreground">/</span>
                   <Skeleton class="h-4 w-12" />
                 </Flex>
               }
             >
-              <Flex alignItems="center" class="gap-2">
+              <Flex alignItems="center" justifyContent="start" class="gap-2">
                 <span class="text-sm text-muted-foreground">Merchant</span>
                 <span class="text-sm text-muted-foreground">/</span>
                 <h1 class="text-sm font-semibold capitalize">

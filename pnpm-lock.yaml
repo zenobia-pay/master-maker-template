@@ -62,12 +62,12 @@ importers:
       lucide-react:
         specifier: ^0.543.0
         version: 0.543.0(react@19.1.1)
-      lucide-solid:
-        specifier: ^0.542.0
-        version: 0.542.0(solid-js@1.9.9)
       nanoid:
         specifier: ^5.0.7
         version: 5.1.5
+      solid-heroicons:
+        specifier: ^3.2.4
+        version: 3.2.4(solid-js@1.9.9)
       solid-js:
         specifier: 1.9.9
         version: 1.9.9
@@ -2488,11 +2488,6 @@ packages:
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  lucide-solid@0.542.0:
-    resolution: {integrity: sha512-cMy0fZu9TEEm1IIP3BIXBJd07xJGeAYNebIE1Zti+7cnv1hJcHoNZx4+D2tHZIYKILoSB/Rhs5M0vdKzQTU33g==}
-    peerDependencies:
-      solid-js: ^1.4.7
-
   magic-string@0.30.18:
     resolution: {integrity: sha512-yi8swmWbO17qHhwIBNeeZxTceJMeBvWJaId6dyvTSOwTipqeHhMhOrz6513r1sOKnpvQ7zkhlG8tPrpilwTxHQ==}
 
@@ -2763,6 +2758,11 @@ packages:
     resolution: {integrity: sha512-LTyNki6GUJPRLXV5uMWPkYClB07SUMubbr2EkAddiR0CJCF/I283txilMU9RURSr/P8EewMfXWu2o3aWrK7A5A==}
     peerDependencies:
       solid-js: ^1.8
+
+  solid-heroicons@3.2.4:
+    resolution: {integrity: sha512-u6BMdFLvkJnvUGYzdFcWp1wvJ4hb9Y1zd3AbZ9D3bUmmiy9jBzNZX+RcqBCI2EKRvdQwAb1UB9bkESfqfhayDg==}
+    peerDependencies:
+      solid-js: '>= ^1.2.5'
 
   solid-js@1.9.9:
     resolution: {integrity: sha512-A0ZBPJQldAeGCTW0YRYJmt7RCeh5rbFfPZ2aOttgYnctHE7HgKeHCBB/PVc2P7eOfmNXqMFFFoYYdm3S4dcbkA==}
@@ -5446,10 +5446,6 @@ snapshots:
     dependencies:
       react: 19.1.1
 
-  lucide-solid@0.542.0(solid-js@1.9.9):
-    dependencies:
-      solid-js: 1.9.9
-
   magic-string@0.30.18:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -5715,6 +5711,10 @@ snapshots:
   solid-focus-trap@0.1.9(solid-js@1.9.9):
     dependencies:
       '@corvu/utils': 0.4.2(solid-js@1.9.9)
+      solid-js: 1.9.9
+
+  solid-heroicons@3.2.4(solid-js@1.9.9):
+    dependencies:
       solid-js: 1.9.9
 
   solid-js@1.9.9:
