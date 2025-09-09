@@ -3,47 +3,110 @@ import { sqliteTable, text, integer, real } from "drizzle-orm/sqlite-core";
 // Use crypto.randomUUID() instead of nanoid to avoid ES module issues
 const generateId = () => crypto.randomUUID();
 
-// Define types first
-export interface ProjectSettings {
-  resolution: { width: number; height: number };
-  fps: number;
-  backgroundColor: string;
+// Merchant schema types
+export interface Address {
+  street?: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
+  country?: string;
 }
 
-// Projects table
-export const projects = sqliteTable("projects", {
+export interface OrderItem {
+  id: string;
+  name: string;
+  quantity: number;
+  price: number; // in cents
+  sku?: string;
+}
+
+export interface PaymentProcessorConfigs {
+  stripe?: {
+    enabled: boolean;
+    publicKey?: string;
+    webhookEndpoint?: string;
+  };
+  paypal?: {
+    enabled: boolean;
+    clientId?: string;
+  };
+  square?: {
+    enabled: boolean;
+    applicationId?: string;
+  };
+}
+
+export interface NotificationSettings {
+  emailOnNewOrder: boolean;
+  emailOnPayment: boolean;
+  emailOnRefund: boolean;
+}
+
+// Merchant tables
+export const orders = sqliteTable("orders", {
   id: text("id")
     .primaryKey()
     .$defaultFn(() => generateId()),
-  userId: text("user_id").notNull(),
-  name: text("name").notNull(),
-  description: text("description"),
+  customerName: text("customer_name").notNull(),
+  customerEmail: text("customer_email").notNull(),
+  amount: integer("amount").notNull(), // in cents
+  currency: text("currency").notNull().default("USD"),
+  status: text("status", { enum: ["pending", "processing", "shipped", "delivered", "cancelled"] })
+    .notNull()
+    .default("pending"),
+  items: text("items", { mode: "json" }).$type<OrderItem[]>().notNull(),
+  shippingAddress: text("shipping_address", { mode: "json" }).$type<Address>(),
+  notes: text("notes"),
   createdAt: integer("created_at")
     .notNull()
     .$defaultFn(() => Date.now()),
   updatedAt: integer("updated_at")
     .notNull()
     .$defaultFn(() => Date.now()),
-  settings: text("settings", { mode: "json" }).$type<ProjectSettings>(),
 });
 
-// Sample table with various column types for demonstration
-export const samples = sqliteTable("samples", {
+export const transactions = sqliteTable("transactions", {
   id: text("id")
     .primaryKey()
     .$defaultFn(() => generateId()),
-  projectId: text("project_id")
+  orderId: text("order_id").references(() => orders.id),
+  customerName: text("customer_name").notNull(),
+  customerEmail: text("customer_email").notNull(),
+  amount: integer("amount").notNull(), // in cents
+  currency: text("currency").notNull().default("USD"),
+  type: text("type", { enum: ["payment", "refund", "chargeback"] })
     .notNull()
-    .references(() => projects.id),
-  name: text("name").notNull(),
+    .default("payment"),
+  status: text("status", { enum: ["pending", "completed", "failed", "cancelled"] })
+    .notNull()
+    .default("pending"),
+  paymentMethod: text("payment_method", { enum: ["card", "bank_transfer", "digital_wallet"] }),
+  paymentProcessor: text("payment_processor", { enum: ["stripe", "paypal", "square", "manual"] }),
+  processorTransactionId: text("processor_transaction_id"),
   description: text("description"),
-  status: text("status", { enum: ["draft", "active", "completed", "archived"] })
-    .notNull()
-    .default("draft"),
-  value: real("value"),
-  count: integer("count").notNull().default(0),
-  isEnabled: integer("is_enabled", { mode: "boolean" }).notNull().default(true),
   metadata: text("metadata", { mode: "json" }),
+  processedAt: integer("processed_at"),
+  createdAt: integer("created_at")
+    .notNull()
+    .$defaultFn(() => Date.now()),
+  updatedAt: integer("updated_at")
+    .notNull()
+    .$defaultFn(() => Date.now()),
+});
+
+export const merchantSettings = sqliteTable("merchant_settings", {
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => generateId()),
+  businessName: text("business_name").notNull().default("Your Business"),
+  businessEmail: text("business_email"),
+  businessPhone: text("business_phone"),
+  businessAddress: text("business_address", { mode: "json" }).$type<Address>(),
+  taxId: text("tax_id"),
+  currency: text("currency").notNull().default("USD"),
+  timezone: text("timezone").notNull().default("America/New_York"),
+  paymentProcessors: text("payment_processors", { mode: "json" }).$type<PaymentProcessorConfigs>(),
+  notifications: text("notifications", { mode: "json" }).$type<NotificationSettings>(),
   createdAt: integer("created_at")
     .notNull()
     .$defaultFn(() => Date.now()),

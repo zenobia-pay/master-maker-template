@@ -7,14 +7,11 @@ import * as schema from "./schema";
 import { handleChange } from "../../changes/handlers";
 import type { Change } from "@shared/types/events";
 import type {
-  LoadProjectResponse,
-  GetProjectsResponse,
-  CreateProjectRequest,
-  CreateProjectResponse,
-  SaveChangesResponse,
-  DeleteProjectResponse,
+  LoadDashboardResponse,
+  SaveDashboardResponse,
   ErrorResponse,
 } from "@shared/types/request-response-schemas";
+import type { Order, Transaction, MerchantSettings, DashboardStats } from "@shared/types/merchant";
 
 type UserShardEnv = {
   DB: D1Database;
@@ -42,146 +39,43 @@ export class UserShard extends DurableObject<UserShardEnv> {
     await migrate(this.db, migrations);
   }
 
-  async loadProject(
-    projectId: string
-  ): Promise<LoadProjectResponse | ErrorResponse> {
-    try {
-      const [project] = await this.db
-        .select()
-        .from(schema.projects)
-        .where(eq(schema.projects.id, projectId));
-
-      if (!project) {
-        return { error: "Project not found", success: false, statusCode: 404 };
-      }
-
-      const samples = await this.db
-        .select()
-        .from(schema.samples)
-        .where(eq(schema.samples.projectId, projectId));
-
-      return {
-        project: {
-          ...project,
-          description: project.description ?? null,
-          settings: project.settings ?? {
-            resolution: { width: 1920, height: 1080 },
-            fps: 30,
-            backgroundColor: "#000000",
-          },
-        },
-        samples,
-      };
-    } catch (error) {
-      console.error("Failed to load project:", error);
-      return {
-        error: "Failed to load project",
-        success: false,
-        statusCode: 500,
-      };
-    }
-  }
-
-  async saveChanges(
-    changes: Change[],
-    projectId: string
-  ): Promise<SaveChangesResponse | ErrorResponse> {
-    try {
-      // Verify project exists (basic validation)
-      const project = this.db
-        .select()
-        .from(schema.projects)
-        .where(eq(schema.projects.id, projectId))
-        .get();
-
-      if (!project) {
-        return {
-          success: false,
-          error: "Project not found",
-          statusCode: 404,
-        };
-      }
-
-      // Process each change individually - each change is atomic
-      let processedCount = 0;
-      const processedChanges: Change[] = [];
-      const failedChanges: Change[] = [];
-
-      for (const change of changes) {
-        try {
-          await handleChange(this.db, change);
-          processedCount++;
-          processedChanges.push(change);
-        } catch (error) {
-          console.error(
-            `Failed to process change: ${change?.id || "null change"}:`,
-            error
-          );
-          console.error("Change data:", change);
-          failedChanges.push(change);
-
-          const remainingChanges = changes.slice(processedCount + 1);
-          failedChanges.push(...remainingChanges);
-          break;
-        }
-      }
-
-      // Return appropriate response based on results
-      if (failedChanges.length > 0) {
-        return {
-          success: true,
-          processedCount,
-          totalChanges: changes.length,
-          failedChanges,
-        };
-      }
-
-      return {
-        success: true,
-        processedCount,
-        totalChanges: changes.length,
-      };
-    } catch (error) {
-      console.error("Save changes error:", error);
-      return {
-        success: false,
-        error: "Failed to save changes: " + (error as Error).message,
-        statusCode: 500,
-      };
-    }
-  }
-
   async executeAgentCommand(
     command: string,
-    context: any
-  ): Promise<any | ErrorResponse> {
+    context: unknown
+  ): Promise<{ success: boolean; data?: unknown; message?: string; availableCommands?: Record<string, string> } | ErrorResponse> {
     try {
-      // Simple command execution - can be extended based on needs
-      // For now, just return available commands
+      // Simple command execution for merchant operations
       const availableCommands = {
-        listProjects: "Get all projects",
-        createSample: "Create a new sample",
-        updateSample: "Update an existing sample",
-        deleteSample: "Delete a sample",
-        querySamples: "Query samples with filters",
+        listOrders: "Get all orders",
+        listTransactions: "Get all transactions",
+        getDashboardStats: "Get dashboard statistics",
       };
 
       // Handle basic commands
       switch (command) {
-        case "listProjects":
-          const projects = await this.db.select().from(schema.projects);
-          return { success: true, data: projects };
+        case "listOrders":
+          const orders = await this.db.select().from(schema.orders);
+          return { success: true, data: orders };
 
-        case "listSamples":
-          const samples = await this.db.select().from(schema.samples);
-          return { success: true, data: samples };
+        case "listTransactions":
+          const transactions = await this.db.select().from(schema.transactions);
+          return { success: true, data: transactions };
+
+        case "getDashboardStats":
+          const allOrders = await this.db.select().from(schema.orders);
+          const allTransactions = await this.db.select().from(schema.transactions);
+          const stats = {
+            totalRevenue: allOrders.reduce((sum, order) => sum + order.amount, 0),
+            orderCount: allOrders.length,
+            transactionCount: allTransactions.length,
+          };
+          return { success: true, data: stats };
 
         default:
           return {
             success: true,
             message: `Command '${command}' recognized`,
             availableCommands,
-            context,
           };
       }
     } catch (error) {
@@ -259,82 +153,156 @@ export class UserShard extends DurableObject<UserShardEnv> {
     return new Response(null, { status: 101, webSocket: client });
   }
 
-  async getProjects(): Promise<GetProjectsResponse | ErrorResponse> {
+
+  async loadDashboard(): Promise<LoadDashboardResponse | ErrorResponse> {
     try {
-      const projects = await this.db.select().from(schema.projects);
+      // Load all merchant dashboard data from DB
+      const ordersDB = await this.db.select().from(schema.orders);
+      const transactionsDB = await this.db.select().from(schema.transactions);
+      const [settingsDB] = await this.db.select().from(schema.merchantSettings);
+
+      // Convert DB types to application types (timestamps to Dates)
+      const orders: Order[] = ordersDB.map(order => ({
+        ...order,
+        createdAt: new Date(order.createdAt),
+        updatedAt: new Date(order.updatedAt),
+      }));
+
+      const transactions: Transaction[] = transactionsDB.map(transaction => ({
+        ...transaction,
+        createdAt: new Date(transaction.createdAt),
+        updatedAt: new Date(transaction.updatedAt),
+        processedAt: transaction.processedAt ? new Date(transaction.processedAt) : undefined,
+      }));
+
+      const settings: MerchantSettings = settingsDB ? {
+        ...settingsDB,
+        createdAt: new Date(settingsDB.createdAt),
+        updatedAt: new Date(settingsDB.updatedAt),
+      } : {
+        id: crypto.randomUUID(),
+        businessName: "Your Business",
+        businessEmail: null,
+        businessPhone: null,
+        businessAddress: null,
+        taxId: null,
+        currency: "USD",
+        timezone: "America/New_York",
+        paymentProcessors: null,
+        notifications: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
+
+      // Calculate stats
+      const totalRevenue = orders.reduce((sum, order) => sum + order.amount, 0);
+      const totalOrders = orders.length;
+      const pendingOrders = orders.filter(o => o.status === "pending").length;
+      const totalTransactions = transactions.length;
+      const recentTransactions = transactions
+        .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+        .slice(0, 5);
+
+      // Calculate monthly revenue (last 12 months)
+      const monthlyRevenue = [];
+      for (let i = 11; i >= 0; i--) {
+        const date = new Date();
+        date.setMonth(date.getMonth() - i);
+        const monthKey = date.toISOString().slice(0, 7); // YYYY-MM format
+        const monthOrders = orders.filter(order => 
+          order.createdAt.toISOString().slice(0, 7) === monthKey
+        );
+        monthlyRevenue.push({
+          month: monthKey,
+          revenue: monthOrders.reduce((sum, order) => sum + order.amount, 0),
+        });
+      }
+
+      // Calculate orders by status
+      const statusCounts = orders.reduce((acc, order) => {
+        acc[order.status] = (acc[order.status] || 0) + 1;
+        return acc;
+      }, {} as Record<string, number>);
+
+      const ordersByStatus = Object.entries(statusCounts).map(([status, count]) => ({
+        status,
+        count,
+      }));
+
+      const stats: DashboardStats = {
+        totalRevenue,
+        totalOrders,
+        totalTransactions,
+        pendingOrders,
+        recentTransactions,
+        monthlyRevenue,
+        ordersByStatus,
+      };
+
       return {
-        projects: projects.map((project) => ({
-          ...project,
-          description: project.description ?? null,
-          settings: project.settings ?? {
-            resolution: { width: 1920, height: 1080 },
-            fps: 30,
-            backgroundColor: "#000000",
-          },
-        })),
+        orders,
+        transactions,
+        settings,
+        stats,
       };
     } catch (error) {
-      console.error("Failed to get projects:", error);
+      console.error("Failed to load dashboard:", error);
       return {
-        error: "Failed to get projects",
+        error: "Failed to load dashboard",
         success: false,
         statusCode: 500,
       };
     }
   }
 
-  async createProject(
-    request: CreateProjectRequest & { userId: string }
-  ): Promise<CreateProjectResponse | ErrorResponse> {
+  async saveDashboard(
+    changes: Change[]
+  ): Promise<SaveDashboardResponse | ErrorResponse> {
     try {
-      const { name, description, userId } = request;
+      // Process each change individually - each change is atomic
+      let processedCount = 0;
+      const processedChanges: Change[] = [];
+      const failedChanges: Change[] = [];
 
-      const projectId = crypto.randomUUID();
-      const now = Date.now();
+      for (const change of changes) {
+        try {
+          await handleChange(this.db, change);
+          processedCount++;
+          processedChanges.push(change);
+        } catch (error) {
+          console.error(
+            `Failed to process change: ${change?.id || "null change"}:`,
+            error
+          );
+          console.error("Change data:", change);
+          failedChanges.push(change);
 
-      const defaultSettings = {
-        resolution: { width: 1920, height: 1080 },
-        fps: 30,
-        backgroundColor: "#000000",
-      };
+          const remainingChanges = changes.slice(processedCount + 1);
+          failedChanges.push(...remainingChanges);
+          break;
+        }
+      }
 
-      const newProject = {
-        id: projectId,
-        userId,
-        name,
-        description: description || "",
-        settings: defaultSettings,
-        createdAt: now,
-        updatedAt: now,
-      };
+      // Return appropriate response based on results
+      if (failedChanges.length > 0) {
+        return {
+          success: true,
+          processedCount,
+          totalChanges: changes.length,
+          failedChanges,
+        };
+      }
 
-      await this.db.insert(schema.projects).values(newProject);
-
-      return { project: newProject };
-    } catch (error) {
-      console.error("Failed to create project:", error);
       return {
-        error: "Failed to create project",
-        success: false,
-        statusCode: 500,
+        success: true,
+        processedCount,
+        totalChanges: changes.length,
       };
-    }
-  }
-
-  async deleteProject(
-    projectId: string
-  ): Promise<DeleteProjectResponse | ErrorResponse> {
-    try {
-      await this.db
-        .delete(schema.projects)
-        .where(eq(schema.projects.id, projectId));
-
-      return { success: true };
     } catch (error) {
-      console.error("Failed to delete project:", error);
+      console.error("Save dashboard error:", error);
       return {
-        error: "Failed to delete project",
         success: false,
+        error: "Failed to save dashboard: " + (error as Error).message,
         statusCode: 500,
       };
     }

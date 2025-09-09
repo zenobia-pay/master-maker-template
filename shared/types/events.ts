@@ -1,54 +1,31 @@
-import type { Project, Sample } from "./primitives";
-
-// Type for sample creation with timestamp numbers
-type SampleForCreation = Omit<Sample, 'createdAt' | 'updatedAt'> & {
-  createdAt: number;
-  updatedAt: number;
-};
+import type { Order, Transaction, MerchantSettings, OrderInsert, MerchantSettingsInsert } from "./merchant";
+import type { DrizzleSqliteDODatabase } from "drizzle-orm/durable-sqlite";
+import type * as schema from "~/durable-objects/user-shard/schema";
 
 export type BaseEditorEvent =
   | {
-      type: "SAMPLE_CREATED";
-      projectId: string;
-      sample: SampleForCreation;
+      type: "ORDER_CREATED";
+      order: OrderInsert;
     }
   | {
-      type: "SAMPLE_UPDATED";
-      sampleId: string;
-      previousValues: Partial<Sample>;
-      newValues: Partial<Sample>;
+      type: "ORDER_UPDATED";
+      orderId: string;
+      previousValues: Partial<Order>;
+      newValues: Partial<Order>;
     }
   | {
-      type: "SAMPLE_DELETED";
-      sampleId: string;
-      projectId: string;
-      // For undo: need the deleted sample data
-      previousSample: Sample;
+      type: "ORDER_DELETED";
+      orderId: string;
+      previousOrder: Order;
     }
   | {
-      type: "SAMPLE_STATUS_CHANGED";
-      sampleId: string;
-      previousStatus: string;
-      newStatus: string;
-    }
-  | {
-      type: "PROJECT_CREATED";
-      project: Project;
-    }
-  | {
-      type: "PROJECT_PROPERTY_UPDATED";
-      projectId: string;
-      propertyKey: string;
-      previousValue: string | null;
-      newValue: string | null;
-    }
-  | {
-      type: "PROJECT_DELETED";
-      projectId: string;
-      // For undo: restore the project and its samples
-      previousProject: Project;
-      previousSamples: Sample[];
+      type: "MERCHANT_SETTINGS_UPDATED";
+      propertyKey: keyof MerchantSettings;
+      previousValue: MerchantSettings[keyof MerchantSettings];
+      newValue: MerchantSettings[keyof MerchantSettings];
     };
+
+export type DashboardEvent = BaseEditorEvent;
 
 /**
  * Persistence metadata added by the server
@@ -76,8 +53,8 @@ export type EditorEvent = BaseEditorEvent;
 export type ChangeType = Change["type"];
 
 export type ChangeHandler<T extends Change = Change> = (
-  db: any,
+  db: DrizzleSqliteDODatabase<typeof schema>,
   change: T
-) => Promise<{ success: boolean; result?: any }>;
+) => Promise<{ success: boolean; result?: unknown }>;
 
 export type AssertNever = (x: never) => never;

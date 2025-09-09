@@ -5,7 +5,6 @@
  */
 import { batch } from "solid-js";
 import { SetStoreFunction, produce } from "solid-js/store";
-import type { ProjectStore } from "../contexts/ProjectContext";
 import type { EditorEvent } from "@shared/types/events";
 
 export function processEventQueue(

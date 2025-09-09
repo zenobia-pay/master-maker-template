@@ -1,12 +1,6 @@
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
-import {
-  LoadProjectRequestSchema,
-  LoadProjectResponseSchema,
-  SaveChangesRequestSchema,
-  SaveChangesResponseSchema,
-  AgentCommandResponseSchema,
-} from "@shared/types/request-response-schemas";
+import { AgentCommandResponseSchema } from "@shared/types/request-response-schemas";
 import { CloudflareBindings } from "~/env";
 import { getAuthenticatedUser, send, sendError, Variables } from "../utils";
 import z from "zod";

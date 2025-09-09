@@ -20,20 +20,14 @@ function editorEventToChange(event: EditorEvent): Change {
 
 function getEventDescription(event: EditorEvent): string {
   switch (event.type) {
-    case "SAMPLE_CREATED":
-      return `Added sample "${event.sample.name}"`;
-    case "SAMPLE_UPDATED":
-      return `Updated sample`;
-    case "SAMPLE_DELETED":
-      return `Removed sample "${event.previousSample.name}"`;
-    case "SAMPLE_STATUS_CHANGED":
-      return `Changed sample status`;
-    case "PROJECT_CREATED":
-      return `Created project "${event.project.name}"`;
-    case "PROJECT_PROPERTY_UPDATED":
-      return `Updated project property "${event.propertyKey}"`;
-    case "PROJECT_DELETED":
-      return `Deleted project "${event.previousProject.name}"`;
+    case "ORDER_CREATED":
+      return `Created order for "${event.order.customerName}"`;
+    case "ORDER_UPDATED":
+      return `Updated order #${event.orderId}`;
+    case "ORDER_DELETED":
+      return `Deleted order for "${event.previousOrder.customerName}"`;
+    case "MERCHANT_SETTINGS_UPDATED":
+      return `Updated setting "${event.propertyKey}"`;
     default:
       return "Unknown change";
   }
@@ -47,6 +41,7 @@ export class AutosaveService {
   private readonly MAX_BATCH_SIZE = 50; // Prevent huge batches
   private onChangesFailedCallback?: (failedChanges: Change[]) => void;
   private beforeUnloadHandler: ((e: BeforeUnloadEvent) => void) | null = null;
+  private isDashboard: boolean;
 
   // Reactive signals for UI
   private isSavingSignal = createSignal(false);
@@ -58,6 +53,7 @@ export class AutosaveService {
 
   constructor(projectId: string) {
     this.projectId = projectId;
+    this.isDashboard = projectId === "dashboard";
   }
 
   /**
@@ -239,7 +235,9 @@ export class AutosaveService {
 
       for (const batch of batchesToSave) {
         try {
-          const response = await apiClient.saveChanges(this.projectId, batch);
+          const response = this.isDashboard 
+            ? await apiClient.saveDashboard(batch)
+            : await apiClient.saveChanges(this.projectId, batch);
           console.log(
             `✅ Saved batch of ${batch.length} changes (${response.processedCount}/${response.totalChanges} processed)`
           );
