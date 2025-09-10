@@ -180,6 +180,7 @@ export class UserShard extends DurableObject<UserShardEnv> {
 
       const orders: Order[] = ordersDB;
       const transactions: Transaction[] = transactionsDB;
+      const now = Date.now();
       const settings: MerchantSettings = settingsDB || {
         id: crypto.randomUUID(),
         businessName: "Your Business",
@@ -191,8 +192,8 @@ export class UserShard extends DurableObject<UserShardEnv> {
         timezone: "America/New_York",
         paymentProcessors: null,
         notifications: null,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: now,
+        updatedAt: now,
       };
 
       // Calculate stats
