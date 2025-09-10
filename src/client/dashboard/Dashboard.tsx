@@ -29,6 +29,8 @@ import { Icon } from "solid-heroicons";
 import { buildingStorefront } from "solid-heroicons/solid";
 import { arrowRightOnRectangle } from "solid-heroicons/outline";
 import OverviewView from "./OverviewView";
+import OrdersView from "./OrdersView";
+import TransactionsView from "./TransactionsView";
 import SettingsView from "./SettingsView";
 import { apiClient } from "../clientApi/clientApi";
 
@@ -249,10 +251,10 @@ function DashboardContent() {
                   <OverviewView />
                 </Match>
                 <Match when={store.currentView === "orders"}>
-                  <div>Orders view - Coming soon</div>
+                  <OrdersView />
                 </Match>
                 <Match when={store.currentView === "transactions"}>
-                  <div>Transactions view - Coming soon</div>
+                  <TransactionsView />
                 </Match>
                 <Match when={store.currentView === "settings"}>
                   <SettingsView />

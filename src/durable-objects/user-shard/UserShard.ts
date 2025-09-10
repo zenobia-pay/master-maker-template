@@ -11,7 +11,12 @@ import type {
   SaveDashboardResponse,
   ErrorResponse,
 } from "@shared/types/request-response-schemas";
-import type { Order, Transaction, MerchantSettings, DashboardStats } from "@shared/types/merchant";
+import type {
+  Order,
+  Transaction,
+  MerchantSettings,
+  DashboardStats,
+} from "@shared/types/merchant";
 
 type UserShardEnv = {
   DB: D1Database;
@@ -42,7 +47,15 @@ export class UserShard extends DurableObject<UserShardEnv> {
   async executeAgentCommand(
     command: string,
     context: unknown
-  ): Promise<{ success: boolean; data?: unknown; message?: string; availableCommands?: Record<string, string> } | ErrorResponse> {
+  ): Promise<
+    | {
+        success: boolean;
+        data?: unknown;
+        message?: string;
+        availableCommands?: Record<string, string>;
+      }
+    | ErrorResponse
+  > {
     try {
       // Simple command execution for merchant operations
       const availableCommands = {
@@ -63,9 +76,14 @@ export class UserShard extends DurableObject<UserShardEnv> {
 
         case "getDashboardStats":
           const allOrders = await this.db.select().from(schema.orders);
-          const allTransactions = await this.db.select().from(schema.transactions);
+          const allTransactions = await this.db
+            .select()
+            .from(schema.transactions);
           const stats = {
-            totalRevenue: allOrders.reduce((sum, order) => sum + order.amount, 0),
+            totalRevenue: allOrders.reduce(
+              (sum, order) => sum + order.amount,
+              0
+            ),
             orderCount: allOrders.length,
             transactionCount: allTransactions.length,
           };
@@ -153,7 +171,6 @@ export class UserShard extends DurableObject<UserShardEnv> {
     return new Response(null, { status: 101, webSocket: client });
   }
 
-
   async loadDashboard(): Promise<LoadDashboardResponse | ErrorResponse> {
     try {
       // Load all merchant dashboard data from DB
@@ -161,25 +178,9 @@ export class UserShard extends DurableObject<UserShardEnv> {
       const transactionsDB = await this.db.select().from(schema.transactions);
       const [settingsDB] = await this.db.select().from(schema.merchantSettings);
 
-      // Convert DB types to application types (timestamps to Dates)
-      const orders: Order[] = ordersDB.map(order => ({
-        ...order,
-        createdAt: new Date(order.createdAt),
-        updatedAt: new Date(order.updatedAt),
-      }));
-
-      const transactions: Transaction[] = transactionsDB.map(transaction => ({
-        ...transaction,
-        createdAt: new Date(transaction.createdAt),
-        updatedAt: new Date(transaction.updatedAt),
-        processedAt: transaction.processedAt ? new Date(transaction.processedAt) : undefined,
-      }));
-
-      const settings: MerchantSettings = settingsDB ? {
-        ...settingsDB,
-        createdAt: new Date(settingsDB.createdAt),
-        updatedAt: new Date(settingsDB.updatedAt),
-      } : {
+      const orders: Order[] = ordersDB;
+      const transactions: Transaction[] = transactionsDB;
+      const settings: MerchantSettings = settingsDB || {
         id: crypto.randomUUID(),
         businessName: "Your Business",
         businessEmail: null,
@@ -197,10 +198,10 @@ export class UserShard extends DurableObject<UserShardEnv> {
       // Calculate stats
       const totalRevenue = orders.reduce((sum, order) => sum + order.amount, 0);
       const totalOrders = orders.length;
-      const pendingOrders = orders.filter(o => o.status === "pending").length;
+      const pendingOrders = orders.filter((o) => o.status === "pending").length;
       const totalTransactions = transactions.length;
       const recentTransactions = transactions
-        .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+        .sort((a, b) => b.createdAt - a.createdAt)
         .slice(0, 5);
 
       // Calculate monthly revenue (last 12 months)
@@ -209,8 +210,9 @@ export class UserShard extends DurableObject<UserShardEnv> {
         const date = new Date();
         date.setMonth(date.getMonth() - i);
         const monthKey = date.toISOString().slice(0, 7); // YYYY-MM format
-        const monthOrders = orders.filter(order => 
-          order.createdAt.toISOString().slice(0, 7) === monthKey
+        const monthOrders = orders.filter(
+          (order) =>
+            new Date(order.createdAt).toISOString().slice(0, 7) === monthKey
         );
         monthlyRevenue.push({
           month: monthKey,
@@ -219,15 +221,20 @@ export class UserShard extends DurableObject<UserShardEnv> {
       }
 
       // Calculate orders by status
-      const statusCounts = orders.reduce((acc, order) => {
-        acc[order.status] = (acc[order.status] || 0) + 1;
-        return acc;
-      }, {} as Record<string, number>);
+      const statusCounts = orders.reduce(
+        (acc, order) => {
+          acc[order.status] = (acc[order.status] || 0) + 1;
+          return acc;
+        },
+        {} as Record<string, number>
+      );
 
-      const ordersByStatus = Object.entries(statusCounts).map(([status, count]) => ({
-        status,
-        count,
-      }));
+      const ordersByStatus = Object.entries(statusCounts).map(
+        ([status, count]) => ({
+          status,
+          count,
+        })
+      );
 
       const stats: DashboardStats = {
         totalRevenue,

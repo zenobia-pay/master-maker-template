@@ -195,14 +195,13 @@ export const DashboardProvider: ParentComponent<DashboardProviderProps> = (
       setStore("isCreatingOrder", true);
       setStore("error", null);
 
-      const newOrder: Order = {
+      const newOrder = {
         id: crypto.randomUUID(),
-        merchantId: store.user.merchantId,
         customerName: orderData.customerName || "",
         customerEmail: orderData.customerEmail || "",
         amount: orderData.amount || 0,
         currency: orderData.currency || store.settings?.currency || "USD",
-        status: "pending",
+        status: "pending" as const,
         items: orderData.items || [],
         shippingAddress: orderData.shippingAddress || null,
         notes: orderData.notes || null,

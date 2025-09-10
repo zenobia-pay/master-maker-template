@@ -68,7 +68,7 @@ export function processDashboardEventQueue(
             produce((s) => {
               if (s.settings) {
                 (s.settings as any)[event.propertyKey] = event.newValue;
-                s.settings.updatedAt = new Date();
+                s.settings.updatedAt = Date.now();
               }
               s.isUpdatingSettings = false;
             })

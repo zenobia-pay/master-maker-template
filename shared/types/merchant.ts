@@ -12,22 +12,10 @@ export type MerchantSettingsInsert = typeof merchantSettings.$inferInsert;
 // Re-export types from schema
 export type { Address, OrderItem, PaymentProcessorConfigs, NotificationSettings } from "~/durable-objects/user-shard/schema";
 
-// Application types with Date conversion
-export interface Order extends Omit<OrderDB, 'createdAt' | 'updatedAt'> {
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export interface Transaction extends Omit<TransactionDB, 'createdAt' | 'updatedAt' | 'processedAt'> {
-  createdAt: Date;
-  updatedAt: Date;
-  processedAt?: Date;
-}
-
-export interface MerchantSettings extends Omit<MerchantSettingsDB, 'createdAt' | 'updatedAt'> {
-  createdAt: Date;
-  updatedAt: Date;
-}
+// Application types - use same as DB (integer timestamps)
+export type Order = OrderDB;
+export type Transaction = TransactionDB;
+export type MerchantSettings = MerchantSettingsDB;
 
 export interface DashboardStats {
   totalRevenue: number; // in cents

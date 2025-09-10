@@ -1,8 +1,10 @@
-import { Show, For } from "solid-js";
+import { Show, For, createSignal } from "solid-js";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { Flex } from "~/components/ui/flex";
 import { Skeleton } from "~/components/ui/skeleton";
+import { TextField, TextFieldInput, TextFieldLabel } from "~/components/ui/text-field";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "~/components/ui/dialog";
 import { useDashboard } from "./DashboardContext";
 
 function formatCurrency(cents: number, currency = "USD") {
@@ -12,8 +14,8 @@ function formatCurrency(cents: number, currency = "USD") {
   }).format(cents / 100);
 }
 
-function formatRelativeTime(date: Date): string {
-  const diffMs = Date.now() - date.getTime();
+function formatRelativeTime(timestamp: number): string {
+  const diffMs = Date.now() - timestamp;
   const seconds = Math.floor(diffMs / 1000);
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
@@ -26,6 +28,30 @@ function formatRelativeTime(date: Date): string {
 
 export default function OverviewView() {
   const { store, actions, derived } = useDashboard();
+  
+  const [newOrder, setNewOrder] = createSignal({
+    customerName: "",
+    customerEmail: "",
+    amount: 0,
+    items: [{ id: crypto.randomUUID(), name: "Product", quantity: 1, price: 0 }],
+  });
+
+  const handleCreateOrder = () => {
+    const orderData = newOrder();
+    console.log("Creating order with data:", orderData);
+    actions.createOrder({
+      customerName: orderData.customerName,
+      customerEmail: orderData.customerEmail,
+      amount: orderData.amount * 100, // Convert to cents
+      items: orderData.items,
+    });
+    setNewOrder({
+      customerName: "",
+      customerEmail: "",
+      amount: 0,
+      items: [{ id: crypto.randomUUID(), name: "Product", quantity: 1, price: 0 }],
+    });
+  };
 
   return (
     <div class="space-y-6">
@@ -213,7 +239,7 @@ export default function OverviewView() {
                         <div>
                           <p class="font-medium">{order.customerName}</p>
                           <p class="text-sm text-muted-foreground">
-                            {formatRelativeTime(new Date(order.createdAt))}
+                            {formatRelativeTime(order.createdAt)}
                           </p>
                         </div>
                         <div class="text-right">
@@ -294,6 +320,54 @@ export default function OverviewView() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Create Order Dialog */}
+      <Dialog open={store.showCreateOrderDialog} onOpenChange={actions.setShowCreateOrderDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Create New Order</DialogTitle>
+          </DialogHeader>
+          <div class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+              <TextField>
+                <TextFieldLabel>Customer Name</TextFieldLabel>
+                <TextFieldInput
+                  value={newOrder().customerName}
+                  onInput={(e) => setNewOrder(prev => ({ ...prev, customerName: (e.target as HTMLInputElement).value }))}
+                  placeholder="John Doe"
+                />
+              </TextField>
+              <TextField>
+                <TextFieldLabel>Customer Email</TextFieldLabel>
+                <TextFieldInput
+                  type="email"
+                  value={newOrder().customerEmail}
+                  onInput={(e) => setNewOrder(prev => ({ ...prev, customerEmail: (e.target as HTMLInputElement).value }))}
+                  placeholder="john@example.com"
+                />
+              </TextField>
+            </div>
+            <TextField>
+              <TextFieldLabel>Total Amount ($)</TextFieldLabel>
+              <TextFieldInput
+                type="number"
+                step="0.01"
+                value={newOrder().amount}
+                onInput={(e) => setNewOrder(prev => ({ ...prev, amount: parseFloat((e.target as HTMLInputElement).value) || 0 }))}
+                placeholder="99.99"
+              />
+            </TextField>
+            <div class="flex gap-2 pt-4">
+              <Button onClick={handleCreateOrder} disabled={store.isCreatingOrder}>
+                {store.isCreatingOrder ? "Creating..." : "Create Order"}
+              </Button>
+              <Button variant="outline" onClick={() => actions.setShowCreateOrderDialog(false)}>
+                Cancel
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
