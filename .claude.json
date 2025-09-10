@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": {
+          "tool": "Bash",
+          "pattern": "git commit"
+        },
+        "hooks": [
+          {
+            "type": "agent",
+            "agent": "git-diff-code-reviewer",
+            "prompt": "Please review the changes from the recent git commit and provide feedback on code organization and implementation quality."
+          }
+        ]
+      }
+    ]
+  }
+}
