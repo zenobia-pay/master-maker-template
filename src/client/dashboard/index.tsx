@@ -1,5 +1,5 @@
 import { render } from "solid-js/web";
-import Dashboard from "../homescreen/Dashboard";
+import Dashboard from "./Dashboard";
 import "../styles/index.css";
 import "../styles/app.css";
 

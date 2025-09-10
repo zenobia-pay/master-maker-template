@@ -7,7 +7,7 @@ import {
   createResource,
 } from "solid-js";
 import { createAuthClient } from "better-auth/solid";
-import { DashboardProvider, useDashboard } from "../contexts/DashboardContext";
+import { DashboardProvider, useDashboard } from "./DashboardContext";
 import {
   SidebarProvider,
   Sidebar,
@@ -28,9 +28,9 @@ import { Avatar, AvatarFallback } from "~/components/ui/avatar";
 import { Icon } from "solid-heroicons";
 import { buildingStorefront } from "solid-heroicons/solid";
 import { arrowRightOnRectangle } from "solid-heroicons/outline";
-import OverviewView from "./views/OverviewView";
-import SettingsView from "./views/SettingsView";
-import { apiClient } from "../utils/api/client";
+import OverviewView from "./OverviewView";
+import SettingsView from "./SettingsView";
+import { apiClient } from "../clientApi/clientApi";
 
 const authClient = createAuthClient({
   baseURL: window.location.origin,

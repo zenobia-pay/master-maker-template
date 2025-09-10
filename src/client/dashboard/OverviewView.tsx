@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { Flex } from "~/components/ui/flex";
 import { Skeleton } from "~/components/ui/skeleton";
-import { useDashboard } from "../../contexts/DashboardContext";
+import { useDashboard } from "./DashboardContext";
 
 function formatCurrency(cents: number, currency = "USD") {
   return new Intl.NumberFormat("en-US", {
@@ -67,7 +67,10 @@ export default function OverviewView() {
               fallback={<Skeleton class="h-8 w-32" />}
             >
               <div class="text-2xl font-bold">
-                {formatCurrency(derived.totalRevenue(), store.settings?.currency)}
+                {formatCurrency(
+                  derived.totalRevenue(),
+                  store.settings?.currency
+                )}
               </div>
               <p class="text-xs text-muted-foreground">
                 From {derived.orderCount()} orders
@@ -129,9 +132,7 @@ export default function OverviewView() {
               fallback={<Skeleton class="h-8 w-20" />}
             >
               <div class="text-2xl font-bold">{store.transactions.length}</div>
-              <p class="text-xs text-muted-foreground">
-                This month
-              </p>
+              <p class="text-xs text-muted-foreground">This month</p>
             </Show>
           </CardContent>
         </Card>
@@ -160,13 +161,13 @@ export default function OverviewView() {
             >
               <div class="text-2xl font-bold">
                 {formatCurrency(
-                  Math.round(derived.totalRevenue() / Math.max(derived.orderCount(), 1)),
+                  Math.round(
+                    derived.totalRevenue() / Math.max(derived.orderCount(), 1)
+                  ),
                   store.settings?.currency
                 )}
               </div>
-              <p class="text-xs text-muted-foreground">
-                Per order
-              </p>
+              <p class="text-xs text-muted-foreground">Per order</p>
             </Show>
           </CardContent>
         </Card>
@@ -275,7 +276,10 @@ export default function OverviewView() {
                         </div>
                         <div class="text-right">
                           <p class="font-medium">
-                            {formatCurrency(transaction.amount, transaction.currency)}
+                            {formatCurrency(
+                              transaction.amount,
+                              transaction.currency
+                            )}
                           </p>
                           <p class="text-sm text-muted-foreground capitalize">
                             {transaction.status}

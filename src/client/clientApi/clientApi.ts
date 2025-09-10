@@ -82,7 +82,9 @@ class ApiClient {
   }
 
   // Transaction management
-  async getTransactions(request: GetTransactionsRequest = {}): Promise<TransactionsResponse> {
+  async getTransactions(
+    request: GetTransactionsRequest = {}
+  ): Promise<TransactionsResponse> {
     const params = new URLSearchParams();
     if (request.page) params.set("page", request.page.toString());
     if (request.limit) params.set("limit", request.limit.toString());
@@ -99,7 +101,9 @@ class ApiClient {
   }
 
   // Settings management
-  async updateSettings(request: UpdateSettingsRequest): Promise<SettingsResponse> {
+  async updateSettings(
+    request: UpdateSettingsRequest
+  ): Promise<SettingsResponse> {
     const response = await fetch(`${this.baseUrl}/settings`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

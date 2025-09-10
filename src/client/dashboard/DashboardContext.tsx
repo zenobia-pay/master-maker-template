@@ -19,9 +19,8 @@ import type {
   DashboardView,
 } from "@shared/types/merchant";
 import type { LoadDashboardResponse } from "@shared/types/request-response-schemas";
-import { processDashboardEventQueue } from "../editor/dashboardEventProcessor";
-import { apiClient } from "../utils/api/client";
-import { createAuthClient } from "better-auth/solid";
+import { processDashboardEventQueue } from "./dashboardEventProcessor";
+import { apiClient } from "../clientApi/clientApi";
 import type { User } from "better-auth";
 
 export interface DashboardStore {
@@ -294,14 +293,6 @@ export const DashboardProvider: ParentComponent<DashboardProviderProps> = (
   const emitEvent = (event: DashboardEvent) => {
     setEventQueue((prev) => [...prev, event]);
   };
-
-  // Sync user from session
-  createEffect(() => {
-    const sessionData = session();
-    if (sessionData?.data?.user) {
-      setStore("user", sessionData.data.user);
-    }
-  });
 
   // Listen for browser back/forward navigation
   createEffect(() => {

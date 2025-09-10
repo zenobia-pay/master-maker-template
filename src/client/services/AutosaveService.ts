@@ -6,7 +6,7 @@
 import { createSignal } from "solid-js";
 import type { EditorEvent } from "@shared/types/events";
 import type { Change } from "@shared/types/events";
-import { apiClient } from "../utils/api/client";
+import { apiClient } from "../clientApi/clientApi";
 
 // Helper function to convert EditorEvent to Change
 function editorEventToChange(event: EditorEvent): Change {
@@ -235,7 +235,7 @@ export class AutosaveService {
 
       for (const batch of batchesToSave) {
         try {
-          const response = this.isDashboard 
+          const response = this.isDashboard
             ? await apiClient.saveDashboard(batch)
             : await apiClient.saveChanges(this.projectId, batch);
           console.log(

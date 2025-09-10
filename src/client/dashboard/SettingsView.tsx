@@ -4,7 +4,7 @@ import { Button } from "~/components/ui/button";
 import { TextField, TextFieldInput } from "~/components/ui/text-field";
 import { Label } from "~/components/ui/label";
 import { Separator } from "~/components/ui/separator";
-import { useDashboard } from "../../contexts/DashboardContext";
+import { useDashboard } from "./DashboardContext";
 
 export default function SettingsView() {
   const { store, actions } = useDashboard();
@@ -82,13 +82,22 @@ export default function SettingsView() {
               <div class="space-y-2">
                 <Label for="currency">Default Currency</Label>
                 <select class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
-                  <option value="USD" selected={store.settings?.currency === "USD"}>
+                  <option
+                    value="USD"
+                    selected={store.settings?.currency === "USD"}
+                  >
                     USD - US Dollar
                   </option>
-                  <option value="EUR" selected={store.settings?.currency === "EUR"}>
+                  <option
+                    value="EUR"
+                    selected={store.settings?.currency === "EUR"}
+                  >
                     EUR - Euro
                   </option>
-                  <option value="GBP" selected={store.settings?.currency === "GBP"}>
+                  <option
+                    value="GBP"
+                    selected={store.settings?.currency === "GBP"}
+                  >
                     GBP - British Pound
                   </option>
                 </select>
@@ -96,13 +105,24 @@ export default function SettingsView() {
               <div class="space-y-2">
                 <Label for="timezone">Timezone</Label>
                 <select class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
-                  <option value="America/New_York" selected={store.settings?.timezone === "America/New_York"}>
+                  <option
+                    value="America/New_York"
+                    selected={store.settings?.timezone === "America/New_York"}
+                  >
                     Eastern Time
                   </option>
-                  <option value="America/Los_Angeles" selected={store.settings?.timezone === "America/Los_Angeles"}>
+                  <option
+                    value="America/Los_Angeles"
+                    selected={
+                      store.settings?.timezone === "America/Los_Angeles"
+                    }
+                  >
                     Pacific Time
                   </option>
-                  <option value="Europe/London" selected={store.settings?.timezone === "Europe/London"}>
+                  <option
+                    value="Europe/London"
+                    selected={store.settings?.timezone === "Europe/London"}
+                  >
                     London Time
                   </option>
                 </select>

@@ -5,7 +5,7 @@
  */
 import { batch } from "solid-js";
 import { SetStoreFunction, produce } from "solid-js/store";
-import type { DashboardStore } from "../contexts/DashboardContext";
+import type { DashboardStore } from "./DashboardContext";
 import type { DashboardEvent } from "@shared/types/events";
 
 export function processDashboardEventQueue(
@@ -34,7 +34,9 @@ export function processDashboardEventQueue(
         case "ORDER_UPDATED": {
           setStore(
             produce((s) => {
-              const orderIndex = s.orders.findIndex(o => o.id === event.orderId);
+              const orderIndex = s.orders.findIndex(
+                (o) => o.id === event.orderId
+              );
               if (orderIndex !== -1) {
                 s.orders[orderIndex] = {
                   ...s.orders[orderIndex],
@@ -53,7 +55,7 @@ export function processDashboardEventQueue(
         case "ORDER_DELETED": {
           setStore(
             produce((s) => {
-              s.orders = s.orders.filter(o => o.id !== event.orderId);
+              s.orders = s.orders.filter((o) => o.id !== event.orderId);
               s.deletingOrderId = null;
             })
           );
@@ -71,7 +73,11 @@ export function processDashboardEventQueue(
               s.isUpdatingSettings = false;
             })
           );
-          console.log("✅ Settings updated:", event.propertyKey, event.newValue);
+          console.log(
+            "✅ Settings updated:",
+            event.propertyKey,
+            event.newValue
+          );
           break;
         }
 
