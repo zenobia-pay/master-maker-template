@@ -15,7 +15,7 @@ export interface CloudflareBindings {
   KV: KVNamespace;
   BETTER_AUTH_SECRET: string;
   USER_SHARD: DurableObjectNamespace<import("./index").UserShard>;
-  MEDIA_BUCKET: R2Bucket;
+  BUCKET: R2Bucket;
   DB: D1Database;
   ASSETS: Fetcher;
 }

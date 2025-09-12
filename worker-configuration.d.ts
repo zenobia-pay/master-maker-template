@@ -10,7 +10,7 @@ declare namespace Cloudflare {
 		BASE_URL: string;
 		BETTER_AUTH_SECRET: string;
 		USER_SHARD: DurableObjectNamespace<import("./src/index").UserShard>;
-		MEDIA_BUCKET: R2Bucket;
+		BUCKET: R2Bucket;
 		DB: D1Database;
 		ASSETS: Fetcher;
 	}

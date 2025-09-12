@@ -21,7 +21,7 @@ import type {
 type UserShardEnv = {
   DB: D1Database;
   USER_SHARD: DurableObjectNamespace;
-  MEDIA_BUCKET: R2Bucket;
+  BUCKET: R2Bucket;
   BETTER_AUTH_SECRET: string;
 };
 
