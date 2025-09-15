@@ -293,7 +293,7 @@ export default function Dashboard() {
         fallback={
           <div>
             {(() => {
-              window.location.href = "/login/";
+              window.location.href = `/login/?redirect=${window.location.pathname}${window.location.search}`;
               return "Redirecting...";
             })()}
           </div>
