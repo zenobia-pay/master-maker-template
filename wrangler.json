@@ -35,7 +35,7 @@
   "r2_buckets": [
     {
       "binding": "BUCKET",
-      "bucket_name": "BUCKET_NAME"
+      "bucket_name": "bucket-name"
     }
   ],
   "kv_namespaces": [
