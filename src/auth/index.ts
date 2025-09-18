@@ -40,33 +40,12 @@ function createAuth(
       {
         baseURL: env?.BASE_URL,
         secret: env?.BETTER_AUTH_SECRET,
-        cookies: {
-          sessionToken: {
-            name: "better-auth.session",
-            options: {
-              httpOnly: true,
-              secure: true,       // Required for SameSite=None
-              sameSite: "none",   // Allow cross-site (iframe) use
-              path: "/",
-            },
-          },
-          csrfToken: {
-            name: "better-auth.csrf",
-            options: {
-              httpOnly: true,
-              secure: true,
-              sameSite: "none",
-              path: "/",
-            },
-          },
-          refreshToken: {
-            name: "better-auth.refresh",
-            options: {
-              httpOnly: true,
-              secure: true,
-              sameSite: "none",
-              path: "/",
-            },
+        advanced: {
+          defaultCookieAttributes: {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+            partitioned: true,
           },
         },
         emailAndPassword: {
