@@ -8,7 +8,6 @@
     "build": "pnpm run build:client",
     "build:client": "vite build",
     "preview:client": "vite preview",
-    "startPreview": "curl -X POST http://127.0.0.1:8081/start-preview -H 'Content-Type: application/json' -d '{\"projectId\":\"template-project\",\"forceRefresh\":true}'",
     "typecheck": "npx tsc --noEmit",
     "lint": "eslint . && prettier --check .",
     "lint:fix": "eslint . --fix && prettier --write .",
@@ -24,7 +23,12 @@
     "db:migrate:prod": "wrangler d1 migrations apply DB --remote",
     "db:studio:dev": "drizzle-kit studio",
     "db:studio:user-shard": "drizzle-kit studio --config drizzle-user-shard.config.ts",
-    "db:studio:prod": "NODE_ENV=production drizzle-kit studio"
+    "db:studio:prod": "NODE_ENV=production drizzle-kit studio",
+    "preview:start": "curl -X POST http://127.0.0.1:8081/start-preview -H 'Content-Type: application/json' -d \"{\\\"projectId\\\":\\\"$(basename $(pwd))\\\",\\\"forceRefresh\\\":true}\"",
+    "preview:status": "curl -X GET http://127.0.0.1:8081/preview-status",
+    "preview:logs": "curl -X GET 'http://127.0.0.1:8081/preview/logs?lines=100&type=out'",
+    "preview:logs:error": "curl -X GET 'http://127.0.0.1:8081/preview/logs?lines=100&type=error'",
+    "preview:logs:all": "curl -X GET 'http://127.0.0.1:8081/preview/logs?lines=100&type=all'"
   },
   "dependencies": {
     "@ark-ui/solid": "^5.23.0",
