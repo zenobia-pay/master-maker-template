@@ -18,3 +18,21 @@ NPM commands for preview management:
 * `npm run preview:logs:all` - view all log messages, limit of 100 lines
 
 IMPORTANT: DO NOT EVER run `npm run dev`. The preview is already managed by another process and will fail if you do so!
+
+### Adding stock images
+Stock images are great to add to the landing page. Curl the follwing endpoint to fetch urls for images.
+**Endpoint**: `POST http://127.0.0.1:3001/pexels/search`
+
+## Request Format
+
+```json
+{
+  "query": "modern office workspace",
+  "orientation": "landscape",
+  "size": "large",
+  "per_page": 15,
+  "page": 1,
+  "color": "blue",
+  "locale": "en-US"
+}
+```
