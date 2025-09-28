@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Template - Dashboard</title>
+    <title>Template</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/basecoat-css@0.3.2/dist/basecoat.cdn.min.css"
@@ -47,43 +47,17 @@
         right: 0;
         background: linear-gradient(to left, white, transparent);
       }
-
-      /* Mobile responsive */
       @media (max-width: 768px) {
         .nav-links {
           display: none !important;
         }
-        .features-grid {
-          grid-template-columns: 1fr !important;
-        }
-        .feature-large {
-          grid-column: span 1 !important;
-        }
         .hero-title {
           font-size: 3rem !important;
-        }
-        .description-title {
-          font-size: 2rem !important;
-        }
-        .description-subtitle {
-          font-size: 1.125rem !important;
-        }
-        .testimonials-container::before,
-        .testimonials-container::after {
-          width: 50px;
         }
       }
     </style>
   </head>
-  <body
-    style="
-      margin: 0;
-      font-family:
-        system-ui,
-        -apple-system,
-        sans-serif;
-    "
-  >
+  <body>
     <!-- Navigation -->
     <nav
       style="
@@ -117,48 +91,28 @@
         </a>
         <div class="nav-links" style="display: flex; gap: 1.5rem">
           <a
-            href="#"
+            href="#features"
             style="
               text-decoration: none;
               color: #6b7280;
               font-size: 0.875rem;
               font-weight: 500;
             "
-            >Docs</a
+            >Features</a
           >
           <a
-            href="#"
+            href="#about"
             style="
               text-decoration: none;
               color: #6b7280;
               font-size: 0.875rem;
               font-weight: 500;
             "
-            >Components</a
-          >
-          <a
-            href="#"
-            style="
-              text-decoration: none;
-              color: #6b7280;
-              font-size: 0.875rem;
-              font-weight: 500;
-            "
-            >Examples</a
-          >
-          <a
-            href="#"
-            style="
-              text-decoration: none;
-              color: #6b7280;
-              font-size: 0.875rem;
-              font-weight: 500;
-            "
-            >Templates</a
+            >About</a
           >
         </div>
       </div>
-      <a href="/dashboard/" class="btn btn-sm">Dashboard</a>
+      <a href="/login/" class="btn btn-sm">Get Started</a>
     </nav>
 
     <!-- Hero Section -->
@@ -172,7 +126,7 @@
           letter-spacing: -0.025em;
         "
       >
-        Template - Dashboard
+        Lorem Ipsum
       </h1>
       <div
         style="
@@ -185,7 +139,7 @@
         "
       >
         <p style="font-size: 1.5rem; color: #6b7280; margin: 0">
-          A Dashboard SaaS Site for you
+          Dolor sit amet consectetur adipiscing elit
         </p>
         <button
           class="btn btn-primary"
@@ -196,114 +150,9 @@
       </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section
-      class="testimonials-container"
-      style="overflow: hidden; padding: 2rem 0"
-    >
-      <div class="testimonials-track" style="display: flex; gap: 2rem">
-        <!-- Duplicate testimonials for seamless loop -->
-        <div
-          class="card"
-          style="flex-shrink: 0; min-width: 300px; padding: 1rem"
-        >
-          <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem">
-            "Launched my SaaS in just 2 days!"
-          </p>
-          <p style="font-size: 0.75rem; color: #6b7280">
-            - Sarah Chen, Founder
-          </p>
-        </div>
-        <div
-          class="card"
-          style="flex-shrink: 0; min-width: 300px; padding: 1rem"
-        >
-          <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem">
-            "The best dashboard template ever."
-          </p>
-          <p style="font-size: 0.75rem; color: #6b7280">- Mike Johnson, CEO</p>
-        </div>
-        <div
-          class="card"
-          style="flex-shrink: 0; min-width: 300px; padding: 1rem"
-        >
-          <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem">
-            "Saved me months of development."
-          </p>
-          <p style="font-size: 0.75rem; color: #6b7280">
-            - Alex Rivera, Developer
-          </p>
-        </div>
-        <div
-          class="card"
-          style="flex-shrink: 0; min-width: 300px; padding: 1rem"
-        >
-          <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem">
-            "Clean code, amazing support!"
-          </p>
-          <p style="font-size: 0.75rem; color: #6b7280">- Emma Davis, CTO</p>
-        </div>
-        <div
-          class="card"
-          style="flex-shrink: 0; min-width: 300px; padding: 1rem"
-        >
-          <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem">
-            "From idea to production in hours."
-          </p>
-          <p style="font-size: 0.75rem; color: #6b7280">
-            - Tom Wilson, Startup
-          </p>
-        </div>
-        <!-- Duplicate for seamless loop -->
-        <div
-          class="card"
-          style="flex-shrink: 0; min-width: 300px; padding: 1rem"
-        >
-          <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem">
-            "Launched my SaaS in just 2 days!"
-          </p>
-          <p style="font-size: 0.75rem; color: #6b7280">
-            - Sarah Chen, Founder
-          </p>
-        </div>
-        <div
-          class="card"
-          style="flex-shrink: 0; min-width: 300px; padding: 1rem"
-        >
-          <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem">
-            "The best dashboard template ever."
-          </p>
-          <p style="font-size: 0.75rem; color: #6b7280">- Mike Johnson, CEO</p>
-        </div>
-        <div
-          class="card"
-          style="flex-shrink: 0; min-width: 300px; padding: 1rem"
-        >
-          <p style="margin: 0 0 0.5rem 0; font-size: 0.875rem">
-            "Saved me months of development."
-          </p>
-          <p style="font-size: 0.75rem; color: #6b7280">
-            - Alex Rivera, Developer
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Dolphin Image Section -->
-    <section style="padding: 3rem 1.5rem; max-width: 800px; margin: 0 auto">
-      <div class="card" style="padding: 0; overflow: hidden">
-        <img
-          src="/dolphin2.jpg"
-          alt="Dolphin"
-          style="width: 100%; height: auto; display: block"
-        />
-      </div>
-    </section>
-
-    <!-- Description Section -->
+    <!-- Content Section -->
     <section style="text-align: center; padding: 6rem 1.5rem 3rem">
       <h2
-        class="description-title"
         style="
           font-size: 3rem;
           font-weight: 700;
@@ -312,10 +161,9 @@
           max-width: 900px;
         "
       >
-        Dashboards you've never seen before.
+        Sed do eiusmod tempor
       </h2>
       <p
-        class="description-subtitle"
         style="
           font-size: 1.5rem;
           color: #6b7280;
@@ -323,61 +171,20 @@
           max-width: 600px;
         "
       >
-        Launch CRUD dashboards that your customers will love. You can do
-        anything with it.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       </p>
     </section>
 
-    <!-- Features Section -->
-    <section style="padding: 4rem 1.5rem; max-width: 1200px; margin: 0 auto">
+    <!-- Simple Feature Grid -->
+    <section id="features" style="padding: 4rem 1.5rem; max-width: 1200px; margin: 0 auto">
       <div
-        class="features-grid"
-        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem"
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem"
       >
-        <!-- Large feature card (2 columns) -->
-        <div
-          class="card feature-large"
-          style="grid-column: span 2; padding: 2rem"
-        >
-          <h3
-            style="margin: 0 0 0.5rem 0; font-size: 1.125rem; font-weight: 600"
-          >
-            Real-time Analytics
-          </h3>
-          <p
-            style="
-              margin: 0;
-              color: #6b7280;
-              font-size: 0.875rem;
-              line-height: 1.5;
-            "
-          >
-            Monitor your application performance with real-time analytics and
-            insights. Track user behavior, conversion rates, and system metrics
-            all in one place.
-          </p>
-          <div
-            style="
-              margin-top: 2rem;
-              padding: 2rem;
-              background: #f9fafb;
-              border-radius: 0.375rem;
-              min-height: 150px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            <span style="color: #9ca3af">Analytics Chart Visualization</span>
-          </div>
-        </div>
-
-        <!-- Small feature card (1 column) -->
         <div class="card" style="padding: 2rem">
           <h3
             style="margin: 0 0 0.5rem 0; font-size: 1.125rem; font-weight: 600"
           >
-            User Management
+            Excepteur Sint
           </h3>
           <p
             style="
@@ -387,30 +194,15 @@
               line-height: 1.5;
             "
           >
-            Complete user authentication and role-based access control.
+            Occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <div
-            style="
-              margin-top: 2rem;
-              padding: 2rem;
-              background: #f9fafb;
-              border-radius: 0.375rem;
-              min-height: 150px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            <span style="color: #9ca3af">User List</span>
-          </div>
         </div>
 
-        <!-- Small feature card (1 column) -->
         <div class="card" style="padding: 2rem">
           <h3
             style="margin: 0 0 0.5rem 0; font-size: 1.125rem; font-weight: 600"
           >
-            API Integration
+            Duis Aute Irure
           </h3>
           <p
             style="
@@ -420,33 +212,15 @@
               line-height: 1.5;
             "
           >
-            RESTful API with automatic documentation and rate limiting.
+            In reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           </p>
-          <div
-            style="
-              margin-top: 2rem;
-              padding: 2rem;
-              background: #f9fafb;
-              border-radius: 0.375rem;
-              min-height: 150px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            <span style="color: #9ca3af">API Docs</span>
-          </div>
         </div>
 
-        <!-- Large feature card (2 columns) -->
-        <div
-          class="card feature-large"
-          style="grid-column: span 2; padding: 2rem"
-        >
+        <div class="card" style="padding: 2rem">
           <h3
             style="margin: 0 0 0.5rem 0; font-size: 1.125rem; font-weight: 600"
           >
-            Customizable Dashboard
+            Lorem Ipsum
           </h3>
           <p
             style="
@@ -456,57 +230,118 @@
               line-height: 1.5;
             "
           >
-            Drag-and-drop widgets, customizable themes, and responsive layouts.
-            Build the perfect dashboard for your users with our flexible
-            component system.
+            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
           </p>
-          <div
-            style="
-              margin-top: 2rem;
-              padding: 2rem;
-              background: #f9fafb;
-              border-radius: 0.375rem;
-              min-height: 150px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            <span style="color: #9ca3af">Dashboard Preview</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="padding: 6rem 1.5rem; background: #f9fafb">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center">
+        <h2
+          style="
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0 auto 2rem;
+            letter-spacing: -0.025em;
+          "
+        >
+          Vivamus Magna
+        </h2>
+        <p
+          style="
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin: 0 auto 3rem;
+            max-width: 800px;
+            line-height: 1.6;
+          "
+        >
+          Justo faucibus. Mauris in aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 4rem">
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 600; margin: 0 0 1rem 0">Consectetur</h3>
+            <p style="color: #6b7280; margin: 0">Adipiscing elit pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 600; margin: 0 0 1rem 0">Facilisis</h3>
+            <p style="color: #6b7280; margin: 0">Magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque.</p>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 1.5rem; font-weight: 600; margin: 0 0 1rem 0">Vestibulum</h3>
+            <p style="color: #6b7280; margin: 0">Lectus magna fringilla urna porttitor rhoncus dolor purus non enim praesent.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section style="text-align: center; padding: 6rem 1.5rem 4rem">
-      <h2
-        style="
-          font-size: 2.5rem;
-          font-weight: 700;
-          margin: 0 auto 1.5rem;
-          letter-spacing: -0.025em;
-          max-width: 900px;
-        "
-      >
-        Ready to build your SaaS?
-      </h2>
-      <p
-        style="
-          font-size: 1.5rem;
-          color: #6b7280;
-          margin: 0 auto 2rem;
-          max-width: 600px;
-        "
-      >
-        Join thousands of developers who ship faster with Template.
-      </p>
-      <button
-        class="btn btn-primary btn-lg"
-        onclick="window.location.href='/login/'"
-      >
-        Get Started Now →
-      </button>
+    <!-- Testimonials Section -->
+    <section style="padding: 6rem 1.5rem">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center">
+        <h2
+          style="
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0 auto 3rem;
+            letter-spacing: -0.025em;
+          "
+        >
+          Quis Autem
+        </h2>
+        
+        <div class="testimonials-container" style="overflow: hidden; margin: 0 auto">
+          <div class="testimonials-track" style="display: flex; gap: 2rem; width: max-content">
+            <!-- Testimonial 1 -->
+            <div class="card" style="padding: 2rem; min-width: 300px; max-width: 300px">
+              <p style="margin: 0 0 1rem 0; font-style: italic">
+                "Vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae."
+              </p>
+              <div style="font-weight: 600">— Pellentesque</div>
+              <div style="color: #6b7280; font-size: 0.875rem">Habitant morbi</div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="card" style="padding: 2rem; min-width: 300px; max-width: 300px">
+              <p style="margin: 0 0 1rem 0; font-style: italic">
+                "Tristique senectus et netus et malesuada fames ac turpis egestas."
+              </p>
+              <div style="font-weight: 600">— Elementum</div>
+              <div style="color: #6b7280; font-size: 0.875rem">Tempus quam</div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="card" style="padding: 2rem; min-width: 300px; max-width: 300px">
+              <p style="margin: 0 0 1rem 0; font-style: italic">
+                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+              </p>
+              <div style="font-weight: 600">— Sagittis</div>
+              <div style="color: #6b7280; font-size: 0.875rem">Nisl pretium</div>
+            </div>
+            
+            <!-- Duplicate testimonials for seamless loop -->
+            <div class="card" style="padding: 2rem; min-width: 300px; max-width: 300px">
+              <p style="margin: 0 0 1rem 0; font-style: italic">
+                "Vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae."
+              </p>
+              <div style="font-weight: 600">— Pellentesque</div>
+              <div style="color: #6b7280; font-size: 0.875rem">Habitant morbi</div>
+            </div>
+            
+            <div class="card" style="padding: 2rem; min-width: 300px; max-width: 300px">
+              <p style="margin: 0 0 1rem 0; font-style: italic">
+                "Tristique senectus et netus et malesuada fames ac turpis egestas."
+              </p>
+              <div style="font-weight: 600">— Elementum</div>
+              <div style="color: #6b7280; font-size: 0.875rem">Tempus quam</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->

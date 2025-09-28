@@ -3,13 +3,7 @@ import { cors } from "hono/cors";
 import { zValidator } from "@hono/zod-validator";
 import { createAuth } from "./auth";
 import type { CloudflareBindings } from "./env";
-import {
-  ErrorResponseSchema,
-  LoadDashboardResponseSchema,
-  SaveDashboardRequestSchema,
-  SaveDashboardResponseSchema,
-} from "@shared/types/request-response-schemas";
-import type { Change } from "@shared/types/events";
+import { ErrorResponseSchema } from "@shared/types/request-response-schemas";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 import z from "zod";
 
@@ -118,57 +112,6 @@ app.all("/api/auth/*", async (c) => {
   const auth = c.get("auth");
   return auth.handler(c.req.raw);
 });
-
-// Dashboard endpoints
-app.get("/api/dashboard/load", async (c) => {
-  const user = await getAuthenticatedUser(c);
-  if (!user) {
-    return sendError(c, 401, "Unauthorized");
-  }
-
-  const shardId = c.env.USER_SHARD.idFromName(user.id);
-  const userShard = c.env.USER_SHARD.get(shardId);
-
-  const result = await userShard.loadDashboard();
-
-  if ("error" in result) {
-    return sendError(c, 500, result.error);
-  }
-
-  return send(c, LoadDashboardResponseSchema, result, 200);
-});
-
-app.post(
-  "/api/dashboard/save",
-  zValidator("json", SaveDashboardRequestSchema),
-  async (c) => {
-    try {
-      const user = await getAuthenticatedUser(c);
-      if (!user) {
-        return sendError(c, 401, "Unauthorized");
-      }
-
-      const { changes } = c.req.valid("json");
-
-      const shardId = c.env.USER_SHARD.idFromName(user.id);
-      const userShard = c.env.USER_SHARD.get(shardId);
-
-      const result = await userShard.saveDashboard(changes as Change[]);
-      if ("error" in result) {
-        return sendError(c, result.statusCode as any, result.error);
-      }
-
-      return send(c, SaveDashboardResponseSchema, result, 200);
-    } catch (error) {
-      console.error("Save dashboard error:", error);
-      return sendError(
-        c,
-        500,
-        "Failed to save changes: " + (error as Error).message
-      );
-    }
-  }
-);
 
 // Add 404 route
 app.get("*", (c) => {

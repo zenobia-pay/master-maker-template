@@ -15,6 +15,13 @@
       "when": 1757452978153,
       "tag": "0001_useful_mentallo",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1759026434294,
+      "tag": "0002_outstanding_owl",
+      "breakpoints": true
     }
   ]
 }
