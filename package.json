@@ -56,7 +56,7 @@
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",
     "tailwindcss-animate": "^1.0.7",
-    "vite-plugin-iframe-communication": "^1.0.2",
+    "vite-plugin-iframe-communication": "^1.1.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
