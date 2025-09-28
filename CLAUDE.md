@@ -48,6 +48,8 @@ All implementation tasks must be one of these specific step types:
   - Adds necessary types to schemas and routes
 - Only create new pages when functionality can't fit in existing ones.
 
+**IMPORTANT**: If creating a "landing" page, after running `create-page`, you must manually update the `vite.config.ts` to set the landing page as the main route at `/` instead of `/landing`. Change the route configuration to serve the landing page at the root path.
+
 ### 3. `load-content-on-page`
 
 **Purpose**: Set up the load endpoint to fetch data from the shard database.
@@ -128,6 +130,23 @@ All implementation tasks must be one of these specific step types:
 3. **No New Endpoints**: Use existing `/load/` and `/save/` patterns
 4. **Event-Driven**: All changes go through the event system for consistency
 5. **Preview Management**: Use `npm run preview:start` after DB changes, never `npm run dev`
+
+## CRITICAL FINAL STEP
+
+**After completing ALL implementation work**, you MUST run a typecheck to catch any errors:
+
+```bash
+npm run typecheck
+```
+
+If there are ANY TypeScript errors, you MUST fix them before considering the task complete. This includes:
+- Missing type definitions
+- Incorrect type usage
+- Missing imports or exports
+- Handler function signature mismatches
+- Any other TypeScript compilation errors
+
+Do not skip this step - TypeScript errors will cause runtime failures and break the application.
 
 ### Adding stock images
 
