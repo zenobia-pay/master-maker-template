@@ -17,7 +17,7 @@ All implementation tasks must be one of these specific step types:
 - **D1 Schema** (global): Contains shared data like users table, authentication info
 - **Shard Schema** (per-user): Contains user-specific data like projects, orders, transactions
 - Location: Update schema files in `src/durable-objects/user-shard/schema.ts`
-- After changes: Run `npm run db:generate && npm run db:migrate:dev && npm run preview:start`
+- After changes: Run `npm run db:generate && npm run db:migrate:dev && npm run db:generate:user-shard`
 - NEVER run `npm run dev` - the preview is managed by another process
 
 ### 2. `create-page`
@@ -27,16 +27,18 @@ All implementation tasks must be one of these specific step types:
 **Implementation Details**:
 
 - **IMPORTANT**: Use the `dolphinmade` CLI tool to create pages:
+
   ```bash
   dolphinmade create-page <name> [options]
   ```
+
   Options:
   - `-t, --type <type>`: Page type (`static` or `dashboard`), defaults to `static`
   - `-s, --schemas <path>`: Path to request-response-schemas file (default: `shared/types/request-response-schemas.ts`)
   - `-r, --routes <path>`: Path to routes index.ts file (default: `src/index.ts`)
   - `-u, --user-shard <path>`: Path to UserShard.ts file (default: `src/durable-objects/user-shard/UserShard.ts`)
   - `-y, --yes`: Skip confirmation prompts
-  
+
   Example usage:
   - Static page: `dolphinmade create-page about`
   - Dashboard page: `dolphinmade create-page admin --type dashboard`
@@ -140,6 +142,7 @@ npm run typecheck
 ```
 
 If there are ANY TypeScript errors, you MUST fix them before considering the task complete. This includes:
+
 - Missing type definitions
 - Incorrect type usage
 - Missing imports or exports
