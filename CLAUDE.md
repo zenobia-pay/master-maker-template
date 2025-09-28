@@ -26,14 +26,26 @@ All implementation tasks must be one of these specific step types:
 
 **Implementation Details**:
 
-- **Static Page**: Copy from `index.html` template, no load/save endpoints needed. Add route to `vite.config.ts`.
-- **Dynamic Page**: Copy from Dashboard folder structure
-- Add route to `vite.config.ts`
-- Dynamic pages must have:
-  - Load endpoint to fetch initial data
-  - Save endpoint to persist changes
-  - Events object for handling user actions
-  - Don't worry about implementing these yet, as they will be implemented by other steps.
+- **IMPORTANT**: Use the `dolphinmade` CLI tool to create pages:
+  ```bash
+  dolphinmade create-page <name> [options]
+  ```
+  Options:
+  - `-t, --type <type>`: Page type (`static` or `dashboard`), defaults to `static`
+  - `-s, --schemas <path>`: Path to request-response-schemas file (default: `shared/types/request-response-schemas.ts`)
+  - `-r, --routes <path>`: Path to routes index.ts file (default: `src/index.ts`)
+  - `-u, --user-shard <path>`: Path to UserShard.ts file (default: `src/durable-objects/user-shard/UserShard.ts`)
+  - `-y, --yes`: Skip confirmation prompts
+  
+  Example usage:
+  - Static page: `dolphinmade create-page about`
+  - Dashboard page: `dolphinmade create-page admin --type dashboard`
+
+- The CLI tool automatically:
+  - Creates the appropriate page structure (static HTML or dashboard with SolidJS components)
+  - Updates `vite.config.ts` with the new route
+  - For dashboard pages: creates context, views, API client, autosave service, undo/redo service, and event processor
+  - Adds necessary types to schemas and routes
 - Only create new pages when functionality can't fit in existing ones.
 
 ### 3. `load-content-on-page`
