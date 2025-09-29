@@ -151,32 +151,8 @@ If there are ANY TypeScript errors, you MUST fix them before considering the tas
 
 Do not skip this step - TypeScript errors will cause runtime failures and break the application.
 
-### Adding stock images
+## Tool Calls
+This container has provided several tools for you, such as preview management, image search, etc. All tools are executable scripts located in the /tools/ folder. Each script includes extensive documentation on how to use it at the top of the script. Use as appropriate.
 
-Stock images are great to add to the landing page. Curl the follwing endpoint to fetch urls for images.
-**Endpoint**: `POST http://127.0.0.1:3001/pexels/search`
-
-## Request Format
-
-```json
-{
-  "query": "modern office workspace",
-  "orientation": "landscape",
-  "size": "large",
-  "per_page": 15,
-  "page": 1,
-  "color": "blue",
-  "locale": "en-US"
-}
-```
-
-## Preview Management Commands
-
-- `npm run preview:start` - Start/restart preview (use after DB changes)
-- `npm run preview:logs` - View stdout (last 100 lines)
-- `npm run preview:logs:error` - View stderr (last 100 lines)
-- `npm run preview:logs:all` - View all logs (last 100 lines)
-
-**CRITICAL**: DO NOT run `npm run dev` - the preview is managed externally and will fail!
-
-> > > > > > > e3e699e (Claude.md update)
+IMPORTANT: Check the /tools/ folder for any useful tools before executing calls
+IMPORTANT: DO NOT RUN npm run dev. Previews are managed separately by pm2 and should not be changed by you!
