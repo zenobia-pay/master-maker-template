@@ -53,7 +53,7 @@ export default function LoginPage() {
           name: email().split("@")[0], // Use email prefix as name
         });
       }
-      window.location.href = "/dashboard/";
+      window.location.href = "/";
     } catch (error: any) {
       console.error("Auth error:", error);
       setError(error.message || "Authentication failed");
@@ -67,7 +67,7 @@ export default function LoginPage() {
     setError("");
     try {
       await authClient.signIn.anonymous();
-      window.location.href = "/dashboard/";
+      window.location.href = "/";
     } catch (error: any) {
       console.error("Anonymous login error:", error);
       setError("Anonymous login failed: " + error.message);
@@ -79,7 +79,7 @@ export default function LoginPage() {
   return (
     <div class="h-screen font-manrope overflow-hidden">
       <Show when={!session().isPending && session().data != null}>
-        {(window.location.href = "/dashboard/")}
+        {(window.location.href = "/")}
       </Show>
       <Dialog open={!!error()} onOpenChange={() => setError("")}>
         <DialogContent>
