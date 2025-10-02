@@ -54,9 +54,9 @@ export default function LoginPage() {
         });
       }
       window.location.href = "/";
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Auth error:", error);
-      setError(error.message || "Authentication failed");
+      setError(error instanceof Error ? error.message : "Authentication failed");
     } finally {
       setLoading(false);
     }
@@ -68,9 +68,9 @@ export default function LoginPage() {
     try {
       await authClient.signIn.anonymous();
       window.location.href = "/";
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Anonymous login error:", error);
-      setError("Anonymous login failed: " + error.message);
+      setError("Anonymous login failed: " + (error instanceof Error ? error.message : "Unknown error"));
     } finally {
       setLoading(false);
     }
@@ -168,7 +168,7 @@ export default function LoginPage() {
                   </>
                 }
               >
-                <form onSubmit={handleEmailPasswordAuth} class="space-y-4">
+                <form onSubmit={(e) => { e.preventDefault(); void handleEmailPasswordAuth(e); }} class="space-y-4">
                   <TextField>
                     <TextFieldLabel>Email</TextFieldLabel>
                     <TextFieldInput
@@ -222,7 +222,7 @@ export default function LoginPage() {
                 </div>
 
                 <Button
-                  onClick={loginAnonymously}
+                  onClick={() => void loginAnonymously()}
                   variant="outline"
                   class="w-full"
                   disabled={loading()}

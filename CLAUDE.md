@@ -20,75 +20,76 @@ All implementation tasks must be one of these specific step types:
 - After changes: Run `npm run db:generate && npm run db:migrate:dev && npm run db:generate:user-shard`
 - NEVER run `npm run dev` - the preview is managed by another process
 
-### 2. `create-page`
+### 2. `page-static`
 
-**Purpose**: Create a new page in the application (static or dynamic).
+**Purpose**: Create a complete static page (e.g., landing page, about page, terms page).
 
 **Implementation Details**:
 
-- **IMPORTANT**: Use the `dolphinmade` CLI tool to create pages:
-
+- **IMPORTANT**: Use the `dolphinmade` CLI tool to create the page structure:
   ```bash
-  dolphinmade create-page <name> [options]
+  dolphinmade create-page <name> --type static
   ```
+  Example: `dolphinmade create-page landing --type static`
 
-  Options:
-  - `-t, --type <type>`: Page type (`static` or `dashboard`), defaults to `static`
-  - `-s, --schemas <path>`: Path to request-response-schemas file (default: `shared/types/request-response-schemas.ts`)
-  - `-r, --routes <path>`: Path to routes index.ts file (default: `src/index.ts`)
-  - `-u, --user-shard <path>`: Path to UserShard.ts file (default: `src/durable-objects/user-shard/UserShard.ts`)
-  - `-y, --yes`: Skip confirmation prompts
-
-  Example usage:
-  - Static page: `dolphinmade create-page about`
-  - Dashboard page: `dolphinmade create-page admin --type dashboard`
-
-- The CLI tool automatically:
-  - Creates the appropriate page structure (static HTML or dashboard with SolidJS components)
+- The CLI automatically:
+  - Creates static HTML file structure
   - Updates `vite.config.ts` with the new route
-  - For dashboard pages: creates context, views, API client, autosave service, undo/redo service, and event processor
-  - Adds necessary types to schemas and routes
-- Only create new pages when functionality can't fit in existing ones.
+  - Sets up basic page template
 
-**IMPORTANT**: If creating a "landing" page, after running `create-page`, you must manually update the `vite.config.ts` to set the landing page as the main route at `/` instead of `/landing`. Change the route configuration to serve the landing page at the root path.
+- After running the CLI, implement all content in the HTML file:
+  - Hero section with headline, subheadline, and visuals
+  - Feature sections with descriptions
+  - Call-to-action buttons and links
+  - Footer with navigation links
+  - All styling and layout
+  - Any images or visual assets
 
-### 3. `load-content-on-page`
+- **IMPORTANT**: If creating a "landing" page, manually update `vite.config.ts` to set the landing page as the main route at `/` instead of `/landing`
 
-**Purpose**: Set up the load endpoint to fetch data from the shard database.
+### 3. `page-dynamic`
+
+**Purpose**: Create a complete dynamic page with full functionality (e.g., dashboard, profile, admin panel).
 
 **Implementation Details**:
 
+This is a comprehensive step that includes ALL sub-tasks for creating a fully functional dynamic page:
+
+#### A. Create Page Structure
+- **IMPORTANT**: Use the `dolphinmade` CLI tool:
+  ```bash
+  dolphinmade create-page <name> --type dashboard
+  ```
+  Example: `dolphinmade create-page admin --type dashboard`
+
+- The CLI automatically:
+  - Creates dashboard structure with SolidJS components
+  - Sets up context, views, API client
+  - Creates autosave service, undo/redo service, and event processor
+  - Adds necessary types to schemas and routes
+  - Updates `vite.config.ts` with the new route
+
+#### B. Setup Load Endpoint
 - Modify the `/load/` endpoint for the page
 - Query shard database for required entities
-- Return properly formatted data
 - Initialize context with fetched data structure
-
-- Do NOT create new endpoints - use existing load pattern
 - Ensure all data needed for initial render is included
+- Run typecheck after changes and fix any errors.
 
-### 4. `create-ui-on-page`
-
-**Purpose**: Build UI components that derive their state from context.
-
-**Implementation Details**:
-
+#### C. Build UI Components
 - Create components that read from context store
 - NO local state in subcomponents - all state from context
 - NO type definitions in subcomponents
 - Ensure components are reactive to context changes
 - Place components in appropriate view within Dashboard
 - Follow existing component patterns and styling
+- Run typecheck after changes and fix any errors.
 
-### 5. `create-page-events-file`
-
-**Purpose**: Define atomic database operations in events.ts file.
-
-**Implementation Details**:
-
-- Create JSON type definitions for each event
+#### D. Define Events
+- Create JSON type definitions in `events.ts` file
 - Include all information needed to execute AND reverse the change
 - Events should be atomic and self-contained
-- Example event structure:
+- Example:
   ```typescript
   {
     type: "update-item",
@@ -97,33 +98,23 @@ All implementation tasks must be one of these specific step types:
     newValue: any
   }
   ```
-- Location: `events.ts` file for the page
+- Run typecheck after changes and fix any errors.
 
-### 6. `create-backend-event-handlers`
-
-**Purpose**: Handle database updates for events on the backend.
-
-**Implementation Details**:
-
+#### E. Create Backend Event Handlers
 - Create handler functions in `handlers` folder
 - Use Drizzle ORM update methods
 - Update shard database accordingly
 - Do NOT create new endpoints - handlers are called by existing save endpoint
 - Ensure proper error handling and validation
-- Run typecheck after implementation to catch missing handlers
+- Run typecheck after changes and fix any errors.
 
-### 7. `create-frontend-event-handlers`
-
-**Purpose**: Update context optimistically when events are emitted.
-
-**Implementation Details**:
-
+#### F. Create Frontend Event Handlers
 - Create client-side handlers that update the context store
 - Implement optimistic updates for better UX
-- Ensure UI reactivity through context updates
 - Call `emitEvent` with the appropriate change type
 - Handler should update relevant parts of the store
 - UI will automatically re-render based on context changes
+- Run typecheck after changes and fix any errors.
 
 ## Important Guidelines
 
@@ -132,6 +123,7 @@ All implementation tasks must be one of these specific step types:
 3. **No New Endpoints**: Use existing `/load/` and `/save/` patterns
 4. **Event-Driven**: All changes go through the event system for consistency
 5. **Preview Management**: Use `npm run preview:start` after DB changes, never `npm run dev`
+6. **Typescript Style**: Always avoid using any as a type. Explicitly define and use a single type defined in the types.ts folder
 
 ## CRITICAL FINAL STEP
 

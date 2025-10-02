@@ -22,7 +22,7 @@ export class UserShard extends DurableObject<UserShardEnv> {
     this.db = drizzle(this.storage, { schema, logger: true });
 
     // Run migrations before accepting any requests
-    ctx.blockConcurrencyWhile(async () => {
+    void ctx.blockConcurrencyWhile(async () => {
       await this.migrate();
     });
   }

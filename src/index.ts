@@ -6,6 +6,7 @@ import type { CloudflareBindings } from "./env";
 import { ErrorResponseSchema } from "@shared/types/request-response-schemas";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 import z from "zod";
+import type { IncomingRequestCfProperties } from "@cloudflare/workers-types";
 
 type Variables = {
   auth: ReturnType<typeof createAuth>;
@@ -31,13 +32,13 @@ export async function getAuthenticatedUser(c: HonoContext) {
 }
 
 export function send<S extends z.ZodTypeAny>(
-  c: Context,
+  c: Context<{ Bindings: CloudflareBindings }>,
   schema: S,
   data: z.output<S>,
   status: ContentfulStatusCode
 ) {
   // Runtime assert- disabled in production
-  if (c.env.BASE_URL && c.env.BASE_URL.includes("localhost")) {
+  if (c.env.BASE_URL?.includes("localhost")) {
     try {
       schema.parse(data);
     } catch (error) {
@@ -54,7 +55,7 @@ export function send<S extends z.ZodTypeAny>(
 }
 
 export function sendError(
-  c: Context,
+  c: Context<{ Bindings: CloudflareBindings }>,
   code: ContentfulStatusCode,
   error: string
 ) {
@@ -75,7 +76,8 @@ const app = new Hono<{ Bindings: CloudflareBindings; Variables: Variables }>();
 // Middleware to initialize auth instance for each request (MUST come first)
 app.use("*", async (c, next) => {
   console.log("path request", c.req.path);
-  const auth = createAuth(c.env, (c.req.raw as any).cf || {});
+  const cf = (c.req.raw as Request & { cf?: IncomingRequestCfProperties }).cf || {};
+  const auth = createAuth(c.env, cf);
   c.set("auth", auth);
 
   await next();

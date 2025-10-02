@@ -18,7 +18,7 @@ function createAuth(
   env?: CloudflareBindings,
   cf?: IncomingRequestCfProperties
 ) {
-  const db = env ? drizzle(env.DB, { schema, logger: false }) : ({} as any);
+  const db = env ? drizzle(env.DB, { schema, logger: false }) : ({} as ReturnType<typeof drizzle>);
 
   return betterAuth({
     ...withCloudflare(
@@ -28,7 +28,7 @@ function createAuth(
         cf: cf || {},
         d1: env
           ? {
-              db,
+              db: db as ReturnType<typeof drizzle>,
               options: {
                 usePlural: true,
                 debugLogs: true,
@@ -56,7 +56,7 @@ function createAuth(
           google: {
             clientId: env?.GOOGLE_CLIENT_ID || "placeholder",
             clientSecret: env?.GOOGLE_CLIENT_SECRET || "placeholder",
-            async verifyIdToken(token, nonce) {
+            verifyIdToken(token, nonce) {
               return true;
             },
           },

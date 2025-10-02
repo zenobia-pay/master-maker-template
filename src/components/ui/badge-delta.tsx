@@ -117,7 +117,6 @@ type BadgeDeltaProps = Omit<BadgeProps, "variant"> & {
 const BadgeDelta: Component<BadgeDeltaProps> = (props) => {
   const [local, others] = splitProps(props, ["class", "children", "deltaType"])
 
-  // eslint-disable-next-line solid/reactivity
   let Icon = iconMap[local.deltaType]
   createEffect(
     on(
