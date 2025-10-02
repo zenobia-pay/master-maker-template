@@ -28,5 +28,5 @@ export default tseslint.config(
       "worker-configuration.d.ts",
       "user-shard-drizzle/**",
     ],
-  }
+  },
 );

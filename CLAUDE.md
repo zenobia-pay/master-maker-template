@@ -27,9 +27,11 @@ All implementation tasks must be one of these specific step types:
 **Implementation Details**:
 
 - **IMPORTANT**: Use the `dolphinmade` CLI tool to create the page structure:
+
   ```bash
   dolphinmade create-page <name> --type static
   ```
+
   Example: `dolphinmade create-page landing --type static`
 
 - The CLI automatically:
@@ -56,10 +58,13 @@ All implementation tasks must be one of these specific step types:
 This is a comprehensive step that includes ALL sub-tasks for creating a fully functional dynamic page:
 
 #### A. Create Page Structure
+
 - **IMPORTANT**: Use the `dolphinmade` CLI tool:
+
   ```bash
   dolphinmade create-page <name> --type dashboard
   ```
+
   Example: `dolphinmade create-page admin --type dashboard`
 
 - The CLI automatically:
@@ -70,6 +75,7 @@ This is a comprehensive step that includes ALL sub-tasks for creating a fully fu
   - Updates `vite.config.ts` with the new route
 
 #### B. Setup Load Endpoint
+
 - Modify the `/load/` endpoint for the page
 - Query shard database for required entities
 - Initialize context with fetched data structure
@@ -77,6 +83,7 @@ This is a comprehensive step that includes ALL sub-tasks for creating a fully fu
 - Run typecheck after changes and fix any errors.
 
 #### C. Build UI Components
+
 - Create components that read from context store
 - NO local state in subcomponents - all state from context
 - NO type definitions in subcomponents
@@ -86,6 +93,7 @@ This is a comprehensive step that includes ALL sub-tasks for creating a fully fu
 - Run typecheck after changes and fix any errors.
 
 #### D. Define Events
+
 - Create JSON type definitions in `events.ts` file
 - Include all information needed to execute AND reverse the change
 - Events should be atomic and self-contained
@@ -101,6 +109,7 @@ This is a comprehensive step that includes ALL sub-tasks for creating a fully fu
 - Run typecheck after changes and fix any errors.
 
 #### E. Create Backend Event Handlers
+
 - Create handler functions in `handlers` folder
 - Use Drizzle ORM update methods
 - Update shard database accordingly
@@ -109,6 +118,7 @@ This is a comprehensive step that includes ALL sub-tasks for creating a fully fu
 - Run typecheck after changes and fix any errors.
 
 #### F. Create Frontend Event Handlers
+
 - Create client-side handlers that update the context store
 - Implement optimistic updates for better UX
 - Call `emitEvent` with the appropriate change type
@@ -144,6 +154,7 @@ If there are ANY TypeScript errors, you MUST fix them before considering the tas
 Do not skip this step - TypeScript errors will cause runtime failures and break the application.
 
 ## Tool Calls
+
 This container has provided several tools for you, such as preview management, image search, etc. All tools are executable scripts located in the /tools/ folder. Each script includes extensive documentation on how to use it at the top of the script. Use as appropriate.
 
 IMPORTANT: Check the /tools/ folder for any useful tools before executing calls

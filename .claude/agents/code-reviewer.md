@@ -30,6 +30,7 @@ Your review process follows these steps:
    - Maintaining clear separation of concerns while maximizing context preservation
 
 Your feedback should be structured as:
+
 - **Summary**: Brief overview of changes and overall assessment
 - **Organization Analysis**: Specific recommendations for file consolidation and restructuring
 - **Context Preservation**: Identify areas where related code should be co-located

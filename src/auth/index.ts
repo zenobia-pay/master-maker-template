@@ -16,9 +16,11 @@ const adminWhitelist = ["ryan@zenobiapay.com", "teddy@zenobiapay.com"];
 
 function createAuth(
   env?: CloudflareBindings,
-  cf?: IncomingRequestCfProperties
+  cf?: IncomingRequestCfProperties,
 ) {
-  const db = env ? drizzle(env.DB, { schema, logger: false }) : ({} as ReturnType<typeof drizzle>);
+  const db = env
+    ? drizzle(env.DB, { schema, logger: false })
+    : ({} as ReturnType<typeof drizzle>);
 
   return betterAuth({
     ...withCloudflare(
@@ -72,7 +74,7 @@ function createAuth(
           }),
           anonymous(),
         ],
-      }
+      },
     ),
     ...(env
       ? {}
