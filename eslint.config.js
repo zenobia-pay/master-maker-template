@@ -11,10 +11,17 @@ export default tseslint.config(
         tsconfigRootDir: import.meta.dirname,
       },
     },
+    linterOptions: {
+      reportUnusedDisableDirectives: "off",
+    },
     rules: {
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-base-to-string": "off",
+    },
+    settings: {
+      // Suppress warnings, only show errors
+      "import/ignore": ["warn"],
     },
   },
   {

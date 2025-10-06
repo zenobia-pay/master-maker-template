@@ -64,7 +64,7 @@ function createAuth(
           },
         },
         rateLimit: {
-          enabled: true,
+          enabled: false,
         },
         plugins: [
           admin({
@@ -72,7 +72,6 @@ function createAuth(
             adminUsers: adminWhitelist.map((email) => ({ email })),
             impersonationSessionDuration: 60 * 60 * 24 * 7, // 7 days
           }),
-          anonymous(),
         ],
       },
     ),
