@@ -14,10 +14,10 @@ All implementation tasks must be one of these specific step types:
 
 **Implementation Details**:
 
-- **D1 Schema** (global): Contains shared data like users table, authentication info
-- **Shard Schema** (per-user): Contains user-specific data like projects, orders, transactions
+- **D1 Schema** (global): Contains shared data like users table, authentication info, and anything else that needs to be shared between users.
+- **Shard Schema** (per-user): Contains user-specific that can't be shared between users, like projects, orders, transactions
 - Location: Update schema files in `src/durable-objects/user-shard/schema.ts`
-- After changes: Run `npm run db:generate && npm run db:migrate:dev && npm run db:generate:user-shard`
+- After changes: Run `pnpm run db:generate && pnpm run db:migrate:dev && pnpm run db:generate:user-shard`
 - NEVER run `npm run dev` - the preview is managed by another process
 - After migration, insert dummy data for each table for user testing. Use:
 ```
@@ -168,6 +168,28 @@ IMPORTANT: Links MUST have a trailing slash otherwise they will 404!
 #### G. Suggest things to test.
 - Recommend testing out any features you created to the end user that were created during this step.
 
+### 8. `connect-page-to-app`
+
+**Purpose**: Ensure all navigation links are properly connected between the new page and existing pages.
+
+**Implementation Details**:
+
+- Review all existing pages in the application:
+  - `src/index.html` (landing page)
+  - Login page
+  - All pages listed in `vite.config.ts`
+- Add links to the new page from existing pages where appropriate
+- Review all links on the new page and ensure they point to correct destinations
+- Update navigation menus, sidebars, or header components if applicable
+- Ensure consistent navigation patterns across the application
+- Test that users can navigate to and from the new page naturally
+
+**Example Scenarios**:
+
+- After creating a "Feed" page, add a "Feed" link to the main navigation
+- Ensure the "Feed" page has links back to "Profile" or "Home" as appropriate
+- Update any breadcrumb or navigation components to include the new page
+
 ## Important Guidelines
 
 1. **State Management**: All state lives in context, components are purely derived
@@ -183,6 +205,9 @@ This container has provided several tools for you, such as preview management, i
 
 IMPORTANT: Check the /tools/ folder for any useful tools before executing calls
 IMPORTANT: DO NOT RUN npm run dev. Previews are managed separately by pm2 and should not be changed by you!
+<<<<<<< HEAD
 
 ### Typecheck and Linting
 To run, use the lint.sh script in the tools folder.
+=======
+>>>>>>> efd2dde (Add d1 schema)
