@@ -21,7 +21,7 @@ import { Skeleton } from "~/components/ui/skeleton";
 
 const authClient = createAuthClient({
   baseURL: window.location.origin,
-  plugins: [anonymousClient()],
+  plugins: [],
 });
 
 export default function LoginPage() {
@@ -57,24 +57,7 @@ export default function LoginPage() {
     } catch (error: unknown) {
       console.error("Auth error:", error);
       setError(
-        error instanceof Error ? error.message : "Authentication failed",
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const loginAnonymously = async () => {
-    setLoading(true);
-    setError("");
-    try {
-      await authClient.signIn.anonymous();
-      window.location.href = "/";
-    } catch (error: unknown) {
-      console.error("Anonymous login error:", error);
-      setError(
-        "Anonymous login failed: " +
-          (error instanceof Error ? error.message : "Unknown error"),
+        error instanceof Error ? error.message : "Authentication failed"
       );
     } finally {
       setLoading(false);
@@ -231,15 +214,6 @@ export default function LoginPage() {
                     </span>
                   </div>
                 </div>
-
-                <Button
-                  onClick={() => void loginAnonymously()}
-                  variant="outline"
-                  class="w-full"
-                  disabled={loading()}
-                >
-                  {loading() ? "Please wait..." : "Try Anonymously"}
-                </Button>
 
                 <div class="text-center">
                   <Button

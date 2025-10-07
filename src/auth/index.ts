@@ -10,7 +10,7 @@ import { admin } from "better-auth/plugins";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { drizzle } from "drizzle-orm/d1";
 import { schema } from "../db";
-const adminWhitelist = ["ryan@zenobiapay.com", "teddy@zenobiapay.com"];
+const adminWhitelist: string[] = [];
 
 function createAuth(env?: Env, cf?: IncomingRequestCfProperties) {
   const db = env
@@ -32,7 +32,7 @@ function createAuth(env?: Env, cf?: IncomingRequestCfProperties) {
               },
             }
           : undefined,
-        kv: env?.KV,
+        kv: env?.KV as any,
       },
       {
         baseURL: env?.BASE_URL,
@@ -53,7 +53,7 @@ function createAuth(env?: Env, cf?: IncomingRequestCfProperties) {
           google: {
             clientId: env?.GOOGLE_CLIENT_ID || "placeholder",
             clientSecret: env?.GOOGLE_CLIENT_SECRET || "placeholder",
-            verifyIdToken(token, nonce) {
+            async verifyIdToken(token, nonce) {
               return true;
             },
           },

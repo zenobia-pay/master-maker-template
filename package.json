@@ -45,7 +45,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk-solid": "^1.1.2",
-    "drizzle-orm": "0.44.4",
+    "drizzle-orm": "0.43.1",
     "embla-carousel-solid": "^8.6.0",
     "hono": "^4.5.11",
     "lucide-react": "^0.543.0",
@@ -58,6 +58,11 @@
     "tailwindcss-animate": "^1.0.7",
     "vite-plugin-iframe-communication": "^1.1.1",
     "zod": "^3.23.8"
+  },
+  "pnpm": {
+    "overrides": {
+      "drizzle-orm": "0.43.1"
+    }
   },
   "devDependencies": {
     "@babel/generator": "^7.28.3",
