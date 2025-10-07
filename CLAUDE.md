@@ -19,20 +19,24 @@ All implementation tasks must be one of these specific step types:
 - Location: Update schema files in `src/durable-objects/user-shard/schema.ts`
 - After changes: Run `pnpm run db:generate && pnpm run db:migrate:dev && pnpm run db:generate:user-shard`
 - NEVER run `npm run dev` - the preview is managed by another process
+- After you create any new table, create the types for it in shared/types/primitives.ts. Each table should have an inferSelect export.
 - After migration, insert dummy data for each table for user testing. Use:
+
 ```
 wrangler d1 execute <DB_NAME> --local --command "INSERT INTO my_table (col1, col2) VALUES ('val1', 'val2');"
 ```
 
 ### 2. `init-pages`
 
-**Purpose**: Initialize page templates for all pages to be used.. 
+**Purpose**: Initialize page templates for all pages to be used..
 
 **Implementation Details**:
+
 - For each page specified, either init a static or dynamic page.
 - **IMPORTANT**: Use the `dolphinmade` CLI tool to create the page structure:
 
   #### Creating static page
+
   ```bash
   dolphinmade create-page <name> --type static
   ```
@@ -45,9 +49,11 @@ wrangler d1 execute <DB_NAME> --local --command "INSERT INTO my_table (col1, col
   - Sets up basic page template
 
   #### Creating dynamic page
+
   ```bash
   dolphinmade create-page <name> --type dashboard
   ```
+
   Example: `dolphinmade create-page admin --type dashboard`
 
 - The CLI automatically:
@@ -90,16 +96,17 @@ wrangler d1 execute <DB_NAME> --local --command "INSERT INTO my_table (col1, col
 
 **Purpose**: Implements a complete dynamic page with full functionality (e.g., dashboard, profile, admin panel).
 
-**Arguments**: 
-* Loads: 
+**Arguments**:
+
+- Loads:
   - Define in /api/feed/load
-* UI: UI components to implement for this page. 
+- UI: UI components to implement for this page.
   - Define in src/client/{page-name}/OverviewView.tsx
-* Events: Any events needed to send to the backend service. 
+    \* Events: Any events needed to send to the backend service.
   - Define in shared/types/{page-name}Events.ts
-* Actions: SolidJS reactive changes to the frontend state.
+- Actions: SolidJS reactive changes to the frontend state.
   - Define in src/client/{page-name}/{page-name}Context.tsx in {page-name}Actions
-* Links to page
+- Links to page
 
 **Implementation Details**:
 
@@ -109,7 +116,7 @@ Page creation should have already occurred. Modify the pre-existing template to 
 #### A. Setup Load Endpoint
 
 - Modify the `/load/` endpoint for the page
-- Query either shared database or shard database. 
+- Query either shared database or shard database.
   - Look at current database schema to understand what queries are needed.
 - Initialize context with fetched data structure
 - Ensure all data needed for initial render is included
@@ -161,11 +168,12 @@ Page creation should have already occurred. Modify the pre-existing template to 
 
 #### F. Link to other pages.
 
-- Check if any other pages created should link to this one and vice versa. If they exist, add the appropriate routing needed. 
+- Check if any other pages created should link to this one and vice versa. If they exist, add the appropriate routing needed.
 
 IMPORTANT: Links MUST have a trailing slash otherwise they will 404!
 
 #### G. Suggest things to test.
+
 - Recommend testing out any features you created to the end user that were created during this step.
 
 ### 8. `connect-page-to-app`
@@ -198,16 +206,13 @@ IMPORTANT: Links MUST have a trailing slash otherwise they will 404!
 4. **Event-Driven**: All changes go through the event system for consistency
 5. **Preview Management**: Use `npm run preview:start` after DB changes, never `npm run dev`
 
-
 ## Tool Calls
 
 This container has provided several tools for you, such as preview management, image search, etc. All tools are executable scripts located in the /tools/ folder. Each script includes extensive documentation on how to use it at the top of the script. Use as appropriate.
 
 IMPORTANT: Check the /tools/ folder for any useful tools before executing calls
 IMPORTANT: DO NOT RUN npm run dev. Previews are managed separately by pm2 and should not be changed by you!
-<<<<<<< HEAD
 
 ### Typecheck and Linting
+
 To run, use the lint.sh script in the tools folder.
-=======
->>>>>>> efd2dde (Add d1 schema)

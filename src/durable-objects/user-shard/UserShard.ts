@@ -3,7 +3,7 @@ import { drizzle, DrizzleSqliteDODatabase } from "drizzle-orm/durable-sqlite";
 import { eq, inArray } from "drizzle-orm";
 import { migrate } from "drizzle-orm/durable-sqlite/migrator";
 import migrations from "../../../user-shard-drizzle/migrations";
-import * as schema from "./schema";
+import * as schema from "../../db/userShard.schema";
 
 type UserShardEnv = {
   DB: D1Database;
