@@ -31,7 +31,7 @@ export async function getAuthenticatedUser(c: HonoContext) {
 }
 
 export function send<S extends z.ZodTypeAny>(
-  c: Context<{ Bindings: Env }>,
+  c: Context<{ Bindings: Env; Variables: Variables }>,
   schema: S,
   data: z.output<S>,
   status: ContentfulStatusCode
@@ -54,7 +54,7 @@ export function send<S extends z.ZodTypeAny>(
 }
 
 export function sendError(
-  c: Context<{ Bindings: Env }>,
+  c: Context<{ Bindings: Env; Variables: Variables }>,
   code: ContentfulStatusCode,
   error: string
 ) {
@@ -76,7 +76,8 @@ const app = new Hono<{ Bindings: Env; Variables: Variables }>();
 app.use("*", async (c, next) => {
   console.log("path request", c.req.path);
   const cf =
-    (c.req.raw as Request & { cf?: IncomingRequestCfProperties }).cf || {};
+    (c.req.raw as Request & { cf?: IncomingRequestCfProperties }).cf ||
+    ({} as IncomingRequestCfProperties);
   const auth = createAuth(c.env, cf);
   c.set("auth", auth);
 
