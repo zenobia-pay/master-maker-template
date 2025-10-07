@@ -14,14 +14,14 @@ type UserShardEnv = {
 
 export class UserShard extends DurableObject<UserShardEnv> {
   private shardDb: DrizzleSqliteDODatabase<typeof schema>;
-  private d1Db: DrizzleD1Database;
+  private db: DrizzleD1Database;
   private storage: DurableObjectStorage;
 
   constructor(ctx: DurableObjectState, env: UserShardEnv) {
     super(ctx, env);
     this.storage = ctx.storage;
     this.shardDb = drizzle(this.storage, { schema, logger: true });
-    this.d1Db = drizzleD1(env.DB);
+    this.db = drizzleD1(env.DB);
 
     // Run migrations before accepting any requests
     void ctx.blockConcurrencyWhile(async () => {
