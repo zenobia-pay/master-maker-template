@@ -5,19 +5,12 @@ import migrations from "../../../user-shard-drizzle/migrations";
 import * as schema from "../../db/userShard.schema";
 import { drizzle as drizzleD1, DrizzleD1Database } from "drizzle-orm/d1";
 
-type UserShardEnv = {
-  DB: D1Database;
-  USER_SHARD: DurableObjectNamespace;
-  BUCKET: R2Bucket;
-  BETTER_AUTH_SECRET: string;
-};
-
-export class UserShard extends DurableObject<UserShardEnv> {
+export class UserShard extends DurableObject<Env> {
   private shardDb: DrizzleSqliteDODatabase<typeof schema>;
   private db: DrizzleD1Database;
   private storage: DurableObjectStorage;
 
-  constructor(ctx: DurableObjectState, env: UserShardEnv) {
+  constructor(ctx: DurableObjectState, env: Env) {
     super(ctx, env);
     this.storage = ctx.storage;
     this.shardDb = drizzle(this.storage, { schema, logger: true });

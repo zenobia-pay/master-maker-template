@@ -10,14 +10,9 @@ import { admin } from "better-auth/plugins";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { drizzle } from "drizzle-orm/d1";
 import { schema } from "../db";
-import { CloudflareBindings } from "../env";
-import { anonymous } from "better-auth/plugins";
 const adminWhitelist = ["ryan@zenobiapay.com", "teddy@zenobiapay.com"];
 
-function createAuth(
-  env?: CloudflareBindings,
-  cf?: IncomingRequestCfProperties,
-) {
+function createAuth(env?: Env, cf?: IncomingRequestCfProperties) {
   const db = env
     ? drizzle(env.DB, { schema, logger: false })
     : ({} as ReturnType<typeof drizzle>);
@@ -73,7 +68,7 @@ function createAuth(
             impersonationSessionDuration: 60 * 60 * 24 * 7, // 7 days
           }),
         ],
-      },
+      }
     ),
     ...(env
       ? {}
