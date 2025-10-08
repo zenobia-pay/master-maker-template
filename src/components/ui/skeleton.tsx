@@ -1,24 +1,24 @@
-import type { ValidComponent } from "solid-js";
-import { splitProps } from "solid-js";
-
-import type { PolymorphicProps } from "@kobalte/core/polymorphic";
-import * as SkeletonPrimitive from "@kobalte/core/skeleton";
+import { splitProps, type JSX } from "solid-js";
 
 import { cn } from "~/lib/utils";
 
-type SkeletonRootProps<T extends ValidComponent = "div"> =
-  SkeletonPrimitive.SkeletonRootProps<T> & { class?: string | undefined };
+type SkeletonProps = {
+  class?: string | undefined;
+  style?: JSX.CSSProperties | undefined;
+};
 
-const Skeleton = <T extends ValidComponent = "div">(
-  props: PolymorphicProps<T, SkeletonRootProps<T>>,
-) => {
-  const [local, others] = splitProps(props as SkeletonRootProps, ["class"]);
+const Skeleton = (props: SkeletonProps) => {
+  const [local, others] = splitProps(props, ["class", "style"]);
   return (
-    <SkeletonPrimitive.Root
+    <div
       class={cn(
-        "bg-primary/10 data-[animate='true']:animate-pulse",
-        local.class,
+        "animate-pulse rounded-md bg-gray-200 dark:bg-gray-800",
+        local.class
       )}
+      style={{
+        "background-color": "var(--color-bg-secondary, rgba(0, 0, 0, 0.1))",
+        ...local.style,
+      }}
       {...others}
     />
   );
