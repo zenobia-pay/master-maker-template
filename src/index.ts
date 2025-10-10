@@ -2,7 +2,12 @@ import { Context, Hono } from "hono";
 import { cors } from "hono/cors";
 import { zValidator } from "@hono/zod-validator";
 import { createAuth } from "./auth";
-import { ErrorResponseSchema } from "@shared/types/request-response-schemas";
+import {
+  ErrorResponseSchema,
+  LoadFeedResponseSchema,
+  SaveFeedRequestSchema,
+  SaveFeedResponseSchema,
+} from "@shared/types/request-response-schemas";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 import z from "zod";
 import type { IncomingRequestCfProperties } from "@cloudflare/workers-types";
@@ -116,9 +121,11 @@ app.all("/api/auth/*", async (c) => {
   return auth.handler(c.req.raw);
 });
 
-// Add 404 route
-app.get("*", (c) => {
-  return c.html("<div>404 - Page Not Found :/</div>");
+app.get("*", async (c) => {
+  const asset = await c.env.ASSETS.fetch(new URL("/404.html", c.req.url));
+  return asset.status === 200
+    ? asset
+    : c.html("<div>404 - Page Not Found :/</div>", 404);
 });
 
 export default app;

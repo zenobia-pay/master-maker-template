@@ -18,6 +18,7 @@ import {
   DialogDescription,
 } from "~/components/ui/dialog";
 import { Skeleton } from "~/components/ui/skeleton";
+import { showToast } from "~/components/ui/toast";
 
 const authClient = createAuthClient({
   baseURL: window.location.origin,
@@ -29,36 +30,57 @@ export default function LoginPage() {
   const [password, setPassword] = createSignal("");
   const [isLogin, setIsLogin] = createSignal(true);
   const [loading, setLoading] = createSignal(false);
-  const [error, setError] = createSignal<string>("");
 
   // Check if already logged in
   const session = authClient.useSession();
-  console.log("Session", session()?.data?.user);
+
+  // If there's a redirect URL provided, use it. Otherwise, use a default.
+  const redirectUrl = window.location.search.split("redirect=")[1] || "/";
 
   const handleEmailPasswordAuth = async (e: Event) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
 
     try {
       if (isLogin()) {
-        await authClient.signIn.email({
+        const result = await authClient.signIn.email({
           email: email(),
           password: password(),
         });
+
+        if (result.error) {
+          showToast({
+            title: "Sign In Failed",
+            description: result.error.message,
+            variant: "error",
+          });
+        } else {
+          window.location.href = redirectUrl;
+        }
       } else {
-        await authClient.signUp.email({
+        const result = await authClient.signUp.email({
           email: email(),
           password: password(),
           name: email().split("@")[0], // Use email prefix as name
         });
+
+        if (result.error) {
+          showToast({
+            title: "Sign Up Failed",
+            description: result.error.message,
+            variant: "error",
+          });
+        } else {
+          window.location.href = redirectUrl;
+        }
       }
-      window.location.href = "/";
     } catch (error: unknown) {
-      console.error("Auth error:", error);
-      setError(
-        error instanceof Error ? error.message : "Authentication failed"
-      );
+      showToast({
+        title: "Authentication Failed",
+        description:
+          error instanceof Error ? error.message : "Authentication failed",
+        variant: "error",
+      });
     } finally {
       setLoading(false);
     }
@@ -67,19 +89,8 @@ export default function LoginPage() {
   return (
     <div class="h-screen font-manrope overflow-hidden">
       <Show when={!session().isPending && session().data != null}>
-        {(window.location.href = "/")}
+        {(window.location.href = redirectUrl)}
       </Show>
-      <Dialog open={!!error()} onOpenChange={() => setError("")}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Authentication Error</DialogTitle>
-            <DialogDescription>{error()}</DialogDescription>
-          </DialogHeader>
-          <Button onClick={() => setError("")} class="w-full" variant="outline">
-            Close
-          </Button>
-        </DialogContent>
-      </Dialog>
 
       <Flex class="h-full">
         <div class="flex-1 relative overflow-hidden">

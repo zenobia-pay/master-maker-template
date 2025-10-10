@@ -1,8 +1,38 @@
-import { defineConfig } from "vite";
+import { defineConfig, PluginOption } from "vite";
 import solid from "vite-plugin-solid";
 import path, { resolve } from "path";
+import fs from "node:fs";
+
 // Import the iframe communication plugin
 import iframeCommunicationPlugin from "vite-plugin-iframe-communication";
+
+const pretty404 = (file = "src/client/404.html") =>
+  ({
+    name: "pretty-404",
+    apply: "serve",
+    configureServer(server) {
+      const filePath = path.resolve(__dirname, file);
+      let html = fs.readFileSync(filePath);
+      server.watcher.add(filePath);
+      server.watcher.on("change", (p) => {
+        if (p === filePath) html = fs.readFileSync(filePath);
+      });
+
+      server.middlewares.use((req, res, next) => {
+        if (req.method !== "GET" || req.url?.startsWith("/api")) return next();
+        const end = res.end;
+        res.end = function (...args: any[]) {
+          if (res.statusCode === 404) {
+            res.statusCode = 404;
+            res.setHeader("content-type", "text/html; charset=utf-8");
+            return end.call(this, html);
+          }
+          return end.call(this, ...args);
+        };
+        next();
+      });
+    },
+  }) satisfies PluginOption;
 
 export default defineConfig({
   plugins: [
@@ -12,6 +42,7 @@ export default defineConfig({
       debug: false, // Set to true for debugging
       includeInProduction: false, // Only inject in development
     }),
+    pretty404(),
   ],
   appType: "mpa",
   root: "src/client",
@@ -24,6 +55,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "src/client/index.html"),
         login: resolve(__dirname, "src/client/login/index.html"),
+        "404": resolve(__dirname, "src/client/404.html"),
+        feed: resolve(__dirname, "src/client/feed/index.html"),
       },
     },
   },
