@@ -50,16 +50,39 @@ wrangler d1 execute <DB_NAME> --local --command "INSERT INTO my_table (col1, col
 
   #### Creating dynamic page
 
-  ```bash
-  dolphinmade create-page <name> --type dashboard
-  ```
+  Choose the appropriate page type based on your needs:
+
+  - **dashboard**: Dashboard pages with a sidebar that need to be loaded and be able to save changes.
+    ```bash
+    dolphinmade create-page <name> --type dashboard
+    ```
+
+  - **feed**: A page to display a list of items that should load as you scroll down (e.g., social media feed).
+    ```bash
+    dolphinmade create-page <name> --type feed
+    ```
+
+  - **item**: A page for loading a specific item (e.g., to show a particular profile or tweet).
+    ```bash
+    dolphinmade create-page <name> --type item
+    ```
+
+  - **gallery**: A public showcase of data that doesn't need to be modified (e.g., ecommerce site, blog showcase, portfolio).
+    ```bash
+    dolphinmade create-page <name> --type gallery
+    ```
+
+  - **redirect**: A page for loading and processing a particular code (e.g., subscription success page that links code to account, or invite link).
+    ```bash
+    dolphinmade create-page <name> --type redirect
+    ```
 
   Example: `dolphinmade create-page admin --type dashboard`
 
 - The CLI automatically:
-  - Creates dashboard structure with SolidJS components
-  - Sets up context, views, API client
-  - Creates autosave service, undo/redo service, and event processor
+  - Creates page structure with SolidJS components (varies by type)
+  - Sets up context, views, API client (for dashboard/feed/item types)
+  - Creates autosave service, undo/redo service, and event processor (for dashboard/feed/item types)
   - Adds necessary types to schemas and routes
   - Updates `vite.config.ts` with the new route
 
