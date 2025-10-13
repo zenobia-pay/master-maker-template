@@ -56,7 +56,6 @@ export default defineConfig({
         main: resolve(__dirname, "src/client/index.html"),
         login: resolve(__dirname, "src/client/login/index.html"),
         "404": resolve(__dirname, "src/client/404.html"),
-        feed: resolve(__dirname, "src/client/feed/index.html"),
       },
     },
   },
