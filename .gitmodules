@@ -1,0 +1,3 @@
+[submodule "dolphin-skills"]
+	path = dolphin-skills
+	url = git@github.com:zenobia-pay/dolphin-skills.git
