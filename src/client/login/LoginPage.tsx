@@ -1,4 +1,4 @@
-import { createSignal, Show, createEffect } from "solid-js";
+import { createSignal, Show, createEffect, createMemo } from "solid-js";
 import { createAuthClient } from "better-auth/solid";
 import { anonymousClient } from "better-auth/client/plugins";
 import { Button } from "~/components/ui/button";
@@ -36,6 +36,24 @@ export default function LoginPage() {
 
   // If there's a redirect URL provided, use it. Otherwise, use a default.
   const redirectUrl = window.location.search.split("redirect=")[1] || "/";
+
+  // Determine if user is logged in (not pending and has session data)
+  const isLoggedIn = createMemo(
+    () =>
+      !session().isPending &&
+      session().data != null &&
+      session().data?.user != null
+  );
+
+  // Handle redirect with 3 second delay when logged in
+  createEffect(() => {
+    console.log("isLoggedIn", session());
+    if (isLoggedIn()) {
+      setTimeout(() => {
+        window.location.href = redirectUrl;
+      }, 3000);
+    }
+  });
 
   const handleEmailPasswordAuth = async (e: Event) => {
     e.preventDefault();
@@ -88,10 +106,6 @@ export default function LoginPage() {
 
   return (
     <div class="h-screen font-manrope overflow-hidden">
-      <Show when={!session().isPending && session().data != null}>
-        {(window.location.href = redirectUrl)}
-      </Show>
-
       <Flex class="h-full">
         <div class="flex-1 relative overflow-hidden">
           <img
@@ -147,93 +161,131 @@ export default function LoginPage() {
 
             <CardContent class="space-y-6">
               <Show
-                when={session() && !session().isPending}
+                when={isLoggedIn()}
                 fallback={
-                  <>
-                    <div class="space-y-4">
-                      <div class="space-y-2">
-                        <Skeleton class="h-4 w-12" />
+                  <Show
+                    when={session() && !session().isPending}
+                    fallback={
+                      <>
+                        <div class="space-y-4">
+                          <div class="space-y-2">
+                            <Skeleton class="h-4 w-12" />
+                            <Skeleton class="h-10 w-full" />
+                          </div>
+                          <div class="space-y-2">
+                            <Skeleton class="h-4 w-16" />
+                            <Skeleton class="h-10 w-full" />
+                          </div>
+                          <Skeleton class="h-10 w-full" />
+                        </div>
+                        <Skeleton class="h-4 w-40 mx-auto" />
                         <Skeleton class="h-10 w-full" />
-                      </div>
-                      <div class="space-y-2">
-                        <Skeleton class="h-4 w-16" />
-                        <Skeleton class="h-10 w-full" />
-                      </div>
-                      <Skeleton class="h-10 w-full" />
+                        <Skeleton class="h-4 w-24 mx-auto" />
+                      </>
+                    }
+                  >
+                    <form
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        void handleEmailPasswordAuth(e);
+                      }}
+                      class="space-y-4"
+                    >
+                      <TextField>
+                        <TextFieldLabel>Email</TextFieldLabel>
+                        <TextFieldInput
+                          type="email"
+                          placeholder="Enter your email"
+                          value={email()}
+                          onInput={(e) => setEmail(e.currentTarget.value)}
+                          required
+                        />
+                      </TextField>
+
+                      <TextField>
+                        <TextFieldLabel>Password</TextFieldLabel>
+                        <TextFieldInput
+                          type="password"
+                          placeholder="Enter your password"
+                          value={password()}
+                          onInput={(e) => setPassword(e.currentTarget.value)}
+                          required
+                        />
+                      </TextField>
+
+                      <Button type="submit" class="w-full" disabled={loading()}>
+                        {loading()
+                          ? "Please wait..."
+                          : isLogin()
+                            ? "Sign In"
+                            : "Create Account"}
+                      </Button>
+                    </form>
+
+                    <div class="text-center">
+                      <Button
+                        variant="link"
+                        onClick={() => setIsLogin(!isLogin())}
+                        class="text-sm"
+                      >
+                        {isLogin()
+                          ? "Don't have an account? Create one"
+                          : "Already have an account? Sign in"}
+                      </Button>
                     </div>
-                    <Skeleton class="h-4 w-40 mx-auto" />
-                    <Skeleton class="h-10 w-full" />
-                    <Skeleton class="h-4 w-24 mx-auto" />
-                  </>
+
+                    <div class="relative">
+                      <Separator />
+                      <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="bg-background px-2 text-xs text-muted-foreground">
+                          or
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <Button
+                        variant="link"
+                        onClick={() => (window.location.href = "/")}
+                        class="text-sm text-muted-foreground"
+                      >
+                        ← Back to home
+                      </Button>
+                    </div>
+                  </Show>
                 }
               >
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    void handleEmailPasswordAuth(e);
-                  }}
-                  class="space-y-4"
-                >
-                  <TextField>
-                    <TextFieldLabel>Email</TextFieldLabel>
-                    <TextFieldInput
-                      type="email"
-                      placeholder="Enter your email"
-                      value={email()}
-                      onInput={(e) => setEmail(e.currentTarget.value)}
-                      required
-                    />
-                  </TextField>
-
-                  <TextField>
-                    <TextFieldLabel>Password</TextFieldLabel>
-                    <TextFieldInput
-                      type="password"
-                      placeholder="Enter your password"
-                      value={password()}
-                      onInput={(e) => setPassword(e.currentTarget.value)}
-                      required
-                    />
-                  </TextField>
-
-                  <Button type="submit" class="w-full" disabled={loading()}>
-                    {loading()
-                      ? "Please wait..."
-                      : isLogin()
-                        ? "Sign In"
-                        : "Create Account"}
-                  </Button>
-                </form>
-
-                <div class="text-center">
-                  <Button
-                    variant="link"
-                    onClick={() => setIsLogin(!isLogin())}
-                    class="text-sm"
-                  >
-                    {isLogin()
-                      ? "Don't have an account? Create one"
-                      : "Already have an account? Sign in"}
-                  </Button>
-                </div>
-
-                <div class="relative">
-                  <Separator />
-                  <div class="absolute inset-0 flex items-center justify-center">
-                    <span class="bg-background px-2 text-xs text-muted-foreground">
-                      or
-                    </span>
+                <div class="text-center space-y-6 py-8">
+                  <div class="space-y-3">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10">
+                      <svg
+                        class="w-8 h-8 text-primary animate-spin"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          class="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          stroke-width="4"
+                        />
+                        <path
+                          class="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold">User is logged in</h3>
+                      <p class="text-sm text-muted-foreground mt-1">
+                        Redirecting to {redirectUrl}
+                      </p>
+                    </div>
                   </div>
-                </div>
-
-                <div class="text-center">
-                  <Button
-                    variant="link"
-                    onClick={() => (window.location.href = "/")}
-                    class="text-sm text-muted-foreground"
-                  >
-                    ← Back to home
-                  </Button>
                 </div>
               </Show>
             </CardContent>
