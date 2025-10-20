@@ -87,8 +87,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@4.1.14)
       vite-plugin-iframe-communication:
-        specifier: ^1.1.1
-        version: 1.1.1(vite@7.1.9(@types/node@22.18.8)(jiti@2.6.1)(lightningcss@1.30.1)(tsx@4.20.6))
+        specifier: ^1.3.0
+        version: 1.3.0(vite@7.1.9(@types/node@22.18.8)(jiti@2.6.1)(lightningcss@1.30.1)(tsx@4.20.6))
       zod:
         specifier: ^3.23.8
         version: 3.25.76
@@ -3024,8 +3024,8 @@ packages:
   validate-html-nesting@1.2.3:
     resolution: {integrity: sha512-kdkWdCl6eCeLlRShJKbjVOU2kFKxMF8Ghu50n+crEoyx+VKm3FxAxF9z4DCy6+bbTOqNW0+jcIYRnjoIRzigRw==}
 
-  vite-plugin-iframe-communication@1.1.1:
-    resolution: {integrity: sha512-LDKKI6cjgXeHHG6wRVAJP6ubz0ar63GOSATMgjqmi2cmuun2WsPSxUR5GBoMd0DullINVRHT0GujPftTAUWq2g==}
+  vite-plugin-iframe-communication@1.3.0:
+    resolution: {integrity: sha512-GLkPI72pff+qL/u+RykTWtGouE5l1VlnwA4i5MWIK7O2j7ks1dMbQDCeBvAlXMvzaEx9CHuXB7km1FNXh1QUTg==}
     peerDependencies:
       vite: '>=3.0.0'
 
@@ -6184,7 +6184,7 @@ snapshots:
 
   validate-html-nesting@1.2.3: {}
 
-  vite-plugin-iframe-communication@1.1.1(vite@7.1.9(@types/node@22.18.8)(jiti@2.6.1)(lightningcss@1.30.1)(tsx@4.20.6)):
+  vite-plugin-iframe-communication@1.3.0(vite@7.1.9(@types/node@22.18.8)(jiti@2.6.1)(lightningcss@1.30.1)(tsx@4.20.6)):
     dependencies:
       vite: 7.1.9(@types/node@22.18.8)(jiti@2.6.1)(lightningcss@1.30.1)(tsx@4.20.6)
 
