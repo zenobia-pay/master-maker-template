@@ -122,42 +122,44 @@ export default function LoginPage() {
           flexDirection="col"
         >
           <Card class="w-full max-w-sm">
-            <CardHeader class="text-center">
-              <Show
-                when={session() && !session().isPending}
-                fallback={
-                  <>
-                    <Flex
-                      alignItems="center"
-                      justifyContent="center"
-                      class="gap-2 mb-4"
-                    >
-                      <Skeleton class="w-8 h-8 rounded" />
-                      <Skeleton class="h-5 w-20" />
-                    </Flex>
-                    <Skeleton class="h-8 w-32 mx-auto mb-2" />
-                    <Skeleton class="h-4 w-48 mx-auto" />
-                  </>
-                }
-              >
-                <Flex
-                  alignItems="center"
-                  justifyContent="center"
-                  class="gap-2 mb-4"
+            <Show when={!isLoggedIn()}>
+              <CardHeader class="text-center">
+                <Show
+                  when={session() && !session().isPending}
+                  fallback={
+                    <>
+                      <Flex
+                        alignItems="center"
+                        justifyContent="center"
+                        class="gap-2 mb-4"
+                      >
+                        <Skeleton class="w-8 h-8 rounded" />
+                        <Skeleton class="h-5 w-20" />
+                      </Flex>
+                      <Skeleton class="h-8 w-32 mx-auto mb-2" />
+                      <Skeleton class="h-4 w-48 mx-auto" />
+                    </>
+                  }
                 >
-                  <div class="w-8 h-8 rounded bg-primary" />
-                  <span class="font-semibold text-xl">Template</span>
-                </Flex>
-                <CardTitle class="text-2xl">
-                  {isLogin() ? "Welcome back" : "Create account"}
-                </CardTitle>
-                <p class="text-muted-foreground">
-                  {isLogin()
-                    ? "Sign in to your account"
-                    : "Get started with Template"}
-                </p>
-              </Show>
-            </CardHeader>
+                  <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    class="gap-2 mb-4"
+                  >
+                    <div class="w-8 h-8 rounded bg-primary" />
+                    <span class="font-semibold text-xl">Template</span>
+                  </Flex>
+                  <CardTitle class="text-2xl">
+                    {isLogin() ? "Welcome back" : "Create account"}
+                  </CardTitle>
+                  <p class="text-muted-foreground">
+                    {isLogin()
+                      ? "Sign in to your account"
+                      : "Get started with Template"}
+                  </p>
+                </Show>
+              </CardHeader>
+            </Show>
 
             <CardContent class="space-y-6">
               <Show
@@ -255,37 +257,30 @@ export default function LoginPage() {
                   </Show>
                 }
               >
-                <div class="text-center space-y-6 py-8">
-                  <div class="space-y-3">
-                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10">
-                      <svg
-                        class="w-8 h-8 text-primary animate-spin"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          class="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          stroke-width="4"
-                        />
-                        <path
-                          class="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 class="text-lg font-semibold">User is logged in</h3>
-                      <p class="text-sm text-muted-foreground mt-1">
-                        Redirecting to {redirectUrl}
-                      </p>
-                    </div>
-                  </div>
+                <div class="text-center space-y-4 py-12">
+                  <svg
+                    class="w-8 h-8 text-primary animate-spin mx-auto"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      class="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      stroke-width="4"
+                    />
+                    <path
+                      class="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    />
+                  </svg>
+                  <p class="text-sm text-muted-foreground">
+                    Logged in, redirecting to {redirectUrl}...
+                  </p>
                 </div>
               </Show>
             </CardContent>
