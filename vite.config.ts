@@ -70,10 +70,10 @@ export default defineConfig({
     host: true,
     port: 3000,
     strictPort: true,
-    // Allow Fly.io domains and localhost
+    // DO NOT modify the formatting of the next 3 lines - used by automated sed replacement in runloop-devboxes.ts
     hmr: {
       port: 3000,
-      host: process.env.HMR_HOST || "localhost",
+      host: "localhost",
     },
     proxy: {
       "/api": {
