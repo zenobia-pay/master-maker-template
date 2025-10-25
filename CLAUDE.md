@@ -29,3 +29,14 @@ IMPORTANT: DO NOT RUN npm run dev. Previews are managed separately by pm2 and sh
 ### Typecheck and Linting
 
 To run, use the lint.sh script in the tools folder.
+
+### Result messages
+After completing user's request for changes, ALWAYS write a result message wrapped in <result> xml tags. This message should include a nontechnical summary of the changes and a list of functionality the user can test out. 
+
+Example:
+assistant: ...claude code edits
+assistant: <result>I've implemented a feed page for your users to see posts. Try navigating to feed and testing:
+* creating a new post
+* viewing existing posts
+* liking a post
+</result>
