@@ -32,7 +32,8 @@ function createAuth(env?: Env, cf?: IncomingRequestCfProperties) {
               },
             }
           : undefined,
-        kv: env?.KV as any,
+        // @ts-expect-error - Necessary
+        kv: env?.KV,
       },
       {
         baseURL: env?.BASE_URL,
@@ -54,7 +55,7 @@ function createAuth(env?: Env, cf?: IncomingRequestCfProperties) {
             clientId: env?.GOOGLE_CLIENT_ID || "placeholder",
             clientSecret: env?.GOOGLE_CLIENT_SECRET || "placeholder",
             async verifyIdToken(token, nonce) {
-              return true;
+              return Promise.resolve(true);
             },
           },
         },
