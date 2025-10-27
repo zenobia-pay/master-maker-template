@@ -72,6 +72,21 @@ export function sendError(
 
 const app = new Hono<{ Bindings: Env; Variables: Variables }>();
 
+app.onError((err, c) => {
+  console.error(err);
+
+  const isProduction = c.env?.BASE_URL && !c.env.BASE_URL.includes("localhost");
+
+  return c.json(
+    {
+      success: false,
+      error: isProduction ? "Internal server error" : err.message,
+      statusCode: 500,
+    },
+    500
+  );
+});
+
 // Middleware to initialize auth instance for each request (MUST come first)
 app.use("*", async (c, next) => {
   console.log("path request", c.req.path);
