@@ -6,6 +6,7 @@ import { ErrorResponseSchema } from "@shared/types/request-response-schemas";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 import z from "zod";
 import type { IncomingRequestCfProperties } from "@cloudflare/workers-types";
+import { drizzle } from "drizzle-orm/d1";
 
 type Variables = {
   auth: ReturnType<typeof createAuth>;
