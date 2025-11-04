@@ -64,7 +64,7 @@ export function sendError(
     ErrorResponseSchema,
     {
       success: false,
-      error,
+      message: error,
       statusCode: code,
     },
     code

@@ -27,6 +27,7 @@ This container has provided several tools for you, such as preview management, i
 
 IMPORTANT: Check the /tools/ folder for any useful tools before executing calls
 IMPORTANT: DO NOT RUN npm run dev. Previews are managed separately by pm2 and should not be changed by you!
+IMPORTANT: There is no such thing as crypto.randomUUID on client side code. Do NOT use crypto.randomUUID on anything that will run on the client.
 
 ### Typecheck and Linting
 
