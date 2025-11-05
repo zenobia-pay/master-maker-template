@@ -8,12 +8,8 @@ declare namespace Cloudflare {
 	}
 	interface Env {
 		KV: KVNamespace;
-		GOOGLE_CLIENT_ID: string;
-		GOOGLE_CLIENT_SECRET: string;
-		OPENAI_API_KEY: string;
 		BASE_URL: string;
 		BETTER_AUTH_SECRET: string;
-		WEB_APP_URL: string;
 		USER_SHARD: DurableObjectNamespace<import("./src/index").UserShard>;
 		BUCKET: R2Bucket;
 		DB: D1Database;
