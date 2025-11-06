@@ -1,0 +1,46 @@
+# Gitignore used within the user's project. Hides our claude md prompt and other stuff.
+CLAUDE.md
+.chat_history/
+.claude/
+.ssh/
+.claude.json
+.gitignore
+.gitignore_project
+
+
+# prod
+dist/
+
+# dev
+.yarn/
+!.yarn/releases
+.vscode/*
+!.vscode/launch.json
+!.vscode/*.code-snippets
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/shelf
+
+# deps
+node_modules/
+.wrangler
+
+# env
+.env
+.env.production
+.dev.vars
+
+# nvm
+.nvmrc
+
+# logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# misc
+.DS_Store
