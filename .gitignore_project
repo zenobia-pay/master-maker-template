@@ -1,5 +1,6 @@
 # Gitignore used within the user's project. Hides our claude md prompt and other stuff.
 CLAUDE.md
+.editor/
 .chat_history/
 .claude/
 .ssh/
