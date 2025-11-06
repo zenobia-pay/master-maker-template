@@ -50,15 +50,6 @@ function createAuth(env?: Env, cf?: IncomingRequestCfProperties) {
           enabled: true,
           requireEmailVerification: false,
         },
-        socialProviders: {
-          google: {
-            clientId: env?.GOOGLE_CLIENT_ID || "placeholder",
-            clientSecret: env?.GOOGLE_CLIENT_SECRET || "placeholder",
-            async verifyIdToken(token, nonce) {
-              return Promise.resolve(true);
-            },
-          },
-        },
         rateLimit: {
           enabled: false,
         },
