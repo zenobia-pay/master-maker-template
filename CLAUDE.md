@@ -41,6 +41,10 @@ After modify ANYTHING in src/client, make sure to update the PAGE.md to be accur
 2. A one sentence description of all the ways a user can interact with the page, and which events are emitted by which interactions.
 3. KEEP IT AS SHORT AS POSSIBLE. Do NOT use flowery language. Use precisely the fields which are loaded and the event names.
 
+### Drizzle types
+
+When interacting with the database, always use strong typed drizzle queries. do not write sql directly.
+
 ### Result messages
 
 After completing user's request for changes, ALWAYS write a result message wrapped in <result> xml tags. This message should include a nontechnical summary of the changes and a list of functionality the user can test out.

@@ -1,5 +1,6 @@
 import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
 
+// Do NOT modify this table. For properties stored per user, use the user properties table.
 export const users = sqliteTable("users", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
@@ -22,6 +23,7 @@ export const users = sqliteTable("users", {
   isAnonymous: integer("is_anonymous", { mode: "boolean" }),
 });
 
+// Do NOT modify this table.
 export const sessions = sqliteTable("sessions", {
   id: text("id").primaryKey(),
   expiresAt: integer("expires_at", { mode: "timestamp" }).notNull(),
@@ -48,6 +50,7 @@ export const sessions = sqliteTable("sessions", {
   impersonatedBy: text("impersonated_by"),
 });
 
+// Do NOT modify this table.
 export const accounts = sqliteTable("accounts", {
   id: text("id").primaryKey(),
   accountId: text("account_id").notNull(),
