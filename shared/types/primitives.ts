@@ -1,6 +1,5 @@
 import * as authSchema from "../../src/db/auth.schema";
 import * as d1Schema from "../../src/db/d1.schema";
-import * as userShardSchema from "../../src/db/userShard.schema";
 
 // Export DB types derived from the schema
 
