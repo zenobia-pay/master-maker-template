@@ -3,20 +3,20 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"pnpx vite dev --host 0.0.0.0 --port 3000\" \"wrangler dev --local --port 9999 --ip 0.0.0.0\"",
+    "dev": "concurrently \"npx vite dev --host 0.0.0.0 --port 3000\" \"wrangler dev --local --port 9999 --ip 0.0.0.0\"",
     "dev:client": "vite",
-    "build": "pnpm run build:client",
+    "build": "npm run build:client",
     "build:client": "vite build",
     "preview:client": "vite preview",
     "typecheck": "npx tsc --noEmit",
     "lint": "eslint . --quiet && prettier --check .",
     "lint:fix": "eslint . --quiet --fix && prettier --write .",
-    "predeploy": "pnpm run typecheck",
-    "deploy": "pnpm run build && wrangler deploy --minify",
+    "predeploy": "npm run typecheck",
+    "deploy": "npm run build && wrangler deploy --minify",
     "cf-typegen": "wrangler types",
-    "auth:generate": "pnpx @better-auth/cli@latest generate --config src/auth/index.ts --output src/db/auth.schema.ts -y",
+    "auth:generate": "npx @better-auth/cli@latest generate --config src/auth/index.ts --output src/db/auth.schema.ts -y",
     "auth:format": "npx prettier --write src/db/auth.schema.ts",
-    "auth:update": "pnpm run auth:generate && pnpm run auth:format",
+    "auth:update": "npm run auth:generate && npm run auth:format",
     "db:generate": "drizzle-kit generate",
     "db:migrate:dev": "wrangler d1 migrations apply DB --local",
     "db:migrate:prod": "wrangler d1 migrations apply DB --remote",
@@ -49,7 +49,7 @@
     "lucide-react": "^0.543.0",
     "nanoid": "^5.0.7",
     "solid-heroicons": "^3.2.4",
-    "solid-js": "1.9.9",
+    "solid-js": "^1.9.10",
     "solid-sonner": "^0.2.8",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",
@@ -57,10 +57,8 @@
     "vite-plugin-iframe-communication": "latest",
     "zod": "^3.23.8"
   },
-  "pnpm": {
-    "overrides": {
-      "drizzle-orm": "0.43.1"
-    }
+  "overrides": {
+    "drizzle-orm": "0.43.1"
   },
   "devDependencies": {
     "@babel/generator": "^7.28.3",
@@ -72,14 +70,13 @@
     "@tailwindcss/postcss": "^4.1.11",
     "@types/babel__generator": "^7.27.0",
     "@types/babel__traverse": "^7.28.0",
-    "@types/glob": "^9.0.0",
     "@types/node": "^22.7.5",
     "@typescript-eslint/eslint-plugin": "^8.8.0",
     "@typescript-eslint/parser": "^8.8.0",
     "autoprefixer": "^10.4.21",
     "better-sqlite3": "^12.2.0",
     "concurrently": "^8.2.2",
-    "drizzle-kit": "^0.31.4",
+    "drizzle-kit": "^0.31.6",
     "eslint": "^9.11.1",
     "glob": "^11.0.3",
     "magic-string": "^0.30.18",
