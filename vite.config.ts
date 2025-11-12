@@ -36,12 +36,12 @@ const pretty404 = (file = "src/client/404.html") =>
 
 export default defineConfig({
   plugins: [
-    solid(),
     // Add iframe communication for development
     iframeCommunicationPlugin({
       debug: false, // Set to true for debugging
       includeInProduction: false, // Only inject in development
     }),
+    solid(),
     pretty404(),
   ],
   appType: "mpa",
