@@ -194,7 +194,7 @@ const ContextMenuCheckboxItem = <T extends ValidComponent = "div">(
 };
 
 type ContextMenuGroupLabelProps<T extends ValidComponent = "span"> =
-  ContextMenuPrimitive.ContextMenuGroupLabelProps<T> & {
+  Omit<ContextMenuPrimitive.ContextMenuGroupLabelProps<T>, "class"> & {
     class?: string | undefined;
   };
 

@@ -151,7 +151,7 @@ const SheetFooter: Component<ComponentProps<"div">> = (props) => {
 };
 
 type DialogTitleProps<T extends ValidComponent = "h2"> =
-  SheetPrimitive.DialogTitleProps<T> & {
+  Omit<SheetPrimitive.DialogTitleProps<T>, "class"> & {
     class?: string | undefined;
   };
 
@@ -168,7 +168,7 @@ const SheetTitle = <T extends ValidComponent = "h2">(
 };
 
 type DialogDescriptionProps<T extends ValidComponent = "p"> =
-  SheetPrimitive.DialogDescriptionProps<T> & { class?: string | undefined };
+  Omit<SheetPrimitive.DialogDescriptionProps<T>, "class"> & { class?: string | undefined };
 
 const SheetDescription = <T extends ValidComponent = "p">(
   props: PolymorphicProps<T, DialogDescriptionProps<T>>,

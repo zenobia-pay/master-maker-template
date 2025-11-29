@@ -548,7 +548,7 @@ const sidebarMenuButtonVariants = cva(
 );
 
 type SidebarMenuButtonProps<T extends ValidComponent = "button"> =
-  ComponentProps<T> &
+  Omit<ComponentProps<T>, keyof VariantProps<typeof sidebarMenuButtonVariants> | "isActive" | "tooltip"> &
     VariantProps<typeof sidebarMenuButtonVariants> & {
       isActive?: boolean;
       tooltip?: string;
@@ -597,7 +597,7 @@ const SidebarMenuButton = <T extends ValidComponent = "button">(
 };
 
 type SidebarMenuActionProps<T extends ValidComponent = "button"> =
-  ComponentProps<T> & {
+  Omit<ComponentProps<T>, "showOnHover"> & {
     showOnHover?: boolean;
   };
 
@@ -701,7 +701,7 @@ const SidebarMenuSubItem: Component<ComponentProps<"li">> = (props) => (
 );
 
 type SidebarMenuSubButtonProps<T extends ValidComponent = "a"> =
-  ComponentProps<T> & {
+  Omit<ComponentProps<T>, "size" | "isActive"> & {
     size?: "sm" | "md";
     isActive?: boolean;
   };

@@ -89,7 +89,7 @@ const DrawerFooter: Component<ComponentProps<"div">> = (props) => {
   );
 };
 
-type DrawerTitleProps<T extends ValidComponent = "div"> = LabelProps<T> & {
+type DrawerTitleProps<T extends ValidComponent = "div"> = Omit<LabelProps<T>, "class"> & {
   class?: string;
 };
 
@@ -109,7 +109,7 @@ const DrawerTitle = <T extends ValidComponent = "div">(
 };
 
 type DrawerDescriptionProps<T extends ValidComponent = "div"> =
-  DescriptionProps<T> & {
+  Omit<DescriptionProps<T>, "class"> & {
     class?: string;
   };
 

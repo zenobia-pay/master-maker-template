@@ -11,12 +11,12 @@ console.error = (...args: unknown[]) => {
 
   // Show toast with the error message
   const errorMessage = args
-    .map(arg => {
+    .map((arg) => {
       if (arg instanceof Error) return arg.message;
-      if (typeof arg === 'object') return JSON.stringify(arg);
+      if (typeof arg === "object") return JSON.stringify(arg);
       return String(arg);
     })
-    .join(' ');
+    .join(" ");
 
   showToast({
     title: "Error",
@@ -26,9 +26,12 @@ console.error = (...args: unknown[]) => {
   });
 };
 
-render(() => (
-  <>
-    <LoginPage />
-    <Toaster />
-  </>
-), document.getElementById("root")!);
+render(
+  () => (
+    <>
+      <LoginPage />
+      <Toaster />
+    </>
+  ),
+  document.getElementById("root")!,
+);

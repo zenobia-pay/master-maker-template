@@ -127,7 +127,7 @@ const TextFieldLabel = <T extends ValidComponent = "label">(
 };
 
 type TextFieldDescriptionProps<T extends ValidComponent = "div"> =
-  TextFieldPrimitive.TextFieldDescriptionProps<T> & {
+  Omit<TextFieldPrimitive.TextFieldDescriptionProps<T>, "class"> & {
     class?: string | undefined;
   };
 

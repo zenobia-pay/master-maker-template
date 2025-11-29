@@ -43,7 +43,7 @@ const SwitchControl = <T extends ValidComponent = "input">(
   );
 };
 
-type SwitchThumbProps = SwitchPrimitive.SwitchThumbProps & {
+type SwitchThumbProps = Omit<SwitchPrimitive.SwitchThumbProps, "class"> & {
   class?: string | undefined;
 };
 

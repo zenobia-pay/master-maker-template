@@ -150,7 +150,7 @@ const NumberFieldDecrementTrigger = <T extends ValidComponent = "button">(
 };
 
 type NumberFieldDescriptionProps<T extends ValidComponent = "div"> =
-  NumberFieldPrimitive.NumberFieldDescriptionProps<T> & {
+  Omit<NumberFieldPrimitive.NumberFieldDescriptionProps<T>, "class"> & {
     class?: string | undefined;
   };
 

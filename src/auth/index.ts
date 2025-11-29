@@ -60,7 +60,7 @@ function createAuth(env?: Env, cf?: IncomingRequestCfProperties) {
             impersonationSessionDuration: 60 * 60 * 24 * 7, // 7 days
           }),
         ],
-      }
+      },
     ),
     ...(env
       ? {}
