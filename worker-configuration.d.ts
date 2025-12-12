@@ -14,6 +14,10 @@ declare namespace Cloudflare {
     BUCKET: R2Bucket;
     DB: D1Database;
     ASSETS: Fetcher;
+    DOLPHIN_BUCKET_NAME_DO_NOT_DELETE: string;
+    DOLPHIN_BUCKET_ENDPOINT_DO_NOT_DELETE: string;
+    DOLPHIN_BUCKET_ACCESS_KEY_ID_DO_NOT_DELETE: string;
+    DOLPHIN_BUCKET_SECRET_ACCESS_KEY_DO_NOT_DELETE: string;
   }
 }
 interface Env extends Cloudflare.Env {}
