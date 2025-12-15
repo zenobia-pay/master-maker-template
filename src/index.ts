@@ -7,9 +7,6 @@ import { ContentfulStatusCode } from "hono/utils/http-status";
 import z from "zod";
 import type { IncomingRequestCfProperties } from "@cloudflare/workers-types";
 import { drizzle } from "drizzle-orm/d1";
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { files } from "./db/d1.schema";
 
 type Variables = {
   auth: ReturnType<typeof createAuth>;
@@ -134,76 +131,6 @@ app.all("/api/auth/*", async (c) => {
   const auth = c.get("auth");
   return auth.handler(c.req.raw);
 });
-
-// Allowed file types - add new types here
-const FILE_TYPES = [
-  // "PROFILE_PICTURE",
-  // "DOCUMENT",
-] as const;
-
-// Request/response schemas for upload URL endpoint
-const UploadUrlRequestSchema = z.object({
-  fileType: z.string(),
-});
-
-const UploadUrlResponseSchema = z.object({
-  success: z.literal(true),
-  uploadUrl: z.string(),
-  fileId: z.string(),
-});
-
-// Get presigned upload URL
-app.post(
-  "/api/files/upload-url",
-  zValidator("json", UploadUrlRequestSchema),
-  async (c) => {
-    const user = await getAuthenticatedUser(c);
-    if (!user) {
-      return sendError(c, 401, "Unauthorized");
-    }
-
-    const { fileType } = c.req.valid("json");
-
-    if (FILE_TYPES.length === 0) {
-      throw new Error("No file types configured");
-    }
-    if (!FILE_TYPES.includes(fileType as typeof FILE_TYPES[number])) {
-      return sendError(c, 400, `Invalid file type: ${fileType}`);
-    }
-
-    const fileId = crypto.randomUUID();
-
-    const s3Client = new S3Client({
-      region: "auto",
-      endpoint: c.env.DOLPHIN_BUCKET_ENDPOINT_DO_NOT_DELETE,
-      credentials: {
-        accessKeyId: c.env.DOLPHIN_BUCKET_ACCESS_KEY_ID_DO_NOT_DELETE,
-        secretAccessKey: c.env.DOLPHIN_BUCKET_SECRET_ACCESS_KEY_DO_NOT_DELETE,
-      },
-    });
-
-    const command = new PutObjectCommand({
-      Bucket: c.env.DOLPHIN_BUCKET_NAME_DO_NOT_DELETE,
-      Key: fileId,
-      ContentType: fileType,
-    });
-
-    const uploadUrl = await getSignedUrl(s3Client, command, { expiresIn: 300 });
-
-    const db = drizzle(c.env.DB);
-    await db.insert(files).values({
-      id: fileId,
-      ownerId: user.id,
-      type: fileType,
-    });
-
-    return send(c, UploadUrlResponseSchema, {
-      success: true,
-      uploadUrl,
-      fileId,
-    }, 200);
-  }
-);
 
 app.get("*", async (c) => {
   const asset = await c.env.ASSETS.fetch(new URL("/404.html", c.req.url));

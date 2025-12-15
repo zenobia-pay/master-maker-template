@@ -22,13 +22,6 @@
       "when": 1764404533406,
       "tag": "0002_spicy_captain_flint",
       "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "6",
-      "when": 1765497850048,
-      "tag": "0003_stale_lady_ursula",
-      "breakpoints": true
     }
   ]
 }
