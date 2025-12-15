@@ -7,7 +7,8 @@ import { ContentfulStatusCode } from "hono/utils/http-status";
 import z from "zod";
 import type { IncomingRequestCfProperties } from "@cloudflare/workers-types";
 import { drizzle } from "drizzle-orm/d1";
-import { BucketClient } from "./lib/bucket";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { files } from "./db/d1.schema";
 
 type Variables = {
@@ -172,8 +173,22 @@ app.post(
 
     const fileId = crypto.randomUUID();
 
-    const bucket = new BucketClient(c.env);
-    const uploadUrl = await bucket.getUploadUrl(fileId, fileType);
+    const s3Client = new S3Client({
+      region: "auto",
+      endpoint: c.env.DOLPHIN_BUCKET_ENDPOINT_DO_NOT_DELETE,
+      credentials: {
+        accessKeyId: c.env.DOLPHIN_BUCKET_ACCESS_KEY_ID_DO_NOT_DELETE,
+        secretAccessKey: c.env.DOLPHIN_BUCKET_SECRET_ACCESS_KEY_DO_NOT_DELETE,
+      },
+    });
+
+    const command = new PutObjectCommand({
+      Bucket: c.env.DOLPHIN_BUCKET_NAME_DO_NOT_DELETE,
+      Key: fileId,
+      ContentType: fileType,
+    });
+
+    const uploadUrl = await getSignedUrl(s3Client, command, { expiresIn: 300 });
 
     const db = drizzle(c.env.DB);
     await db.insert(files).values({
