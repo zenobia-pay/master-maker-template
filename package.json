@@ -26,7 +26,8 @@
     "preview:status": "curl -X GET http://127.0.0.1:8081/preview-status",
     "preview:logs": "curl -X GET 'http://127.0.0.1:8081/preview/logs?lines=100&type=out'",
     "preview:logs:error": "curl -X GET 'http://127.0.0.1:8081/preview/logs?lines=100&type=error'",
-    "preview:logs:all": "curl -X GET 'http://127.0.0.1:8081/preview/logs?lines=100&type=all'"
+    "preview:logs:all": "curl -X GET 'http://127.0.0.1:8081/preview/logs?lines=100&type=all'",
+    "test:login": "bun run playwright-utils/login.ts"
   },
   "dependencies": {
     "@ark-ui/solid": "^5.23.0",
@@ -67,6 +68,7 @@
     "@babel/types": "^7.28.4",
     "@cloudflare/workers-types": "^4.20241004.0",
     "@eslint/js": "^9.36.0",
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/babel__generator": "^7.27.0",
     "@types/babel__traverse": "^7.28.0",
