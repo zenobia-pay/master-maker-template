@@ -18,6 +18,21 @@ export default tseslint.config(
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-base-to-string": "off",
+      // Prevent raw D1 SQL queries - use Drizzle ORM instead
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector: "MemberExpression[object.name='db'][property.name='prepare']",
+          message:
+            "Avoid using db.prepare() - use Drizzle ORM methods (db.select(), db.insert(), etc.) instead for type safety",
+        },
+        {
+          selector:
+            "MemberExpression[property.name='prepare'] > CallExpression > Literal[value=/INSERT|UPDATE|DELETE|SELECT/i]",
+          message:
+            "Raw SQL queries detected. Use Drizzle ORM for type-safe database operations",
+        },
+      ],
     },
     settings: {
       // Suppress warnings, only show errors
