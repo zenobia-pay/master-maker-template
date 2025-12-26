@@ -129,7 +129,7 @@ app.use(
 // Handle all auth routes
 app.all("/api/auth/*", async (c) => {
   const auth = c.get("auth");
-  return auth.handler(c.req.raw);
+  return await auth.handler(c.req.raw);
 });
 
 app.get("*", async (c) => {

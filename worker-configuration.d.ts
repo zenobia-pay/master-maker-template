@@ -10,6 +10,9 @@ declare namespace Cloudflare {
     KV: KVNamespace;
     BASE_URL: string;
     BETTER_AUTH_SECRET: string;
+    DOLPHIN_INTEGRATIONS_URL?: string;
+    DOLPHIN_INTEGRATIONS_CLIENT_ID?: string;
+    DOLPHIN_INTEGRATIONS_CLIENT_SECRET?: string;
     USER_SHARD: DurableObjectNamespace<import("./src/index").UserShard>;
     BUCKET: R2Bucket;
     DB: D1Database;
