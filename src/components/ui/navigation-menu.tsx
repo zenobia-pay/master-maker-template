@@ -178,7 +178,7 @@ const NavigationMenuLabel = <T extends ValidComponent = "div">(
 };
 
 type NavigationMenuDescriptionProps<T extends ValidComponent = "div"> =
-  NavigationMenuPrimitive.NavigationMenuItemDescriptionProps<T> & {
+  Omit<NavigationMenuPrimitive.NavigationMenuItemDescriptionProps<T>, "class"> & {
     class?: string | undefined;
   };
 

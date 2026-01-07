@@ -148,7 +148,7 @@ const SelectLabel = <T extends ValidComponent = "label">(
 };
 
 type SelectDescriptionProps<T extends ValidComponent = "div"> =
-  SelectPrimitive.SelectDescriptionProps<T> & {
+  Omit<SelectPrimitive.SelectDescriptionProps<T>, "class"> & {
     class?: string | undefined;
   };
 

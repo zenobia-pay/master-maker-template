@@ -273,7 +273,7 @@ const MenubarItemLabel = <T extends ValidComponent = "div">(
 };
 
 type MenubarGroupLabelProps<T extends ValidComponent = "span"> =
-  MenubarPrimitive.MenubarGroupLabelProps<T> & {
+  Omit<MenubarPrimitive.MenubarGroupLabelProps<T>, "class" | "inset"> & {
     class?: string | undefined;
     inset?: boolean;
   };

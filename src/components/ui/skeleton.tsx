@@ -13,7 +13,7 @@ const Skeleton = (props: SkeletonProps) => {
     <div
       class={cn(
         "animate-pulse rounded-md bg-gray-200 dark:bg-gray-800",
-        local.class
+        local.class,
       )}
       style={{
         "background-color": "var(--color-bg-secondary, rgba(0, 0, 0, 0.1))",

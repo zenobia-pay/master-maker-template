@@ -110,7 +110,7 @@ const DialogFooter: Component<ComponentProps<"div">> = (props) => {
 };
 
 type DialogTitleProps<T extends ValidComponent = "h2"> =
-  DialogPrimitive.DialogTitleProps<T> & {
+  Omit<DialogPrimitive.DialogTitleProps<T>, "class"> & {
     class?: string | undefined;
   };
 
@@ -130,7 +130,7 @@ const DialogTitle = <T extends ValidComponent = "h2">(
 };
 
 type DialogDescriptionProps<T extends ValidComponent = "p"> =
-  DialogPrimitive.DialogDescriptionProps<T> & {
+  Omit<DialogPrimitive.DialogDescriptionProps<T>, "class"> & {
     class?: string | undefined;
   };
 

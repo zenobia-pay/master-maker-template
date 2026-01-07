@@ -78,7 +78,7 @@ const AlertDialogContent = <T extends ValidComponent = "div">(
 };
 
 type AlertDialogTitleProps<T extends ValidComponent = "h2"> =
-  AlertDialogPrimitive.AlertDialogTitleProps<T> & {
+  Omit<AlertDialogPrimitive.AlertDialogTitleProps<T>, "class"> & {
     class?: string | undefined;
   };
 
@@ -95,7 +95,7 @@ const AlertDialogTitle = <T extends ValidComponent = "h2">(
 };
 
 type AlertDialogDescriptionProps<T extends ValidComponent = "p"> =
-  AlertDialogPrimitive.AlertDialogDescriptionProps<T> & {
+  Omit<AlertDialogPrimitive.AlertDialogDescriptionProps<T>, "class"> & {
     class?: string | undefined;
   };
 

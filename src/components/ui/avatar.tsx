@@ -27,7 +27,7 @@ const Avatar = <T extends ValidComponent = "span">(
 };
 
 type AvatarImageProps<T extends ValidComponent = "img"> =
-  ImagePrimitive.ImageImgProps<T> & {
+  Omit<ImagePrimitive.ImageImgProps<T>, "class"> & {
     class?: string | undefined;
   };
 

@@ -35,7 +35,7 @@ export function send<S extends z.ZodTypeAny>(
   c: Context<{ Bindings: Env; Variables: Variables }>,
   schema: S,
   data: z.output<S>,
-  status: ContentfulStatusCode
+  status: ContentfulStatusCode,
 ) {
   // Runtime assert- disabled in production
   if (c.env.BASE_URL?.includes("localhost")) {
@@ -43,7 +43,7 @@ export function send<S extends z.ZodTypeAny>(
       schema.parse(data);
     } catch (error) {
       console.error(
-        "🔴 API returning unexpected response, throwing error in local dev mode. Details:"
+        "🔴 API returning unexpected response, throwing error in local dev mode. Details:",
       );
       console.error("Issues found:", JSON.stringify(error, null, 2));
       console.log("Data returned:", JSON.stringify(data, null, 2));
@@ -57,7 +57,7 @@ export function send<S extends z.ZodTypeAny>(
 export function sendError(
   c: Context<{ Bindings: Env; Variables: Variables }>,
   code: ContentfulStatusCode,
-  error: string
+  error: string,
 ) {
   return send(
     c,
@@ -67,7 +67,7 @@ export function sendError(
       message: error,
       statusCode: code,
     },
-    code
+    code,
   );
 }
 
@@ -84,7 +84,7 @@ app.onError((err, c) => {
       error: isProduction ? "Internal server error" : err.message,
       statusCode: 500,
     },
-    500
+    500,
   );
 });
 
@@ -110,7 +110,7 @@ app.use(
     exposeHeaders: ["Content-Length"],
     maxAge: 600,
     credentials: true,
-  })
+  }),
 );
 
 // CORS configuration for API routes
@@ -123,7 +123,7 @@ app.use(
     exposeHeaders: ["Content-Length"],
     maxAge: 600,
     credentials: true,
-  })
+  }),
 );
 
 // Handle all auth routes

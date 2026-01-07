@@ -43,7 +43,7 @@ export default function LoginPage() {
     () =>
       !session().isPending &&
       session().data != null &&
-      session().data?.user != null
+      session().data?.user != null,
   );
 
   // Handle redirect with 3 second delay when logged in

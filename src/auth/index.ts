@@ -84,7 +84,7 @@ function createAuth(env?: Env, cf?: IncomingRequestCfProperties) {
               ]
             : []),
         ],
-      }
+      },
     ),
     ...(env
       ? {}

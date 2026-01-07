@@ -16,17 +16,15 @@ const toastVariants = cva(
       variant: {
         default: "border bg-background text-foreground",
         destructive: "destructive group border-red-200 bg-red-50 text-red-900",
-        success:
-          "success border-green-200 bg-green-50 text-green-900",
-        warning:
-          "warning border-yellow-200 bg-yellow-50 text-yellow-900",
+        success: "success border-green-200 bg-green-50 text-green-900",
+        warning: "warning border-yellow-200 bg-yellow-50 text-yellow-900",
         error: "error border-red-200 bg-red-50 text-red-900",
       },
     },
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 );
 type ToastVariant = NonNullable<VariantProps<typeof toastVariants>["variant"]>;
 
@@ -36,7 +34,7 @@ type ToastListProps<T extends ValidComponent = "ol"> =
   };
 
 const Toaster = <T extends ValidComponent = "ol">(
-  props: PolymorphicProps<T, ToastListProps<T>>
+  props: PolymorphicProps<T, ToastListProps<T>>,
 ) => {
   const [local, others] = splitProps(props as ToastListProps, ["class"]);
   return (
@@ -45,7 +43,7 @@ const Toaster = <T extends ValidComponent = "ol">(
         <ToastPrimitive.List
           class={cn(
             "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse gap-2 p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
-            local.class
+            local.class,
           )}
           {...others}
         />
@@ -59,7 +57,7 @@ type ToastRootProps<T extends ValidComponent = "li"> =
     VariantProps<typeof toastVariants> & { class?: string | undefined };
 
 const Toast = <T extends ValidComponent = "li">(
-  props: PolymorphicProps<T, ToastRootProps<T>>
+  props: PolymorphicProps<T, ToastRootProps<T>>,
 ) => {
   const [local, others] = splitProps(props as ToastRootProps, [
     "class",
@@ -77,14 +75,14 @@ type ToastCloseButtonProps<T extends ValidComponent = "button"> =
   ToastPrimitive.ToastCloseButtonProps<T> & { class?: string | undefined };
 
 const ToastClose = <T extends ValidComponent = "button">(
-  props: PolymorphicProps<T, ToastCloseButtonProps<T>>
+  props: PolymorphicProps<T, ToastCloseButtonProps<T>>,
 ) => {
   const [local, others] = splitProps(props as ToastCloseButtonProps, ["class"]);
   return (
     <ToastPrimitive.CloseButton
       class={cn(
         "absolute right-2 top-2 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-red-900 group-[.error]:text-red-900 group-[.success]:text-green-900 group-[.warning]:text-yellow-900 cursor-pointer",
-        local.class
+        local.class,
       )}
       {...others}
     >
@@ -106,12 +104,12 @@ const ToastClose = <T extends ValidComponent = "button">(
 };
 
 type ToastTitleProps<T extends ValidComponent = "div"> =
-  ToastPrimitive.ToastTitleProps<T> & {
+  Omit<ToastPrimitive.ToastTitleProps<T>, "class"> & {
     class?: string | undefined;
   };
 
 const ToastTitle = <T extends ValidComponent = "div">(
-  props: PolymorphicProps<T, ToastTitleProps<T>>
+  props: PolymorphicProps<T, ToastTitleProps<T>>,
 ) => {
   const [local, others] = splitProps(props as ToastTitleProps, ["class"]);
   return (
@@ -123,10 +121,10 @@ const ToastTitle = <T extends ValidComponent = "div">(
 };
 
 type ToastDescriptionProps<T extends ValidComponent = "div"> =
-  ToastPrimitive.ToastDescriptionProps<T> & { class?: string | undefined };
+  Omit<ToastPrimitive.ToastDescriptionProps<T>, "class"> & { class?: string | undefined };
 
 const ToastDescription = <T extends ValidComponent = "div">(
-  props: PolymorphicProps<T, ToastDescriptionProps<T>>
+  props: PolymorphicProps<T, ToastDescriptionProps<T>>,
 ) => {
   const [local, others] = splitProps(props as ToastDescriptionProps, ["class"]);
   return (
@@ -167,7 +165,7 @@ function showToastPromise<T, U>(
     success?: (data: T) => JSX.Element;
     error?: (error: U) => JSX.Element;
     duration?: number;
-  }
+  },
 ) {
   const variant: { [key in ToastPrimitive.ToastPromiseState]: ToastVariant } = {
     pending: "default",

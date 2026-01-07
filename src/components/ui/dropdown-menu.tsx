@@ -204,7 +204,7 @@ const DropdownMenuCheckboxItem = <T extends ValidComponent = "div">(
 };
 
 type DropdownMenuGroupLabelProps<T extends ValidComponent = "span"> =
-  DropdownMenuPrimitive.DropdownMenuGroupLabelProps<T> & {
+  Omit<DropdownMenuPrimitive.DropdownMenuGroupLabelProps<T>, "class"> & {
     class?: string | undefined;
   };
 
