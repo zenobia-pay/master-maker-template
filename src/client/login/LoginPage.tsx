@@ -43,7 +43,7 @@ export default function LoginPage() {
     () =>
       !session().isPending &&
       session().data != null &&
-      session().data?.user != null,
+      session().data?.user != null
   );
 
   // Handle redirect with 3 second delay when logged in
@@ -106,11 +106,49 @@ export default function LoginPage() {
   };
 
   const handleGoogleSignIn = async () => {
-    // Use better-auth's genericOAuth sign-in
-    await authClient.signIn.oauth2({
-      providerId: "google",
-      callbackURL: redirectUrl,
-    });
+    // Get the OAuth URL from better-auth without redirecting
+    const result = await authClient.signIn.oauth2(
+      {
+        providerId: "google",
+        callbackURL: redirectUrl,
+        disableRedirect: true,
+      },
+      {
+        throw: false,
+      }
+    );
+
+    // The result should contain the redirect URL
+    const url = result.data?.url ?? result.data?.redirect;
+    console.log("OAuth result:", result);
+
+    if (url && typeof url === "string") {
+      // Open the OAuth URL in a popup
+      const width = 500;
+      const height = 600;
+      const left = window.screenX + (window.outerWidth - width) / 2;
+      const top = window.screenY + (window.outerHeight - height) / 2;
+
+      const popup = window.open(
+        url,
+        "google-oauth",
+        `width=${width},height=${height},left=${left},top=${top},popup=1`
+      );
+
+      // Poll for popup close and check session
+      const pollTimer = setInterval(() => {
+        if (popup?.closed) {
+          clearInterval(pollTimer);
+          // Refresh session to check if auth succeeded
+          void authClient.getSession().then(() => {
+            const currentSession = session();
+            if (currentSession.data?.user) {
+              window.location.href = redirectUrl;
+            }
+          });
+        }
+      }, 500);
+    }
   };
 
   return (
@@ -208,7 +246,9 @@ export default function LoginPage() {
                           type="email"
                           placeholder="Enter your email"
                           value={email()}
-                          onInput={(e: InputEvent & { currentTarget: HTMLInputElement }) => setEmail(e.currentTarget.value)}
+                          onInput={(
+                            e: InputEvent & { currentTarget: HTMLInputElement }
+                          ) => setEmail(e.currentTarget.value)}
                           required
                         />
                       </TextField>
@@ -219,7 +259,9 @@ export default function LoginPage() {
                           type="password"
                           placeholder="Enter your password"
                           value={password()}
-                          onInput={(e: InputEvent & { currentTarget: HTMLInputElement }) => setPassword(e.currentTarget.value)}
+                          onInput={(
+                            e: InputEvent & { currentTarget: HTMLInputElement }
+                          ) => setPassword(e.currentTarget.value)}
                           required
                         />
                       </TextField>
